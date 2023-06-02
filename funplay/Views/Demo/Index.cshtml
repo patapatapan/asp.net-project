@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    string str_data = "　";
+    List<string> keyboardList = new List<string>();
+    dmKeyBoard keyBoard = new dmKeyBoard();
+}
+
+<div class="card" style="max-width:600px;">
+    <table style="width:100%">
+        @for (int i = 1; i <= 4; i++)
+        {
+            if (i == 1) { keyboardList = keyBoard.KeyList1; }
+            if (i == 2) { keyboardList = keyBoard.KeyList2; }
+            if (i == 3) { keyboardList = keyBoard.KeyList3; }
+            if (i == 4) { keyboardList = keyBoard.KeyList4; }
+
+            <tr>
+                @for (int j = 0; j < 11; j++)
+                {
+                    str_data = keyboardList[j];
+                    <td>
+                        @Html.ActionLink(str_data, "Index", "Demo", new { area = "", id = keyboardList[j] }, new { @class = "btn btn-sm" })
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+
+@section styles {
+    <style>
+        .btn-group-sm > .btn, .btn-sm {
+            --bs-btn-padding-x: 0.25rem;
+        }
+    </style>
+}

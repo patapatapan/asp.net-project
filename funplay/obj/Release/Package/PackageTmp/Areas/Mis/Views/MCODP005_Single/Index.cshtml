@@ -1,0 +1,150 @@
+﻿@model vmCodeModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    List<SelectListItem> ClassList = new List<SelectListItem>();
+    List<SelectListItem> ProgramList = new List<SelectListItem>();
+    List<SelectListItem> LayoutList = new List<SelectListItem>();
+    List<SelectListItem> TemplateList = new List<SelectListItem>();
+    List<SelectListItem> ViewList = new List<SelectListItem>();
+    List<SelectListItem> CodeTypeList = new List<SelectListItem>();
+    using (ListItemData listData = new ListItemData())
+    {
+        ClassList = listData.ClassAllList();
+        ProgramList = listData.ProgramNewList();
+        LayoutList = listData.LayoutList();
+        TemplateList = listData.TemplateList();
+        ViewList = listData.ViewList();
+        CodeTypeList = listData.CodeTypeList();
+    }
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal mt-2">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.AreaName)
+        @Html.HiddenFor(model => model.ControllerName)
+        @Html.HiddenFor(model => model.ViewName)
+        @Html.HiddenFor(model => model.TemplateName)
+        @Html.HiddenFor(model => model.TypeNo)
+
+        <div class="row form-group mt-1">
+            @Html.LabelFor(model => model.PrgNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.PrgNo, ProgramList, new { @class = "form-control selectpicker", data_live_search = "true" })
+                @Html.ValidationMessageFor(model => model.PrgNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group mt-1">
+            @Html.LabelFor(model => model.ClassName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ClassName, ClassList, new { @class = "form-control selectpicker", data_live_search = "true" })
+                @Html.ValidationMessageFor(model => model.ClassName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group mt-1">
+            @Html.LabelFor(model => model.BlockCount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BlockCount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BlockCount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group mt-1">
+            @Html.LabelFor(model => model.KeyColumn, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KeyColumn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KeyColumn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group mt-1">
+            @Html.LabelFor(model => model.NoColumn, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NoColumn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NoColumn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group mt-1">
+            @Html.LabelFor(model => model.NameColumn, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NameColumn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NameColumn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group mt-1">
+            @Html.LabelFor(model => model.SortColumns, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SortColumns, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SortColumns, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group mt-1">
+            @Html.LabelFor(model => model.RequiredColumns, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RequiredColumns, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RequiredColumns, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group mt-1">
+            @Html.LabelFor(model => model.LayoutName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.LayoutName, LayoutList, new { @class = "form-control selectpicker", data_live_search = "true" })
+                @Html.ValidationMessageFor(model => model.LayoutName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="row form-group mt-1">
+                @Html.LabelFor(model => model.TypeNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.TypeNo, CodeTypeList, new { @class = "form-control selectpicker", data_live_search = "true" })
+                    @Html.ValidationMessageFor(model => model.TypeNo, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+        <hr />
+        <div class="row form-group">
+            <div class="col-md-12">
+                <input type="submit" value="預覽所有類別" class="btn btn-primary" />
+                @Html.ActionLink("返回首頁", "Index", "Home", new { area = ActionService.Area }, new { @class = "btn btn-success" })
+            </div>
+        </div>
+    </div>
+}
+
+@Html.Partial("~/Views/PartialViews/_PartialCodePropertyList.cshtml")
+@section scriptsbody
+{
+    <script>
+        $('#ClassName').on('change', function (e) {
+            $.ajax({
+                url: '@Url.Action("GetPropertys" , "Code" , new { area = ""})',
+                type: 'POST',
+                data: { id: $("#ClassName").val() },
+                dataType: 'json',
+                success: function (response) {
+                    $('table#tblProperty > tbody#columns').empty();
+                    $.each(response, function (i, item) {
+                        $('table#tblProperty > tbody#columns').append("<tr>\
+										        <td >"+ item.ColumnName + "</td>\
+										        <td class=\"px-2\">"+ item.ColumnType + "</td>\
+                                                <td class=\"px-2\">"+ item.AllowNull + "</td>\
+										        </tr>");
+                    });
+                },
+                error: function () {
+                    alert('讀取類別屬性清單錯誤!!');
+                }
+            });
+        });
+    </script>
+}

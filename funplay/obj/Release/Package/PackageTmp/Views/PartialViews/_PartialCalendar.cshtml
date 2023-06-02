@@ -1,0 +1,312 @@
+﻿@using funplay.Resources;
+
+@{
+    List<SelectListItem> listCalendarType = new List<SelectListItem>();
+    List<SelectListItem> listHour = new List<SelectListItem>();
+    List<SelectListItem> listMinute = new List<SelectListItem>();
+    using (ListItemData listData = new ListItemData())
+    {
+        listCalendarType = listData.BaseDataList("Calendar");
+        listHour = listData.CalendarHourList();
+        listMinute = listData.CalendarMinuteList();
+    }
+}
+
+<!-- 行事曆 -->
+<div class="card">
+    <div class="card-header text-white bg-info">
+        <h3 class="card-title">
+            <i class="far fa-calendar-alt mr-1"></i>
+            @string.Format("{0} {1}" , resCommon.Personal , resCommon.Calendar)
+        </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body pt-0">
+        <div id="calendar" style="width: 100%"></div>
+    </div>
+</div>
+
+<!-- 修改/刪除行程視窗 -->
+<div class="modal fade" id="EventWindow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="EventWindowLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-white bg-blue">
+                <h5 class="modal-title" id="EventWindowLabel">
+                    <label id="eventHeader">@string.Format("{0}{1}" , resCommon.Calendar , resCommon.Event)</label>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("AddEditEvent", "Calendar", new { area = "" }, FormMethod.Post))
+                {
+                    @Html.Hidden("eventid")
+                    <div class="row form-group mb-2">
+                        <div class="col-md-2">
+                            <label for="EventTitle" class="form-label pt-2">@resCommon.Header</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" id="EventTitle" name="EventTitle" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group mb-2">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="StartDate" class="form-label pt-2">@resCommon.StartDate</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="StartDate" name="StartDate" required="required" class="form-control datepicker">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="StartHour" class="form-label pt-2">@resCommon.StartTime</label>
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.DropDownList("StartHour", listHour, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.DropDownList("StartMinute", listMinute, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group mb-2">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="EndDate" class="form-label pt-2">@resCommon.EndDate</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="EndDate" name="EndDate" required="required" class="form-control datepicker">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="EndHour" class="form-label pt-2">@resCommon.EndTime</label>
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.DropDownList("EndHour", listHour, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.DropDownList("EndMinute", listMinute, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group mb-2">
+                        <div class="col-md-2">
+                            <label for="EventPlace" class="form-label pt-2">@resCommon.Place</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" id="EventPlace" name="EventPlace" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row form-group mb-2">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="EventContactor" class="form-label pt-2">@resCommon.Contactor</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="EventContactor" name="EventContactor" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="EventContactTel" class="form-label pt-2">@resCommon.ContactPhone</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="EventContactTel" name="EventContactTel" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group mb-2">
+                        <div class="col-md-2">
+                            <label for="EventAddress" class="form-label pt-2">@resCommon.Place</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" id="EventAddress" name="EventAddress" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group mb-2">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="EventRoomNo" class="form-label pt-2">@resCommon.MeetingRoom</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" id="EventRoomNo" name="EventRoomNo" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="EventCodeNo" class="form-label pt-2">@resCommon.Category</label>
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.DropDownList("EventCodeNo", listCalendarType, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group mb-2">
+                        <div class="col-md-2">
+                            <label for="EventResource" class="form-label pt-2">@resCommon.Resource</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" id="EventResource" name="EventResource" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group mb-2">
+                        <div class="col-md-2">
+                            <label for="EventDescription" class="form-label pt-2">@resCommon.Detail</label>
+                        </div>
+                        <div class="col-md-10">
+                            @Html.TextArea("EventDescription", new { @class = "form-control"  , @rows = 5 })
+                        </div>
+                    </div>
+                    <div class="row form-group mb-2">
+                        <div class="col-md-2">
+                            <label class="form-label pt-2" for="eEventAllDay">@resCommon.AllDay</label>
+                        </div>
+                        <div class="col-md-10 pl-4 pt-2">
+                            <input type="checkbox" id="EventAllDay" name="EventAllDay" class="form-check-input pt-2">
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row form-group mb-2">
+                        <div class="col-md-8">
+                            <input type="submit" id="confirmEventButton" value="@resCommon.Update" class="btn btn-primary" />
+                            @Html.ActionLink(resCommon.Delete, "DeleteEvent", "Calendar", new { area = "" }, new { @id = "deleteButton", @class = "btn btn-danger", onclick = ActionService.DeleteOnClick })
+                        </div>
+                        <div class="col-md-4 flex justify-content-end text-md-right">
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">@resCommon.CloseWindow</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var today = '@ViewBag.Today';
+        var initialLocaleCode = 'zh-tw';
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+            },
+            themeSystem: 'bootstrap5',
+            initialDate: today,
+            defaultDate: moment().format("YYYY/MM/DD"),
+            firstDay: 1,
+            locale: initialLocaleCode,
+            buttonIcons: true,
+            weekNumbers: false,
+            droppable: true,
+            editable: true,
+            selectable: true,
+            nowIndicator: true,
+            dayMaxEvents: true,
+            events: '@Url.Action( "GetEvents" , "Calendar" , new { area = ""})',
+            eventClick: function (info) {
+                //取消導到其它網頁功能
+                info.jsEvent.preventDefault();
+                // 改變外框顏色
+                info.el.style.borderColor = 'red';
+                //讀出資料庫中的資訊
+                $.ajax({
+                    type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    url: '@Url.Action( "GetEvent" , "Calendar", new { area = ""})',
+                    data: { "id": info.event.id },
+                    dataType: "json",
+                    success: function (value) {
+                        $('#eventid').val(value.Id);
+                        $('#StartDate').val(value.EventStart);
+                        $('#StartHour').val(value.StartHour);
+                        $('#StartMinute').val(value.StartMinute);
+                        $('#EndDate').val(value.EventEnd);
+                        $('#EndHour').val(value.EndHour);
+                        $('#EndMinute').val(value.EndMinute);
+                        $('#EventTitle').val(value.SubjectName);
+                        $('#EventDescription').val(value.Description);
+                        $('#EventPlace').val(value.PlaceName);
+                        $('#EventContactor').val(value.ContactName);
+                        $('#EventContactTel').val(value.ContactTel);
+                        $('#EventAddress').val(value.PlaceAddress);
+                        $('#EventRoomNo').val(value.RoomNo);
+                        $('#EventCodeNo').val(value.CodeNo);
+                        $('#EventResource').val(value.ResourceText);
+                        $("#EventAllDay").prop("checked", value.IsFullday);
+
+                        document.getElementById('eventHeader').innerHTML = '@resCommon.Edit / @resCommon.Delete';
+                        document.getElementById('confirmEventButton').value = '@resCommon.Update';
+                        document.getElementById('deleteButton').style.visibility = 'visible';
+                        var editModal = new bootstrap.Modal(document.getElementById('EventWindow'));
+                        editModal.show();
+
+                        //$.each(response, function (key, value) {
+                        //})
+                    },
+                    error: function (result) {
+                        alert('@resMessage.ReadingError');
+                    }
+                });
+                //修改/刪除行程
+                //$('#eventid').val(info.event.id);
+                //$('#eStartDate').val(moment(info.event.start).format('YYYY/MM/DD'));
+                //$('#eStartTime').val(moment(info.event.start).format('HH:mm:ss'));
+                //$('#eEndDate').val(moment(info.event.end).format('YYYY/MM/DD'));
+                //$('#eEndTime').val(moment(info.event.end).format('HH:mm:ss'));
+                //$('#eEventTitle').val(info.event.title);
+            }
+        });
+
+        // 渲染行事曆畫面
+        calendar.render();
+
+        // 新增行程
+        calendar.on('dateClick', function (info) {
+            var selectDate = info.dateStr.replace("-", "/");
+            var newDate = selectDate.replace("-", "/");
+            $('#eventid').val('0');
+            $('#StartDate').val(newDate);
+            $('#StartHour').val('08');
+            $('#StartMinute').val('00');
+            $('#EndDate').val(newDate);
+            $('#EndHour').val('09');
+            $('#EndMinute').val('00');
+            $('#EventTitle').val('');
+            $('#EventDescription').val('');
+            $('#EventPlace').val('');
+            $('#EventContactor').val('');
+            $('#EventContactTel').val('');
+            $('#EventAddress').val('');
+            $('#EventRoomNo').val('');
+            $('#EventCodeNo').val('01');
+            $('#EventResource').val('');
+            $("#EventAllDay").prop("checked", false);
+            document.getElementById('eventHeader').innerHTML = '@resCommon.Create';
+            document.getElementById('confirmEventButton').value = '@resCommon.Update';
+            document.getElementById('deleteButton').style.visibility = 'hidden';
+            var editModal = new bootstrap.Modal(document.getElementById('EventWindow'));
+            editModal.show();
+        });
+    });
+</script>

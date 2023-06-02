@@ -1,0 +1,55 @@
+﻿@model IEnumerable<funplay.Models.Pricings>
+
+@{
+    ViewBag.Title = "Pricing";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    string str_featured = "";
+    string str_support = "";
+}
+
+<!-- ======= Pricing Section ======= -->
+<section id="pricing" class="pricing">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>商品價格</h2>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                str_featured = "";
+                if (item.IsRecommend) { str_featured = "featured"; }
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="box @str_featured">
+                        @if (item.IsAdvanced)
+                        {
+                            <span class="advanced">進階</span>
+                        }
+
+                        <h3>@item.PricingName</h3>
+                        <h4><sup>台幣 $</sup>@item.ProdPrice<span> / @item.CycleName</span></h4>
+                        <ul>
+                            @{
+                                using (z_repoPricingDetails detail = new z_repoPricingDetails())
+                                {
+                                    var data = detail.GetDapperDataPriceNoList(item.PricingNo);
+                                    foreach (var ditem in data)
+                                    {
+                                        str_support = "";
+                                        if (!ditem.IsSupport) { str_support = "na"; }
+
+                                        <li class="@str_support">@ditem.ItemName</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn-buy">購買商品</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section><!-- End Pricing Section -->

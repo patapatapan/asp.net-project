@@ -1,0 +1,146 @@
+@model funplay.Models.Programs
+
+@{
+    ViewBag.Title = "CreateEdit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ActionService.RowId = Model.Id;
+    List<SelectListItem> ModuleList = new List<SelectListItem>();
+    List<SelectListItem> PrgTypeList = new List<SelectListItem>();
+    List<SelectListItem> RoleList = new List<SelectListItem>();
+    List<SelectListItem> SortNoList = new List<SelectListItem>();
+    using (ListItemData listData = new ListItemData())
+    {
+        ModuleList = listData.ModuleList();
+        PrgTypeList = listData.BaseDataList("Program");
+        RoleList = listData.RoleList();
+        SortNoList = listData.SortNoList(1, 30, 2);
+    }
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal  mt-2">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.IsEnabled, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsEnabled)
+                    @Html.ValidationMessageFor(model => model.IsEnabled, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.RoleNo, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.RoleNo, RoleList ,  new { @class = "form-control  edit-control selectpicker", data_live_search = "true" })
+                @Html.ValidationMessageFor(model => model.RoleNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.ModuleNo, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ModuleNo, ModuleList , new { @class = "form-control  edit-control selectpicker" , data_live_search = "true" })
+                @Html.ValidationMessageFor(model => model.ModuleNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.SortNo, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SortNo, SortNoList , new { @class = "form-control  edit-control selectpicker", data_live_search = "true" })
+                @Html.ValidationMessageFor(model => model.SortNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.PrgNo, htmlAttributes: new { @class = "control-label" })
+                @Html.Partial("~/Views/PartialViews/_PartialFormRequired.cshtml")
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrgNo, new { htmlAttributes = new { @class = "form-control  edit-control" } })
+                @Html.ValidationMessageFor(model => model.PrgNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.PrgName, htmlAttributes: new { @class = "control-label" })
+                @Html.Partial("~/Views/PartialViews/_PartialFormRequired.cshtml")
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrgName, new { htmlAttributes = new { @class = "form-control  edit-control" } })
+                @Html.ValidationMessageFor(model => model.PrgName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.CodeNo, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CodeNo, PrgTypeList , new { @class = "form-control  edit-control selectpicker", data_live_search = "true" })
+                @Html.ValidationMessageFor(model => model.CodeNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.AreaName, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AreaName, new { htmlAttributes = new { @class = "form-control  edit-control" } })
+                @Html.ValidationMessageFor(model => model.AreaName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.ControllerName, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ControllerName, new { htmlAttributes = new { @class = "form-control  edit-control" } })
+                @Html.ValidationMessageFor(model => model.ControllerName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.ActionName, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ActionName, new { htmlAttributes = new { @class = "form-control  edit-control" } })
+                @Html.ValidationMessageFor(model => model.ActionName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.ParmValue, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ParmValue, new { htmlAttributes = new { @class = "form-control  edit-control" } })
+                @Html.ValidationMessageFor(model => model.ParmValue, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control  edit-control" } })
+                @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <div class="row form-group">
+            <div class="col-md-12">
+                @Html.Partial("~/Views/PartialViews/_PartialFormSumit.cshtml")
+            </div>
+        </div>
+    </div>
+}

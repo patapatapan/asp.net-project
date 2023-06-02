@@ -1,0 +1,47 @@
+﻿@model IEnumerable<funplay.Models.Departments>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="overflow-scroll">
+    @Html.Partial("~/Views/PartialViews/_PartialFormHeader.cshtml")
+    <table class="table table-bordered">
+        <tr class="table-secondary">
+            <th>
+                @Html.Partial("~/Views/PartialViews/_PartialFormCreate.cshtml")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeptNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeptName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            ActionService.RowId = item.Id;
+            ActionService.RowData = (item.DeptNo == null) ? "" : $"{item.DeptNo} {item.DeptName}";
+            <tr>
+                <td>
+                    @Html.Partial("~/Views/PartialViews/_PartialFormEdit.cshtml")
+                    @Html.Partial("~/Views/PartialViews/_PartialFormDelete.cshtml")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeptNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeptName)
+                </td>
+                <td class="table-wrap">
+                    @Html.DisplayFor(modelItem => item.Remark)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

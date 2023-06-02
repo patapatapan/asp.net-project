@@ -1,0 +1,71 @@
+@model funplay.Models.CodeDatas
+
+@{
+    ViewBag.Title = "CreateEdit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ActionService.RowId = Model.Id;
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal  mt-2">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.IsEnabled)
+    @Html.HiddenFor(model => model.BaseNo)
+    @Html.HiddenFor(model => model.ParentNo)
+
+    <div class="row form-group">
+        <div class="col-md-2">
+            @Html.LabelFor(model => model.SortNo, htmlAttributes: new { @class = "control-label" })
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SortNo, new { htmlAttributes = new { @class = "form-control  edit-control" } })
+            @Html.ValidationMessageFor(model => model.SortNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            @Html.LabelFor(model => model.CodeNo, htmlAttributes: new { @class = "control-label" })
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CodeNo, new { htmlAttributes = new { @class = "form-control  edit-control" } })
+            @Html.ValidationMessageFor(model => model.CodeNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            @Html.LabelFor(model => model.CodeName, htmlAttributes: new { @class = "control-label" })
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CodeName, new { htmlAttributes = new { @class = "form-control  edit-control" } })
+            @Html.ValidationMessageFor(model => model.CodeName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            @Html.LabelFor(model => model.CodeValue, htmlAttributes: new { @class = "control-label" })
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CodeValue, new { htmlAttributes = new { @class = "form-control  edit-control" } })
+            @Html.ValidationMessageFor(model => model.CodeValue, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            @Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "control-label" })
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control  edit-control" } })
+            @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <hr />
+    <div class="row form-group">
+        <div class="col-md-12">
+            @Html.Partial("~/Views/PartialViews/_PartialFormSumit.cshtml")
+        </div>
+    </div>
+</div>
+}

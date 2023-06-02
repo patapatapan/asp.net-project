@@ -1,0 +1,100 @@
+@model IEnumerable<funplay.Models.Programs>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="overflow-scroll">
+    @Html.Partial("~/Views/PartialViews/_PartialFormHeader.cshtml")
+    <table class="table table-bordered">
+        <tr class="table-secondary">
+            <th>
+                @Html.Partial("~/Views/PartialViews/_PartialFormCreate.cshtml")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsEnabled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SortNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrgNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrgName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AreaName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ControllerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParmValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            ActionService.RowId = item.Id;
+            ActionService.RowData = (item.RoleName == null) ? "" : $"{item.RoleName} {item.PrgNo}";
+            <tr>
+                <td>
+                    @Html.Partial("~/Views/PartialViews/_PartialFormEdit.cshtml")
+                    @Html.Partial("~/Views/PartialViews/_PartialFormDelete.cshtml")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsEnabled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SortNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModuleNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrgNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrgName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AreaName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ControllerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParmValue)
+                </td>
+                <td class="table-wrap">
+                    @Html.DisplayFor(modelItem => item.Remark)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

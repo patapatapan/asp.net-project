@@ -1,0 +1,88 @@
+﻿@model vmViewModel
+
+@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.AreaName)
+        @Html.HiddenFor(model => model.ControllerName)
+        @Html.HiddenFor(model => model.ViewName)
+        @Html.HiddenFor(model => model.ClassName)
+        @Html.HiddenFor(model => model.TemplateName)
+        @Html.HiddenFor(model => model.LayoutName)
+        @Html.HiddenFor(model => model.TextResult)
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row form-group">
+                    @Html.LabelFor(model => model.ControllerName, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.DisplayFor(model => model.ControllerName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row form-group">
+                    @Html.LabelFor(model => model.ViewName, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.DisplayFor(model => model.ViewName)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row form-group">
+                    @Html.LabelFor(model => model.ClassName, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.DisplayFor(model => model.ClassName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row form-group">
+                    @Html.LabelFor(model => model.TemplateName, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.DisplayFor(model => model.TemplateName)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row form-group">
+                    @Html.LabelFor(model => model.LayoutName, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.DisplayFor(model => model.LayoutName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+        <div class="row form-group">
+            @Html.LabelFor(model => model.FileName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.FileName)
+            </div>
+        </div>
+        <hr />
+        <div class="row form-group">
+            <div class="col-md-12">
+                @Html.TextAreaFor(model => model.TextResult, new { @class = "form-control", @rows = 14, @readonly = "@readonly" })
+            </div>
+        </div>
+        <hr />
+        <div class="row form-group">
+            <div class="col-md-12">
+                @Html.Partial("~/Views/PartialViews/_PartialFormSumit.cshtml")
+            </div>
+        </div>
+    </div>
+}

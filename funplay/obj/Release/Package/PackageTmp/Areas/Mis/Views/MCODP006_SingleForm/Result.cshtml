@@ -1,0 +1,109 @@
+﻿@model vmGeneratorModel
+
+@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.TypeNo)
+    @Html.HiddenFor(model => model.MetadataModel.Id)
+    @Html.HiddenFor(model => model.MetadataModel.KeyColumn)
+    @Html.HiddenFor(model => model.MetadataModel.FolderName)
+    @Html.HiddenFor(model => model.MetadataModel.ClassName)
+    @Html.HiddenFor(model => model.MetadataModel.FileName)
+    @Html.HiddenFor(model => model.MetadataModel.FolderName)
+    @Html.HiddenFor(model => model.MetadataModel.RequiredColumns)
+    @Html.HiddenFor(model => model.RepositoryModel.Id)
+    @Html.HiddenFor(model => model.RepositoryModel.FolderName)
+    @Html.HiddenFor(model => model.RepositoryModel.NameColumn)
+    @Html.HiddenFor(model => model.RepositoryModel.KeyColumn)
+    @Html.HiddenFor(model => model.RepositoryModel.ClassName)
+    @Html.HiddenFor(model => model.RepositoryModel.FileName)
+    @Html.HiddenFor(model => model.RepositoryModel.NoColumn)
+    @Html.HiddenFor(model => model.RepositoryModel.SortColumns)
+    @Html.HiddenFor(model => model.ControllerModel.Id)
+    @Html.HiddenFor(model => model.ControllerModel.FolderName)
+    @Html.HiddenFor(model => model.ControllerModel.PrgName)
+    @Html.HiddenFor(model => model.ControllerModel.ControllerName)
+    @Html.HiddenFor(model => model.ControllerModel.ClassName)
+    @Html.HiddenFor(model => model.ControllerModel.AreaName)
+    @Html.HiddenFor(model => model.ControllerModel.FileName)
+    @Html.HiddenFor(model => model.ControllerModel.PrgNo)
+    @Html.HiddenFor(model => model.IndexViewModel.Id)
+    @Html.HiddenFor(model => model.IndexViewModel.ViewName)
+    @Html.HiddenFor(model => model.IndexViewModel.TemplateName)
+    @Html.HiddenFor(model => model.IndexViewModel.FolderName)
+    @Html.HiddenFor(model => model.IndexViewModel.AreaName)
+    @Html.HiddenFor(model => model.IndexViewModel.ClassName)
+    @Html.HiddenFor(model => model.IndexViewModel.ControllerName)
+    @Html.HiddenFor(model => model.IndexViewModel.FileName)
+    @Html.HiddenFor(model => model.IndexViewModel.LayoutName)
+    @Html.HiddenFor(model => model.CreateEditViewModel.Id)
+    @Html.HiddenFor(model => model.CreateEditViewModel.ViewName)
+    @Html.HiddenFor(model => model.CreateEditViewModel.FolderName)
+    @Html.HiddenFor(model => model.CreateEditViewModel.TemplateName)
+    @Html.HiddenFor(model => model.CreateEditViewModel.AreaName)
+    @Html.HiddenFor(model => model.CreateEditViewModel.ClassName)
+    @Html.HiddenFor(model => model.CreateEditViewModel.ControllerName)
+    @Html.HiddenFor(model => model.CreateEditViewModel.FileName)
+    @Html.HiddenFor(model => model.CreateEditViewModel.LayoutName)
+
+    <div class="form-horizontal mt-2">
+        <div class="row form-group">
+            <div class="col-md-12">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link link-secondary  active" id="meta-tab" data-bs-toggle="tab" data-bs-target="#meta" href="#">Metadata</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-secondary" id="repo-tab" data-bs-toggle="tab" data-bs-target="#repo" href="#">Repository</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-secondary" id="cntr-tab" data-bs-toggle="tab" data-bs-target="#cntr" href="#">Controller</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-secondary" id="ind-tab" data-bs-toggle="tab" data-bs-target="#ind" href="#">Index View</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-secondary" id="crud-tab" data-bs-toggle="tab" data-bs-target="#crud" href="#">CreateEdit View</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="tabContent">
+                    <div class="tab-pane fade show active" id="meta" role="tabpanel" aria-labelledby="meta-tab">
+                        @Html.TextAreaFor(model => model.MetadataModel.TextResult, new { @class = "form-control", @rows = 20 })
+                    </div>
+                    <div class="tab-pane fade" id="repo" role="tabpanel" aria-labelledby="repo-tab">
+                        @Html.TextAreaFor(model => model.RepositoryModel.TextResult, new { @class = "form-control", @rows = 20 })
+                    </div>
+                    <div class="tab-pane fade" id="cntr" role="tabpanel" aria-labelledby="cntr-tab">
+                        @Html.TextAreaFor(model => model.ControllerModel.TextResult, new { @class = "form-control", @rows = 20 })
+                    </div>
+                    <div class="tab-pane fade" id="ind" role="tabpanel" aria-labelledby="ind-tab">
+                        @Html.TextAreaFor(model => model.IndexViewModel.TextResult, new { @class = "form-control", @rows = 20 })
+                    </div>
+                    <div class="tab-pane fade" id="crud" role="tabpanel" aria-labelledby="crud-tab">
+                        @Html.TextAreaFor(model => model.CreateEditViewModel.TextResult, new { @class = "form-control", @rows = 20 })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row form-group">
+        <div class="col-md-12">
+            @Html.Partial("~/Views/PartialViews/_PartialFormSumit.cshtml")
+        </div>
+    </div>
+}
+
+@section styles {
+    <style>
+        .active.link-secondary {
+            font-weight: bold;
+            color: #fff;
+        }
+    </style>
+}

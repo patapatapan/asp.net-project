@@ -1,0 +1,111 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ output extension="cs" #>
+<#@ import namespace="System" #>
+<#@ parameter type="System.String" name="ControllerName" #>
+<#@ parameter type="System.String" name="ControllerRootName" #>
+<#@ parameter type="System.String" name="Namespace" #>
+<#@ parameter type="System.String" name="AreaName" #>
+<#
+string routePrefix;
+if (String.IsNullOrEmpty(AreaName)) 
+{
+    routePrefix = ControllerRootName;
+}
+else
+{
+    routePrefix = AreaName + "/" + ControllerRootName;
+}
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace <#= Namespace #>
+{
+    /// <summary>
+    /// <#= ControllerName #>
+    /// </summary>
+    public class <#= ControllerName #> : BaseController
+    {
+        [HttpGet]
+        [LoginAuthorize()]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [LoginAuthorize()]
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [LoginAuthorize()]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [LoginAuthorize()]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        [LoginAuthorize()]
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [LoginAuthorize()]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        [LoginAuthorize()]
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [LoginAuthorize()]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
+}

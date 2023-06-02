@@ -1,0 +1,166 @@
+﻿@model funplay.Models.Applications
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="form-horizontal mt-2">
+    <div class="row">
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.AppName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.AppName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.AppVersion, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.AppVersion, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.IsDebug, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.IsDebug, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.EncryptionMode, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.EncryptionMode, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.PowerBy, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.PowerBy, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.LanguageNo, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.LanguageNo, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.WebSiteUrl, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.WebSiteUrl, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.MailSenderName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.MailSenderName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.MailSenderEmail, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.MailSenderEmail, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.MailAppPassword, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.MailAppPassword, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.MailHostUrl, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.MailHostUrl, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.MailHostPort, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.MailHostPort, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.MailUseSSL, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.MailUseSSL, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt-2">
+    @Html.ActionLink(ActionService.EditName, ActionService.CreateEdit, ActionService.Controller, new { area = ActionService.Area, id = Model.Id }, new { @class = "btn btn-success" })
+</div>

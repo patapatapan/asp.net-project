@@ -1,0 +1,88 @@
+﻿@{
+    using (z_repoCompanys comp = new z_repoCompanys())
+    {
+        var compData = comp.GetDefaultCompany();
+
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 footer-contact">
+                            <h3>@compData.CompName</h3>
+                            <p>
+                                @compData.CompAddress
+                                <br><br>
+                                <strong>連絡電話:</strong> @compData.CompTel<br>
+                                <strong>電子信箱:</strong> @compData.ContactEmail<br>
+                            </p>
+                        </div>
+                        <div class="col-lg-2 col-md-6 footer-links">
+                            <h4>相關連結</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("Index" , "Home" , new { area = ""})">首頁</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("About", "Home", new { area = "" })">公司簡介</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("Service", "Home", new { area = "" })">服務項目</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("Team", "Home", new { area = "" })">團隊介紹</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("Client", "Home", new { area = "" })">公司客戶</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4>我們的服務</h4>
+                            <ul>
+                                @{
+                                    using (z_repoServices service = new z_repoServices())
+                                    {
+                                        var serviceData = service.GetDapperDataList("");
+                                        foreach (var item in serviceData)
+                                        {
+                                            <li>
+                                                <i class="bx bx-chevron-right"></i>
+                                                <a href="#">@item.HeaderName</a>
+                                            </li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 footer-newsletter">
+                            <h4>訂閱我們</h4>
+                            <p>您只要訂閱本網站的RSS，就可以在本網站發佈新聞資訊時立即得到自動通知。</p>
+                            <form action="" method="post">
+                                <input type="email" name="email" id="email" />
+                                <input type="submit" value="立即訂閱" formaction="@Url.Action("Subscription" , "Home" , new { area = ""})" formmethod="post" />
+                            </form>
+                            <form action="" method="post">
+                                <input type="email" name="email" id="email" />
+                                <input type="submit" value="取消訂閱" formaction="@Url.Action("UnSubscription" , "Home" , new { area = ""})" formmethod="post" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container d-md-flex py-4">
+                <div class="me-md-auto text-center text-md-start">
+                    <div class="copyright">
+                        &copy; 版權所有 <strong><span>@compData.CompName </span></strong>. All Rights Reserved
+                    </div>
+                </div>
+                <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                    @{
+                        if (compData != null)
+                        {
+                            if (!string.IsNullOrEmpty(compData.TwitterUrl) && compData.TwitterUrl != "#")
+                            { <a href="@compData.TwitterUrl" class="twitter" target="_blank"><i class="bu bi-twitter"></i></a> }
+                            if (!string.IsNullOrEmpty(compData.FacebookUrl) && compData.FacebookUrl != "#")
+                            { <a href="@compData.FacebookUrl" class="facebook" target="_blank"><i class="bu bi-facebook"></i></a> }
+                            if (!string.IsNullOrEmpty(compData.TwitterUrl) && compData.TwitterUrl != "#")
+                            { <a href="@compData.TwitterUrl" class="instagram" target="_blank"><i class="bu bi-instagram"></i></a> }
+                            if (!string.IsNullOrEmpty(compData.LinkedinUrl) && compData.LinkedinUrl != "#")
+                            { <a href="@compData.LinkedinUrl" class="linkedin" target="_blank"><i class="bu bi-linkedin"></i></a> }
+                        }
+                    }
+                </div>
+            </div>
+        </footer><!-- End Footer -->
+    }
+}

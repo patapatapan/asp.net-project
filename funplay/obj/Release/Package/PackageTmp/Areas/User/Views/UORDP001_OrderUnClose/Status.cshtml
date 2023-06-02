@@ -1,0 +1,50 @@
+﻿@model funplay.Models.OrdersStatus
+
+@{
+    ViewBag.Title = "Status";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ActionService.RowId = Model.Id;
+
+    List<SelectListItem> OrderStatusList = new List<SelectListItem>();
+    using (ListItemData listData = new ListItemData())
+    {
+        OrderStatusList = listData.OrderStatusList();
+    }
+}
+
+
+@Html.Partial("~/Views/PartialViews/_PartialErrorMessage.cshtml")
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal mt-2">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.IsPayed)
+        @Html.HiddenFor(model => model.IsClosed)
+        @Html.HiddenFor(model => model.StatusName)
+        @Html.HiddenFor(model => model.Remark)
+
+        <div class="row">
+            <div class="col-md-12 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-2 border-end">
+                        @Html.LabelFor(model => model.StatusNo, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.StatusNo, OrderStatusList , new { @class = "form-control  edit-control selectpicker", data_live_search = "true" })
+                        @Html.ValidationMessageFor(model => model.StatusNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-12">
+                @Html.Partial("~/Views/PartialViews/_PartialFormSumit.cshtml")
+            </div>
+        </div>
+    </div>
+}
+
+

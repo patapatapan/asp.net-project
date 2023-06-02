@@ -1,0 +1,58 @@
+﻿@model IEnumerable<funplay.Models.Categorys>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="overflow-scroll">
+    @Html.Partial("~/Views/PartialViews/_PartialFormHeader.cshtml")
+    <table class="table  table-bordered">
+        <tr class="table-secondary">
+            <th>
+                @Html.Partial("~/Views/PartialViews/_PartialFormCreate.cshtml")
+                @if (!string.IsNullOrEmpty(SessionService.TagNo1))
+                {
+                    @Html.ActionLink(ActionService.Return, ActionService.Index, ActionService.Controller, new { area = ActionService.Area }, new { @class = "btn btn-success" })
+                }
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsEnabled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            ActionService.RowId = item.Id;
+            <tr>
+                <td>
+                    @Html.Partial("~/Views/PartialViews/_PartialFormEdit.cshtml")
+                    @Html.Partial("~/Views/PartialViews/_PartialFormDelete.cshtml")
+                    @Html.Partial("~/Views/PartialViews/_PartialFormDetail.cshtml")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsEnabled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td class="table-wrap">
+                    @Html.DisplayFor(modelItem => item.Remark)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

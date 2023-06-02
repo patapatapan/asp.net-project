@@ -1,0 +1,57 @@
+﻿@if (UserService.UserSecurity.IsDelete)
+{
+    <input type="button" id="@ActionService.Delete" value="@ActionService.DeleteName" class="btn btn-danger" onclick="DeleteData(@ActionService.RowId , '@ActionService.RowData' )" />
+
+    <script>
+    function DeleteData(id, data) {
+        var message = '請問您確認是否要刪除';
+        if (!!data) {
+            message += ' [' + data + '] ?'
+        }
+        else {
+            message += '此筆資料?'
+        }
+
+        Swal.fire({
+            title: "<strong>您確定要刪除?</strong>",
+            text: message,
+            icon: 'question',
+            showCancelButton: true,
+            focusConfirm: false,
+            closeOnConfirm: false,
+            confirmButtonText: '<i class="fas fa-check pe-2"></i>確定',
+            cancelButtonText: '<i class="fas fa-times pe-2"></i>取消',
+        }).then(function (result) {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "@Url.Action(ActionService.Delete, ActionService.Controller, new { area = ActionService.Area })",
+                    data: { "id": id },
+                    type: "POST",
+                    dataType: "json",
+                }).done(function (value) {
+                    if (value.Mode == true) {
+                        Swal.fire({
+                            title: "<strong>提示訊息</strong>",
+                            text: value.Message,
+                            icon: 'success',
+                            showCancelButton: false,
+                            focusConfirm: true,
+                            confirmButtonText: '<i class="fas fa-check pe-2"></i>確定',
+                        }).then(function (result) {
+                            if (result.isConfirmed) {
+                                window.location.href = '@Url.Action(ActionService.Index, ActionService.Controller, new { area = ActionService.Area })';
+                            }
+                        });
+                    }
+                    else {
+                        Swal.fire('錯誤訊息', value.Message , 'error');
+                    }
+                    }).fail(function (err) {
+                        Swal.fire('錯誤訊息', err, 'error');
+                        console.log(err);
+                });
+            }
+        });
+    }
+    </script>
+}

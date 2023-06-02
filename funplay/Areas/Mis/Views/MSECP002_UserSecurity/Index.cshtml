@@ -1,0 +1,183 @@
+﻿@model IEnumerable<funplay.Models.Users>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="overflow-scroll">
+    @Html.Partial("~/Views/PartialViews/_PartialFormHeader.cshtml")
+    <table class="table table-bordered" id="SecurityList">
+        <tr class="table-secondary">
+            <th>
+                功能列表
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Programs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsValid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeptName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TitleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GenderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            ActionService.RowId = item.Id;
+            ActionService.RowData = (item.RoleNo == null) ? "" : $"{item.RoleNo} {item.UserNo} {item.UserName}";
+            <tr>
+                <td>
+                    <a href="javascript:;" class="addprg btn btn-success">加入</a>
+                    @if (item.Programs > 0)
+                    {
+                        <a href="javascript:;" class="delprg btn btn-danger">刪除</a>
+                        @Html.Partial("~/Views/PartialViews/_PartialFormDetail.cshtml")
+                    }
+                </td>
+                <td class="text-end">
+                    @Html.DisplayFor(modelItem => item.Programs)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsValid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeptName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TitleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GenderName)
+                </td>
+                <td class="table-wrap">
+                    @Html.DisplayFor(modelItem => item.Remark)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div id="addPrgModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title fw-bold" id="addPrgUserInfo">使用者名稱</h5>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+<div id="delPrgModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header  bg-danger text-white">
+                <h5 class="modal-title fw-bold" id="delPrgUserInfo">使用者名稱</h5>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+
+@section scriptsbody {
+    <script type="text/javascript">
+        $(function () {
+
+            $("#SecurityList .addprg").click(function () {
+                var roleNo = $(this).closest("tr").find("td").eq(3).html().trim();
+                var userNo = $(this).closest("tr").find("td").eq(4).html().trim();
+                var userName = $(this).closest("tr").find("td").eq(5).html().trim();
+                var userInfo = userNo + ' (' + userName + ')';
+                var idValue = roleNo + '_' + userNo;
+                $.ajax({
+                    type: "GET",
+                    url: "@Url.Action("AddPrgList" , "MSECP002_UserSecurity", "Mis")",
+                    data: { "id": idValue },
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "html",
+                    success: function (response) {
+                        $("#addPrgModal").find(".modal-body").html(response);
+                        $("#addPrgModal").modal('show');
+                        $("#addPrgUserInfo").html(userInfo);
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });
+
+            $("#SecurityList .delprg").click(function () {
+                var roleNo = $(this).closest("tr").find("td").eq(3).html().trim();
+                var userNo = $(this).closest("tr").find("td").eq(4).html().trim();
+                var userName = $(this).closest("tr").find("td").eq(5).html().trim();
+                var userInfo = userNo + ' (' + userName + ')';
+                var idValue = roleNo + '_' + userNo;
+                $.ajax({
+                    type: "GET",
+                    url: "@Url.Action("DelPrgList" , "MSECP002_UserSecurity", "Mis")",
+                    data: { "id": idValue },
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "html",
+                    success: function (response) {
+                        $("#delPrgModal").find(".modal-body").html(response);
+                        $("#delPrgModal").modal('show');
+                        $("#delPrgUserInfo").html(userInfo);
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+}

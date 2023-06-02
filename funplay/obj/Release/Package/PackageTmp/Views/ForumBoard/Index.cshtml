@@ -1,0 +1,57 @@
+﻿@model IEnumerable<funplay.Models.Forums>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@Html.Partial("~/Views/PartialViews/_PartialFormHeader.cshtml")
+<table class="table table-bordered">
+    <tr class="table-secondary">
+        <th>
+            @Html.Partial("~/Views/PartialViews/_PartialFormCreate.cshtml")
+            @Html.ActionLink("返回", "Index", "Forum", new { area = "" }, new { @class = "btn btn-warning" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReplyCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjectDate)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        ActionService.RowId = item.Id;
+        ActionService.RowData = (item.SubjectName == null) ? "" : $"{item.SubjectName}";
+        <tr>
+            <td>
+                @if (UserService.UserNo == item.UserNo)
+                {
+                    @Html.Partial("~/Views/PartialViews/_PartialFormEdit.cshtml")
+                    @Html.Partial("~/Views/PartialViews/_PartialFormDelete.cshtml")
+                }
+            </td>
+            <td class="table-wrap">
+                <a href="@Url.Action("Detail" , "ForumBoard" , new { area = "" , id = item.GuidNo})">
+                    @Html.DisplayFor(modelItem => item.SubjectName)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td class="text-end">
+                @Html.DisplayFor(modelItem => item.ReplyCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectDate)
+            </td>
+        </tr>
+    }
+</table>

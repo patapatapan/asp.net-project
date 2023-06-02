@@ -1,0 +1,45 @@
+﻿<input type="button" id="@ActionService.Import" value="@ActionService.ImportName" class="btn btn-info" onclick="Import();" />
+
+<script>
+    function Import() {
+        Swal.fire({
+            title: "<strong>您確定要匯入?</strong>",
+            text: "請確認是否要匯入資料?",
+            icon: 'question',
+            showCancelButton: true,
+            focusConfirm: false,
+            closeOnConfirm: false,
+            confirmButtonText: '<i class="fas fa-check pe-2"></i>確定',
+            cancelButtonText: '<i class="fas fa-times pe-2"></i>取消',
+        }).then(function (result) {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "@Url.Action(ActionService.Import , ActionService.Controller , new { area = ActionService.Area })",
+                    type: "POST",
+                    dataType: "json",
+                }).done(function (value) {
+                    if (value.Mode == true) {
+                        Swal.fire({
+                            title: "<strong>提示訊息</strong>",
+                            text: value.Message,
+                            icon: 'success',
+                            showCancelButton: false,
+                            focusConfirm: true,
+                            confirmButtonText: '<i class="fas fa-check pe-2"></i>確定',
+                        }).then(function (result) {
+                            if (result.isConfirmed) {
+                                window.location.href = '@Url.Action(ActionService.Index , ActionService.Controller , new { area = ActionService.Area })';
+                            }
+                        });
+                    }
+                    else {
+                        Swal.fire('訊息提示', value.Message , 'error');
+                    }
+                    }).fail(function (err) {
+                        Swal.fire('錯誤訊息', err, 'error');
+                        console.log(err);
+                });
+            }
+        });
+    }
+</script>

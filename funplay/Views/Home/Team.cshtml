@@ -1,0 +1,49 @@
+﻿@model IEnumerable<funplay.Models.Teams>
+
+@{
+    ViewBag.Title = "Team";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    string str_url = "";
+}
+
+<!-- ======= Our Team Section ======= -->
+<section id="team" class="team section-bg">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2><strong>團隊介紹</strong></h2>
+            <p>
+                本公司團隊核心成員，每位在業界至少都有十年以上資歷，並且因此累積了上百個專案執行的經驗，無論是大至上市上櫃公司，或是小至初起步創業的個人工作室，都能夠以最符合業主現況的角度提供解決方案。
+
+                本公司的核心信念，就是所有的商業行為，均需以「人性」為初衷，這樣才能在冰冷的商業模式以外，添注些許的溫度，讓人與人，與這個社會，乃至全世界，均能透過彼此的互惠合作過程，感受到些許的正能量。
+
+                理解多一點，在乎多一點，也因為建立在這樣的合作關係之下，林菓數位與廣大的客戶，才能在這瞬息萬變的時代洪流裡，持續站穩每一步，互相扶持，共同成長、壯大、永續。
+            </p>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                str_url = string.Format("~/Images/Team/{0}.jpg", item.TeamNo);
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member" data-aos="fade-up" data-aos-delay="300">
+                        <div class="member-img">
+                            <img src="@Url.Content(str_url)" class="img-fluid" alt="@item.TeamName">
+                            <div class="social">
+                                <a href="@item.TwitterUrl"><i class="bi bi-twitter"></i></a>
+                                <a href="@item.FacebookUrl"><i class="bi bi-facebook"></i></a>
+                                <a href="@item.InstagramUrl"><i class="bi bi-instagram"></i></a>
+                                <a href="@item.LinkedinUrl"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>@item.TeamName</h4>
+                            <h4>@item.EngName</h4>
+                            <span>@item.DeptName @item.TitleName</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section><!-- End Our Team Section -->

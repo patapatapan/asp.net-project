@@ -1,0 +1,172 @@
+﻿@{
+    ViewBag.Title = "登入";
+    Layout = "~/Views/Shared/_LayoutHeader.cshtml";
+    ViewBag.Css1 = Url.Content("~/Content/css/login.css");
+}
+
+<div class="container-fluid g-0 vh-100" style="display: flex; flex-direction: column;">
+    <div class="row d-block" style="height: 56px;">
+        <div class="col-12 top" style="height: 100%;">
+            <div class="login-logo">
+                <!-- <h1>title</h1> -->
+                <!-- logo -->
+                <img src="~/Images/project/logo-50px.png" alt="" type="button" onclick="redirectToIndex()"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="login">
+        <!-- 登入畫面白色底框 -->
+        <div class="form-box">
+            <form action="">
+                <input type="text" name="userid" placeholder="帳號" id="userid">
+                <div class="pwd">
+                    <input type="password" name="password" placeholder="密碼" id="pwd">
+                    <button onclick="changePwdType()" type="button"><i class="fa-solid fa-eye-slash"></i></button>
+                </div>
+
+                <div class="" style="width: 100%; height: 40px;">
+                    <ul class="check-box">
+                        <li>
+                            <div class="remember">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" class="r-c">
+                                    <i class="fa-regular fa-circle-check" id="circle1"></i>
+                                </div>
+                                <div>記住我</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="keeplogin">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <input type="checkbox" class="k-c">
+                                    <i class="fa-regular fa-circle-check" id="circle2"></i>
+                                </div>
+                                <div>自動登入</div>
+                            </div>
+                        </li>
+                        <a href="#" style="margin-left: 25%;">忘記密碼?</a>
+                    </ul>
+                </div>
+
+                <!-- 登入按鈕 -->
+                <div class="btn-login">
+                    <button class="col-12">登入</button>
+                </div>
+
+                <!-- 未註冊跳轉 -->
+                <div class="sing-up">
+                    <p class="footer-content  d-flex justify-content-center col-12 pt-3" style="font-size: 14px;">
+                        點擊 &nbsp;
+                        <a href="@Url.Action("Register", "Project")">註冊</a>
+                        &nbsp; 加入會員
+                    </p>
+                </div>
+
+                <!-- 其他登入方式 -->
+                <div class="another">
+                    <hr>
+                    <p>使用其他方式登入</p>
+                    <hr>
+                </div>
+
+                <div class="btn-another">
+                    <button type="button" class="m-0">
+                        <img src="~/Images/project/google.png" alt=""/>
+                    </button>
+                    <button type="button">
+                        <img src="~/Images/project/twitter.png" alt=""/>
+                    </button>
+                    <button type="button">
+                        <img src="~/Images/project/Facebook.png" alt=""/>
+                    </button>
+                    <button type="button">
+                        <img src="~/Images/project/reddit.png" alt=""/>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- 底部版權 -->
+    <div class=" row mt-5">
+        <div class="col m-0 p-5" style="background-color:rgb(73, 73, 73)">
+            <hr style="margin:0 auto; width: 90%; color: #ffffff;">
+            <div class="text-center text-white mt-5">
+                -&copy;2023 Patapatapan 版權所有 參考Epic Games , Steam ,
+                Electronic
+                Arts ,
+                Ubisoft 無商業利益 純個人練習 。-
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    /*密碼切換顯示*/
+    function changePwdType() {
+        var pwd = document.getElementById('pwd');
+        //var i = $('#i');
+        // console.log(i);
+
+        if (pwd.type == 'password') {
+            pwd.type = 'text';
+            /*移除並新增class*/
+            $('i.fa-eye-slash').removeClass('fa-eye-slash').addClass('fa-eye');
+        } else {
+            pwd.type = 'password';
+            $('i.fa-eye').removeClass('fa-eye').addClass('fa-eye-slash');
+        }
+    }
+
+    /*checkbox*/
+    $(document).ready(function () {
+        var rcheckbox = $('.r-c');
+        var kcheckbox = $('.k-c');
+        var rcircle = $('#circle1');
+        var kcircle = $('#circle2');
+        var r = 0, k = 0;
+
+        /*預設checkbox內容為隱藏*/
+        rcheckbox.on('click', function () {
+            // console.log(rcircle);
+            if (r == 0) {
+                $(this).css('background-color', 'rgb(73, 73, 73)')
+                r += 1;
+            } else if (r == 1) {
+                $(this).css('background-color', '#ffffff')
+                r -= 1;
+            }
+
+            // console.log(circlecheck.css('display'));
+            if (rcircle.css('display') == 'none') {
+                rcircle.css('display', 'block');
+            } else {
+                rcircle.css('display', 'none')
+            }
+
+        })
+
+        kcheckbox.on('click', function () {
+            // console.log("2");
+            if (k == 0) {
+                $(this).css('background-color', 'rgb(73, 73, 73)')
+                k += 1;
+            } else if (k == 1) {
+                $(this).css('background-color', '#ffffff')
+                k -= 1;
+            }
+
+            // console.log(circlecheck.css('display'));
+            if (kcircle.css('display') == 'none') {
+                kcircle.css('display', 'block');
+            } else {
+                kcircle.css('display', 'none')
+            }
+        })
+
+    });
+
+</script>
+

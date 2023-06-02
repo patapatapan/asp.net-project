@@ -1,0 +1,19 @@
+﻿.admin-nowrap {
+    width: 0px;
+    white-space: nowrap;
+}
+
+.admin-wrap {
+    width: 100%;
+    word-wrap: normal;
+    overflow: auto;
+}
+
+.admin-table th, td:not(.admin-wrap) {
+    width: 0px;
+    white-space: nowrap;
+}
+
+.admin-table th{
+    color:blue;
+}

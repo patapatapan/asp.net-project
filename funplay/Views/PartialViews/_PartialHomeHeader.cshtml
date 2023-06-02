@@ -1,0 +1,91 @@
+﻿<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        @*<h1 class="logo me-auto"><a href="index.html"><span>Com</span>pany</a></h1>*@
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <div class="me-auto">
+            @Html.Partial("~/Views/PartialViews/_PartialLogoShort.cshtml")
+        </div>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                <li><a href="@Url.Action("Index", "Home", new { area = "" })" class="active">首頁</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>關於公司</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="@Url.Action("About", "Home", new { area = "" })">公司簡介</a></li>
+                        <li><a href="@Url.Action("Service", "Home", new { area = "" })">服務項目</a></li>
+                        <li><a href="@Url.Action("Team", "Home", new { area = "" })">團隊介紹</a></li>
+                        <li><a href="@Url.Action("Client", "Home", new { area = "" })">公司客戶</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#"><span>商品介紹</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        @{
+                            using (z_repoCodeDatas codeData = new z_repoCodeDatas())
+                            {
+                                var category = codeData.GetBaseDataList("Photo");
+                                foreach (var item1 in category)
+                                {
+                                    <li class="dropdown">
+                                        <a href="#"><span>@item1.Text</span> <i class="bi bi-chevron-right"></i></a>
+                                        <ul>
+                                            @{
+                                                using (z_repoPhotos photo = new z_repoPhotos())
+                                                {
+                                                    var data = photo.GetDapperDataCodeList(item1.Value);
+                                                    if (data != null)
+                                                    {
+                                                        foreach (var item2 in data)
+                                                        {
+                                                            <li>
+                                                                <a href="@Url.Action("PhotoDetail", "Home", new { area = "", id = item2.FolderName })">@item2.PhotoName</a>
+                                                            </li>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                            }
+                        }
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#"><span>商品資訊</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="@Url.Action("Photo", "Home", new { area = "" })">商品分類</a></li>
+                        <li><a href="@Url.Action("Pricing", "Home", new { area = "" })">商品價格</a></li>
+                    </ul>
+                </li>
+                <li><a href="@Url.Action("Index" , "Shop" , new { area = "" })">線上購物</a></li>
+                <li><a href="@Url.Action("Contact" , "Home" , new { area = "" })">連絡我們</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+        <div class="header-social-links d-flex">
+            @{
+                using (z_repoCompanys comp = new z_repoCompanys())
+                {
+                    var data = comp.GetDefaultCompany();
+                    if (data != null)
+                    {
+                        if (!string.IsNullOrEmpty(data.TwitterUrl) && data.TwitterUrl != "#")
+                        { <a href="@data.TwitterUrl" class="twitter" target="_blank"><i class="bu bi-twitter"></i></a> }
+                        if (!string.IsNullOrEmpty(data.FacebookUrl) && data.FacebookUrl != "#")
+                        { <a href="@data.FacebookUrl" class="facebook" target="_blank"><i class="bu bi-facebook"></i></a> }
+                        if (!string.IsNullOrEmpty(data.TwitterUrl) && data.TwitterUrl != "#")
+                        { <a href="@data.TwitterUrl" class="instagram" target="_blank"><i class="bu bi-instagram"></i></a> }
+                        if (!string.IsNullOrEmpty(data.LinkedinUrl) && data.LinkedinUrl != "#")
+                        { <a href="@data.LinkedinUrl" class="linkedin" target="_blank"><i class="bu bi-linkedin"></i></a> }
+                    }
+                }
+            }
+        </div>
+
+    </div>
+</header><!-- End Header -->

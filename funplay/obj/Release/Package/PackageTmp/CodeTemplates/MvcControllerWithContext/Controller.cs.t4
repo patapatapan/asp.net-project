@@ -1,0 +1,244 @@
+﻿<#@ template language="C#" HostSpecific="True" Debug="True" #>
+<#@ output extension="cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data.Linq" #>
+<#@ ScaffoldingAssembly Processor="ScaffoldingAssemblyLoader" #>
+<#
+string routePrefix;
+if (String.IsNullOrEmpty(AreaName)) 
+{
+    routePrefix = ControllerRootName;
+}
+else
+{
+    routePrefix = AreaName + "/" + ControllerRootName;
+}
+#>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Microsoft.AspNet.Scaffolding.Core.Metadata" #>
+<#@ parameter type="System.String" name="ControllerName" #>
+<#@ parameter type="System.String" name="ControllerRootName" #>
+<#@ parameter type="System.String" name="Namespace" #>
+<#@ parameter type="System.String" name="AreaName" #>
+<#@ parameter type="System.String" name="ContextTypeName" #>
+<#@ parameter type="System.String" name="ModelTypeName" #>
+<#@ parameter type="System.String" name="ModelVariable" #>
+<#@ parameter type="Microsoft.AspNet.Scaffolding.Core.Metadata.ModelMetadata" name="ModelMetadata" #>
+<#@ parameter type="System.String" name="EntitySetVariable" #>
+<#@ parameter type="System.Boolean" name="UseAsync" #>
+<#@ parameter type="System.Boolean" name="IsOverpostingProtectionRequired" #>
+<#@ parameter type="System.String" name="BindAttributeIncludeText" #>
+<#@ parameter type="System.String" name ="OverpostingWarningMessage" #>
+<#@ parameter type="System.Collections.Generic.HashSet<System.String>" name="RequiredNamespaces" #>
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+<# if (UseAsync) { #>
+using System.Threading.Tasks;
+<# } #>
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using PagedList;
+<# foreach (var namespaceName in RequiredNamespaces) { #>
+using <#= namespaceName #>;
+<# } #>
+
+namespace <#= Namespace #>
+{
+<#
+    var contextTypeName = ContextTypeName;
+    var entitySetName = ModelMetadata.EntitySetName;
+    var entitySetVar = EntitySetVariable ?? (String.IsNullOrEmpty(entitySetName) ? entitySetName : (entitySetName.Substring(0, length:1).ToLowerInvariant() + entitySetName.Substring(1)));
+    var primaryKeyName = ModelMetadata.PrimaryKeys[0].PropertyName;
+    var primaryKeyShortTypeName = ModelMetadata.PrimaryKeys[0].ShortTypeName;
+    var primaryKeyDefaultValue = ModelMetadata.PrimaryKeys[0].DefaultValue;
+    var primaryKeyType = ModelMetadata.PrimaryKeys[0].TypeName;
+    var primaryKeyNullableTypeName = GetNullableTypeName(primaryKeyType, primaryKeyShortTypeName);
+    var lambdaVar = ModelVariable[0];
+    var relatedProperties = ModelMetadata.RelatedEntities.ToDictionary(item => item.AssociationPropertyName);
+
+    string bindAttribute;
+    if (IsOverpostingProtectionRequired)
+    {
+        bindAttribute = String.Format("[Bind(Include = \"{0}\")] ", BindAttributeIncludeText);
+    }
+    else
+    {
+        bindAttribute = String.Empty;
+    }
+#>
+    /// <summary>
+    /// <#= ControllerName #>
+    /// </summary>
+    public class <#= ControllerName #> : BaseController
+    {
+        /// <summary>
+        /// 資料列表
+        /// </summary>
+        /// <param name="page">目前頁數</param>
+        /// <param name="pageSize">每頁筆數</param>
+        /// <param name="searchText">搜尋文字</param>
+        /// <returns></returns>
+        [HttpGet]
+        [LoginAuthorize()]
+        public ActionResult Index(int page = 1, int pageSize = 10, string searchText = "")
+        {
+            //檢查瀏覽權限
+            if (!PrgService.IsProgramSecurity(enSecurtyMode.Index))
+                return RedirectToAction(ActionService.Index, ActionService.Home, new { area = ActionService.Area });
+
+            using (z_repo<#=ModelTypeName #> repos = new z_repo<#=ModelTypeName #>())
+            {
+                PrgService.SearchText = searchText;
+                PrgService.SetAction(enAction.Index , enCardSize.Max);
+                PrgService.SetProgram(UserService.RoleNo, ,"UXXXP001", "程式名稱"); 
+                var model = repos.GetDapperDataList(searchText).ToPagedList(page, pageSize);
+                PrgService.SetAction(ActionService.IndexName, enCardSize.Max, model.PageNumber, model.PageCount);
+                ViewBag.SearchText = searchText;
+                ViewBag.PageInfo = $"第{model.PageNumber}頁,共{model.PageCount}頁";
+                return View(model);
+            }
+        }
+
+         /// <summary>
+        /// 明細
+        /// </summary>
+        /// <param name="id">記錄 ID</param>
+        /// <returns></returns>
+        [HttpGet]
+        [LoginAuthorize()]
+        public ActionResult Detail(int id = 0)
+        {
+            using (z_repo<#=ModelTypeName #> repos = new z_repo<#=ModelTypeName #>())
+            {
+                PrgService.SetAction(enAction.Detail, enCardSize.Medium);
+                var model = repos.repo.ReadSingle(m => m.Id == id);
+                return View(model);
+            }
+        }
+
+        /// <summary>
+        /// 新增/修改
+        /// </summary>
+        /// <param name="id">記錄 ID</param>
+        /// <returns></returns>
+        [HttpGet]
+        [LoginAuthorize()]
+        public ActionResult CreateEdit(int id = 0)
+        {            
+            //檢查新增/修改權限
+            if (!PrgService.IsProgramSecurity(enSecurtyMode.CreateEdit , id))
+                return RedirectToAction(ActionService.Index, ActionService.Controller, new { area = ActionService.Area });
+
+            using (z_repo<#=ModelTypeName #> repos = new z_repo<#=ModelTypeName #>())
+            {
+                SessionService.KeyValue = id;
+                enAction  action= (id == 0) ? enAction.Create : enAction.Edit;
+                PrgService.SetAction(action, enCardSize.Medium);
+                var model = repos.repo.ReadSingle(m => m.Id == id);
+                if (model == null)
+                {
+                    // 設定新增預設值
+                    model = new <#=ModelTypeName #>()
+                    {
+                        Remark = ""
+                    };
+                }
+                return View(model);
+            }
+        }
+
+        /// <summary>
+        /// 新增/修改
+        /// </summary>
+        /// <param name="model">資料</param>
+        /// <returns></returns>
+        [HttpPost]
+        [LoginAuthorize()]
+        public ActionResult CreateEdit(<#=ModelTypeName #> model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            using (z_repo<#=ModelTypeName #> repos = new z_repo<#=ModelTypeName #>())
+            {
+                repos.CreateEdit(model);
+                return RedirectToAction(ActionService.Index , ActionService.Controller , new { area = ActionService.Area });
+            }
+        }
+
+         /// <summary>
+        /// 刪除
+        /// </summary>
+        /// <param name="id">記錄 ID</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Delete(int id = 0)
+        {
+            //檢查刪除權限
+            if (!PrgService.IsProgramSecurity(enSecurtyMode.Delete))
+                return RedirectToAction(ActionService.Index, ActionService.Controller, new { area = ActionService.Area });
+
+            using (z_repo<#=ModelTypeName #> repos = new z_repo<#=ModelTypeName #>())
+            {
+                repos.Delete(id);
+                dmJsonMessage result = new dmJsonMessage() { Mode = true, Message = "資料已刪除!!" };
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        /// <summary>
+        /// 選取
+        /// </summary>
+        /// <param name="id">記錄 ID</param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult Select(int id = 0)
+        {
+            PrgService.SelectedId = id;
+            return RedirectToAction(ActionService.Index, ActionService.Controller, new { area = ActionService.Area, page = PrgService.PageNumber  , searchText = PrgService.SearchText });
+        }
+
+        /// <summary>
+        /// 查詢
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [LoginAuthorize()]
+        public ActionResult Search()
+        {
+            object obj_text = Request.Form[ActionService.SearchText];
+            string str_text = (obj_text == null) ? string.Empty : obj_text.ToString();
+            return RedirectToAction(ActionService.Index, ActionService.Controller, new { area = ActionService.Area, searchText = str_text });
+        }
+    }
+}
+<#+
+// This function converts the primary key short type name to its nullable equivalent when possible. This is required to make
+// sure that an HTTP 400 error is thrown when the user tries to access the edit, delete, or details action with null values.
+    string GetNullableTypeName(string typeName, string shortTypeName)
+    {
+        // The exceptions are caught because if for any reason the type is user defined, then the short type name will be used.
+        // In that case the user will receive a server error if null is passed to the edit, delete, or details actions.
+        Type primaryKeyType = null;
+        try
+        {
+            primaryKeyType = Type.GetType(typeName);
+        }
+        catch
+        {
+        }
+        if (primaryKeyType != null && (primaryKeyType.IsPrimitive || IsGuid(typeName)))
+        {
+            return shortTypeName + "?";
+        }
+        return shortTypeName;
+    }
+
+    bool IsGuid(string typeName) {
+        return String.Equals("System.Guid", typeName, StringComparison.OrdinalIgnoreCase);
+    }
+#>

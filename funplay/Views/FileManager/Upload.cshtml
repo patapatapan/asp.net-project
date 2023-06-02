@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Upload", "Image", new { area = "" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row my-5">
+        <div class="col-md-10 float-left">
+            <input type="file" name="file" id="file" class="form-control" />
+        </div>
+        <div class="col-md-2 float-right">
+            <input type="submit" value="上傳檔案" class="btn btn-primary form-control" />
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            @Html.ActionLink("返回上頁", "Index", "FileManager", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+}

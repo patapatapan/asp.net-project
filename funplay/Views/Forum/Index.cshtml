@@ -1,0 +1,27 @@
+﻿@model IEnumerable<funplay.Models.ForumBoards>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card mt-2" style="width: 100%;">
+                <a href="@Url.Action("Board" , "Forum" , new { area = "" , id = item.BoardNo})">
+                    <img src="@Url.Content(string.Format("~/Images/ForumCode/{0}.jpg", item.IconName))" class="card-img-top" alt="@item.BoardName" />
+                    <div class="card-body mt-2">
+                        <div class="text-center">
+                            <h4>@item.BoardName 討論區</h4>
+                        </div>
+                        <div class="text-start">
+                            <h5>@string.Format("文章數：{0} 回覆數：{1}", item.ArticleCount, item.ReplyCount)</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    }
+</div>

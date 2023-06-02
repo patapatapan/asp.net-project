@@ -1,0 +1,76 @@
+﻿@model funplay.Models.Users
+
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="form-horizontal mt-2">
+    <div class="row">
+        <div class="col-md-3 border-bottom border-start border-end  border-top">
+            <img src="@Url.Content(UserService.UserImage)" class="img-fluid rounded-start" />
+        </div>
+        <div class="col-md-9 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-3 border-bottom border-end">
+                    @Html.LabelFor(model => model.UserNo, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-9 border-bottom pt-1">
+                    @Html.DisplayFor(model => model.UserNo, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3 border-bottom border-end">
+                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-9 border-bottom pt-1">
+                    @Html.DisplayFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3 border-bottom border-end">
+                    @Html.LabelFor(model => model.DeptName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-9 border-bottom pt-1">
+                    @Html.DisplayFor(model => model.DeptName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3 border-bottom border-end">
+                    @Html.LabelFor(model => model.TitleName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-9 border-bottom pt-1">
+                    @Html.DisplayFor(model => model.TitleName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3 border-bottom border-end">
+                    @Html.LabelFor(model => model.ContactTel, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-9 border-bottom pt-1">
+                    @Html.DisplayFor(model => model.ContactTel, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3 border-bottom border-end">
+                    @Html.LabelFor(model => model.ContactEmail, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-9 border-bottom pt-1">
+                    @Html.DisplayFor(model => model.ContactEmail, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3 border-end">
+                    @Html.LabelFor(model => model.ContactAddress, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-9 pt-1">
+                    @Html.DisplayFor(model => model.ContactAddress, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt-2">
+    @Html.ActionLink(ActionService.EditName, ActionService.Edit, ActionService.Controller, new { area = ActionService.Area }, new { @class = "btn btn-success" })
+    @Html.ActionLink(ActionService.UploadImageName, ActionService.UploadImage, ActionService.Controller, new { area = ActionService.Area }, new { @class = "btn btn-success" })
+</div>

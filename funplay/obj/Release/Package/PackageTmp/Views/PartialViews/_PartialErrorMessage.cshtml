@@ -1,0 +1,15 @@
+﻿@{
+    if (TempData["ErrorMessage"] != null)
+    {
+        string str_message = TempData["ErrorMessage"].ToString();
+        if (!string.IsNullOrEmpty(str_message))
+        {
+            <script type="text/javascript">
+            Swal.fire({
+                title: '<strong>訊息提示</strong>',
+                html: '@Html.Raw(str_message)'
+            })
+            </script>
+        }
+    }
+}

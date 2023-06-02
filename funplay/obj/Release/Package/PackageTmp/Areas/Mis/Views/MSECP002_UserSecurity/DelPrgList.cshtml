@@ -1,0 +1,47 @@
+﻿@model IEnumerable<dmPrgList>
+
+@using (Html.BeginForm())
+{
+    int int_index = 0;
+
+    @Html.AntiForgeryToken()
+    <div class="row form-group">
+        <div class="col-md-12">
+            <input type="submit" value="刪除程式權限" class="btn btn-danger" />
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <tr class="table-secondary">
+            <th>
+                @Html.DisplayNameFor(model => model.IsChecked)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrgNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrgName)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            int_index++;
+            string str_column1 = string.Format("{0}_1", item.PrgNo);
+            string str_column2 = string.Format("{0}_2", item.PrgNo);
+            <tr>
+                <td>
+                    <div class="checkbox">
+                        <input id="@str_column1" name="@str_column1" type="checkbox" value="@item.IsChecked" />
+                        <input id="@str_column2" name="@str_column2" type="hidden" value="false" />
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrgNo)
+                </td>
+                <td class="table-wrap">
+                    @Html.DisplayFor(modelItem => item.PrgName)
+                </td>
+            </tr>
+        }
+    </table>
+}

@@ -1,0 +1,74 @@
+﻿@model vmLogin
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLite.cshtml";
+}
+
+<div class="card card-size-small mt-5 shadow">
+    <div class="card-header text-white bg-primary">
+        <div class="float-start">
+            <h3>@AppService.AppName</h3>
+        </div>
+        <div class="float-end">
+            <h3>系統登入</h3>
+        </div>
+    </div>
+    <div class="card-body pt-4">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row form-group">
+                    @Html.LabelFor(model => model.UserNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UserNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="control-label col-md-2 fw-bold">驗證碼</div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="captcha-input" required autocomplete="off" placeholder="請輸入驗證碼 ...">
+                        <span id="errCaptcha"></span>
+                    </div>
+                    <div class="control-label col-md-1">
+                        <div class="captcha-reload" role="button"><i class="fas fa-sync"></i></div>
+                    </div>
+                    <div class="control-label col-md-5">
+                        <div class="captcha-code code dynamic-code"></div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <div class="float-start">
+                            <input type="submit" value="登入系統" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+@section styles {
+    <link href="@Url.Content("~/Plugins/Captcha/captcha.css")" rel="stylesheet" />
+
+}
+
+@section scriptsbody {
+    <script src="@Url.Content("~/Plugins/Captcha/captcha.js")"></script>
+}

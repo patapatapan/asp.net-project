@@ -1,0 +1,34 @@
+﻿<section id="about-us" class="about-us">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>公司簡介</h2>
+        </div>
+
+        @{
+            string GoogleMapKey = "";
+            using (z_repoCompanys comp = new z_repoCompanys())
+            {
+                using (GoogleMapService gmap = new GoogleMapService())
+                {
+                    GoogleMapKey = gmap.GoogleMapKey;
+                    var compData = comp.GetDefaultCompany();
+
+                    <div class="row content">
+                        <div class="col-lg-4" data-aos="fade-right">
+                            <h3>@compData.CompName</h3>
+                            <h4>@compData.EngName</h4>
+                            <p><span class="fw-bold">公司地址：</span>@compData.CompAddress</p>
+                            <p><span class="fw-bold">連絡電話：</span>@compData.CompTel</p>
+                            <iframe src="https://www.google.com/maps/embed/v1/place?key=@GoogleMapKey&q=@compData.CompAddress" height="450" style="border:0;width:100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="col-lg-8 pt-4 pt-lg-0" data-aos="fade-left">
+                            <p>
+                                @Html.Raw(compData.AboutusText)
+                            </p>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    </div>
+</section>

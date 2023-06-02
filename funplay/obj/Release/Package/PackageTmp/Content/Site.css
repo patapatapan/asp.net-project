@@ -1,0 +1,155 @@
+﻿.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+.zoom-img {
+    width: 430px;
+    height: auto;
+    overflow: hidden;
+}
+
+    .zoom-img img {
+        width: 100%;
+        transition: all .3s ease-in-out;
+    }
+
+        .zoom-img img:hover {
+            transform: scale(1.2);
+        }
+
+.row {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.navbar ul li a {
+    font-size: 20px !important;
+}
+
+.card-size-small {
+    max-width: 576px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin: auto;
+}
+
+.card-size-medium {
+    max-width: 768px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin: auto;
+}
+
+.card-size-large {
+    max-width: 992px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin: auto;
+}
+
+.card-size-max {
+    max-width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin: auto;
+}
+
+.card-body {
+    padding: 3px !important;
+}
+
+.form-horizontal {
+    padding: 15px !important;
+}
+
+.data-filter {
+    background-color: lightgray;
+    padding: 5px;
+}
+
+.bg-orange {
+    background-color: orange;
+}
+
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+.form-group {
+    margin-bottom: 0.1rem !important;
+}
+
+.form-header {
+    color: blue;
+    font-weight: bold;
+}
+
+.control-label {
+    padding-top: 8px !important;
+    font-weight: bold !important;
+}
+
+.page-info {
+    padding-top: 18px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.table th {
+    font-weight: bold;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.table td {
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.table-wrap {
+    width: 100%;
+}
+
+
+.table-admin-nowrap {
+    white-space: nowrap;
+}
+
+.table-admin-wrap {
+    width: 100%;
+}
+
+.select-row {
+    background-color: lightsalmon !important;
+}
+
+.edit-control {
+    background-color: #fff3cd !important;
+}
+
+.bootstrap-select > .dropdown-toggle {
+    background-color: #fff3cd !important;
+}
+
+.checkbox {
+    padding-top: 8px !important;
+}
+
+.logo-image {
+    max-width: 64px !important;
+}
+
+.form-control:focus {
+    background-color: lemonchiffon !important;
+    color: black !important;
+}
+.row-image-thumbnail {
+    width:32px !important;
+}

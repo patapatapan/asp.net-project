@@ -1,0 +1,102 @@
+﻿@model funplay.Models.Users
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.IsValid)
+    @Html.HiddenFor(model => model.UserNo)
+    @Html.HiddenFor(model => model.UserName)
+    @Html.HiddenFor(model => model.RoleNo)
+    @Html.HiddenFor(model => model.DeptNo)
+    @Html.HiddenFor(model => model.TitleNo)
+    @Html.HiddenFor(model => model.Password)
+    @Html.HiddenFor(model => model.Birthday)
+    @Html.HiddenFor(model => model.GenderCode)
+    @Html.HiddenFor(model => model.ValidateCode)
+    @Html.HiddenFor(model => model.Remark)
+
+    <div class="form-horizontal mt-2">
+        <div class="row">
+            <div class="col-md-3 border-bottom border-start border-end  border-top">
+                <img src="@Url.Content(UserService.UserImage)" class="img-fluid rounded-start" />
+            </div>
+            <div class="col-md-9 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-3 border-bottom border-end">
+                        @Html.LabelFor(model => model.UserNo, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-9 border-bottom pt-1">
+                        @Html.DisplayFor(model => model.UserNo, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3 border-bottom border-end">
+                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-9 border-bottom pt-1">
+                        @Html.DisplayFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3 border-bottom border-end">
+                        @Html.LabelFor(model => model.DeptName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-9 border-bottom pt-1">
+                        @Html.DisplayFor(model => model.DeptName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3 border-bottom border-end">
+                        @Html.LabelFor(model => model.TitleName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-9 border-bottom pt-1">
+                        @Html.DisplayFor(model => model.TitleName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3 border-bottom border-end">
+                        @Html.LabelFor(model => model.ContactTel, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-9 border-bottom pt-1">
+                        @Html.EditorFor(model => model.ContactTel, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.ContactTel, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3 border-bottom border-end">
+                        @Html.LabelFor(model => model.ContactEmail, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-9 border-bottom pt-1">
+                        @Html.EditorFor(model => model.ContactEmail, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.ContactEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3 border-end">
+                        @Html.LabelFor(model => model.ContactAddress, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-9 pt-1">
+                        @Html.EditorFor(model => model.ContactAddress, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.ContactAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row form-group">
+        <div class="col-md-12">
+            @Html.Partial("~/Views/PartialViews/_PartialFormSumit.cshtml")
+        </div>
+    </div>
+</div>
+}

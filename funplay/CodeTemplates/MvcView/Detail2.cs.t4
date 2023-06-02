@@ -1,0 +1,136 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ output extension=".cshtml" #>
+<#@ include file="Imports.include.t4" #>
+@model <#= ViewDataTypeName #>
+<#
+// The following chained if-statement outputs the file header code and markup for a partial view, a view using a layout page, or a regular view.
+if(IsPartialView) {
+#>
+
+<#
+} else if(IsLayoutPageSelected) {
+#>
+
+@{
+    ViewBag.Title = "<#= ViewName#>";
+<#
+if (!String.IsNullOrEmpty(LayoutPageFile)) {
+#>
+    Layout = "<#= LayoutPageFile#>";
+<#
+}
+#>
+}
+
+<#
+} else {
+#>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title><#= ViewName #></title>
+</head>
+<body>
+<#
+    PushIndent("    ");
+}
+#>
+@Html.Partial("~/Views/PartialViews/_PartialErrorMessage.cshtml")
+<div class="form-horizontal mt-2">
+<#
+int index = 0;
+foreach (PropertyMetadata property in ModelMetadata.Properties) {
+    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+        index ++;
+#>
+<#
+        // We do not want to show any association properties for which there is
+        // no associated foreign key.
+        if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+            index --;
+            continue;
+        }
+#>
+<#
+ if (index % 2 == 1)
+{
+#>
+    <div class="row">
+<#
+}
+#>
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                    @Html.LabelFor(model => model.<#= GetValueExpression(property) #>, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-8 pt-1">
+                    @Html.DisplayFor(model => model.<#= GetValueExpression(property) #>, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+<#
+if (index % 2 == 0)
+{
+#>
+    </div>
+<#
+}
+#>
+<#
+    }
+}
+#>
+<#
+ if (index % 2 == 1)
+{
+#>
+        <div class="col-md-6 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-4 border-end">
+                </div>
+                <div class="col-md-8 pt-1">
+                </div>
+            </div>
+        </div>
+    </div>
+<#
+}
+#>
+</div>
+<div class="mt-2">
+<#
+string pkName = GetPrimaryKeyName();
+if (pkName != null) {
+#>
+    @Html.ActionLink(ActionService.EditName, ActionService.CreateEdit, ActionService.Controller, new { area = ActionService.Area , id = Model.<#= pkName #> }, new { @class = "btn btn-success" })
+    @Html.ActionLink(ActionService.ReturnIndex, ActionService.Index, ActionService.Controller, new { area = ActionService.Area }, new { @class = "btn btn-success" })
+<#
+} else {
+#>
+    @Html.ActionLink(ActionService.EditName, ActionService.CreateEdit, ActionService.Controller, new { area = ActionService.Area , id = 0}, new { @class = "btn btn-success" })
+    @Html.ActionLink(ActionService.ReturnIndex, ActionService.Index, ActionService.Controller, new { area = ActionService.Area }, new { @class = "btn btn-success" })
+<#
+}
+#>
+</div>
+<#
+// The following code closes the tag used in the case of a view using a layout page and the body and html tags in the case of a regular view page
+#>
+<#
+if(!IsPartialView && !IsLayoutPageSelected) {
+    ClearIndent();
+#>
+</body>
+</html>
+<#
+}
+#>
+<#@ include file="ModelMetadataFunctions.cs.include.t4" #>

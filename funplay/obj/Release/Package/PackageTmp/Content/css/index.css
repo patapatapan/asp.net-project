@@ -1,0 +1,252 @@
+/* 輪播圖的css */
+.shop-list {
+    width: 75%;
+    max-width: 1600px;
+    aspect-ratio: 16/9;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.carousel-inner {
+
+    border-radius: 30px;
+}
+
+.carousel-item>img {
+    margin-left: 0;
+
+}
+
+.shop-list .col-9 {
+    padding: 0;
+    height: 75%;
+}
+
+.shop-list .col-3 {
+    padding: 0;
+    height: 75%;
+}
+
+/*輪播圖的ul*/
+.picShow {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.li-box {
+    width: 85%;
+    height: 19%;
+    border-radius: 15px;
+    float: right;
+    border: 1px solid rgba(160, 160, 160, 0.5);
+}
+
+/*.x+.x 指上一個元素跟自己同為x時 才會生效的css*/
+.li-box+.li-box {
+    margin-top: 2%;
+}
+
+.li-box li {
+    width: 100%;
+    height: 100%;
+}
+
+.li-box:hover {
+    border-radius: 10px;
+    background-color: rgb(109, 109, 109);
+}
+
+.li-box img {
+    margin: 0;
+    width: 60%;
+    height: 70%;
+    border-radius: 10px;
+}
+
+li .row {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.col-4 {
+    padding: 0;
+}
+
+.col-8 {
+    padding: 0;
+}
+
+/* 滑動商品列的寬 高 置中 */
+.swipe-list {
+    width: 75%;
+    aspect-ratio: 16/9;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swipe-list .carousel-inner {
+    border-radius: 0;
+}
+
+.swipe-list .col {
+    padding: 0;
+}
+
+/*優惠商品區的父層設定 可以讓剩餘的子元素填滿剩餘高度*/
+.swipe-list .project .col-3 {
+    display: flex;
+    flex-direction: column;
+}
+
+/*優惠商品的圖片比例 9/14*/
+.aspect-ratio-container {
+    width: 100%;
+    padding-bottom: 140%;
+    position: relative;
+}
+
+.aspect-ratio-container>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px 30px 0 0;
+    flex-grow: 1;
+}
+
+.swipe-button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(73, 73, 73, 0.5);
+    border-radius: 100%;
+    top: 45%;
+}
+
+.swipe-button:hover {
+    background-color: rgb(73, 73, 73);
+}
+
+.col-1 span {
+    color: #ffffff;
+}
+
+.info-box {
+    background-color: rgb(73, 73, 73);
+    opacity: 0.7;
+    width: 100%;
+    border-radius: 0 0 30px 30px;
+    /*height: 30%;*/
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.price {
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    /*flex-wrap: wrap;*/
+}
+
+.price .col-8 span {
+    width: 60px;
+    height: 40px;
+    background-color: rgb(255, 136, 0);
+    border-radius: 10px 10px 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ori-p {
+    text-decoration: line-through;
+    transform: skew(-25deg);
+    font-size: 12px;
+    display: flex;
+    justify-content: end;
+    /*將元素置右*/
+}
+
+.disc-p {
+    font-size: 16px;
+    display: flex;
+    justify-content: end;
+    /*將元素置右*/
+}
+
+@media (max-width: 767px) {
+    .ori-p {
+        font-size: 8px;
+    }
+
+    .disc-p {
+        font-size: 12px;
+    }
+}
+
+.ad {
+    width: 100%;
+    height: 270px;
+    background-image: linear-gradient(20deg, #51595c, #87868a);
+    background-size: 100% 150%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.footer button {
+    width: 60px;
+    height: 40px;
+    border-radius: 10px;
+    border-style: hidden;
+    background-image: linear-gradient(20deg, yellow,
+            orange);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer button:hover {
+    background-image: linear-gradient(20deg, orange,
+            yellow);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.footer-content {
+    color: rgba(224, 224, 224, 0.9);
+}
+
+.footer-content a {
+    font-size: 16;
+    text-decoration: none;
+}
+
+button a{
+    text-decoration:none;
+    color:black;
+}
+
+@media (min-width: 768px) {
+    .price {
+        width: 90%;
+        display: flex;
+        justify-content: flex-start;
+        /*flex-wrap: wrap;*/
+    }
+
+    .ori-p {
+        text-decoration: line-through;
+        transform: skew(-25deg);
+        font-size: 12px;
+        display: flex;
+        justify-content: end;
+        /*將元素置右*/
+    }
+}

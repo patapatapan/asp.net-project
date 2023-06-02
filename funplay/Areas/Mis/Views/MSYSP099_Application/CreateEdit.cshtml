@@ -1,0 +1,197 @@
+﻿@model funplay.Models.Applications
+
+@{
+    ViewBag.Title = "CreateEdit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ActionService.RowId = Model.Id;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal mt-2">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.IsEnabled)
+        <div class="row">
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.AppName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.AppName, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.AppName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.AppVersion, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.AppVersion, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.AppVersion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.IsDebug, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.IsDebug)
+                            @Html.ValidationMessageFor(model => model.IsDebug, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.EncryptionMode, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.EncryptionMode)
+                            @Html.ValidationMessageFor(model => model.EncryptionMode, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.PowerBy, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.PowerBy, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.PowerBy, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.LanguageNo, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.LanguageNo, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.LanguageNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.WebSiteUrl, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.WebSiteUrl, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.WebSiteUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.MailSenderName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.MailSenderName, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.MailSenderName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.MailSenderEmail, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.MailSenderEmail, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.MailSenderEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.MailAppPassword, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.MailAppPassword, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.MailAppPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.MailHostUrl, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.MailHostUrl, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.MailHostUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.MailHostPort, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.MailHostPort, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.MailHostPort, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.MailUseSSL, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.MailUseSSL)
+                            @Html.ValidationMessageFor(model => model.MailUseSSL, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 border-bottom border-start border-end  border-top">
+                <div class="row form-group">
+                    <div class="col-md-4 border-end">
+                        @Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                        @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                @Html.Partial("~/Views/PartialViews/_PartialFormSumit.cshtml")
+            </div>
+        </div>
+    </div>
+}
+

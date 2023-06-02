@@ -1,0 +1,59 @@
+﻿@model IEnumerable<funplay.Models.AboutUs>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="overflow-scroll">
+    @Html.Partial("~/Views/PartialViews/_PartialFormHeader.cshtml")
+    <table class="table  table-bordered">
+        <tr class="table-secondary">
+            <th>
+                @Html.Partial("~/Views/PartialViews/_PartialFormCreate.cshtml")
+            </th>
+                    <th>
+                @Html.DisplayNameFor(model => model.HeaderName)
+            </th>
+                    <th>
+                @Html.DisplayNameFor(model => model.TitleName)
+            </th>
+                    <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+                    <th>
+                @Html.DisplayNameFor(model => model.DetailText)
+            </th>
+                    <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+            </tr>
+
+    
+    @foreach (var item in Model) 
+    {
+        ActionService.RowId = item.Id;
+        <tr>
+            <td>
+                @Html.Partial("~/Views/PartialViews/_PartialFormEdit.cshtml")
+                @Html.Partial("~/Views/PartialViews/_PartialFormDelete.cshtml")
+            </td>
+                         <td>
+                    @Html.DisplayFor(modelItem => item.HeaderName)
+            </td>
+                         <td>
+                    @Html.DisplayFor(modelItem => item.TitleName)
+            </td>
+                         <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+            </td>
+                         <td>
+                    @Html.DisplayFor(modelItem => item.DetailText)
+            </td>
+                        <td  class="table-wrap">
+                    @Html.DisplayFor(modelItem => item.Remark)
+            </td>
+            </tr>
+    }
+    </table>
+</div>

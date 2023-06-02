@@ -1,0 +1,2 @@
+﻿@if (UserService.UserSecurity.IsAdd)
+{@Html.ActionLink(ActionService.CreateName, ActionService.CreateEdit, ActionService.Controller, new { area = ActionService.Area, id = 0 }, new { @class = "btn btn-primary" })}

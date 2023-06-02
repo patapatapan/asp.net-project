@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            @{
+                using (z_repoCarousels carousel = new z_repoCarousels())
+                {
+                    string str_class = "";
+                    string str_url = "";
+                    var data = carousel.repo.ReadAll().OrderBy(m => m.SortNo).ToList();
+                    foreach (var item in data)
+                    {
+                        str_url = string.Format("~/Images/Carousel/{0}", item.ImageUrl);
+                        str_class = "";
+                        if (item.IsActive) { str_class = "active"; }
+
+                        <div class="carousel-item @str_class" style="background-image: url(@Url.Content(str_url));">
+                            <div class="carousel-container">
+                                <div class="carousel-content animate__animated animate__fadeInUp">
+                                    <h2>@item.HeaderName</h2>
+                                    <p>@item.Description</p>
+                                    <div class="text-center"><a href="#" class="btn-get-started">更多資訊</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+    </div>
+</section><!-- End Hero -->
+
+<main id="main">
+    <!-- ======= 公司簡介 區段 ======= -->
+    @Html.Partial("~/Views/PartialViews/_PartialHomeAbout.cshtml")
+    <!-- ======= 服務項目 區段 ======= -->
+    @Html.Partial("~/Views/PartialViews/_PartialHomeService.cshtml")
+    <!-- ======= 商品介紹 區段 ======= -->
+    @Html.Partial("~/Views/PartialViews/_PartialHomePhoto.cshtml")
+    <!-- ======= 公司客戶 區段 ======= -->
+    @Html.Partial("~/Views/PartialViews/_PartialHomeClient.cshtml")
+</main><!-- End #main -->

@@ -1,0 +1,55 @@
+﻿@model funplay.Models.Photos
+
+@{
+    ViewBag.Title = "PhotoDetail";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+            <div class="col-lg-6">
+                <div class="portfolio-details-slider swiper">
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-wrapper align-items-center">
+                        @{
+                            using (var fileService = new FileService())
+                            {
+                                string str_file = "";
+                                string str_folder = string.Format("~/Images/Photo/{0}/{1}", Model.CodeNo, Model.FolderName);
+                                var fileList = fileService.GetFileInfoList(str_folder);
+                                if (fileList != null && fileList.Count > 0)
+                                {
+                                    foreach (var item in fileList)
+                                    {
+                                        str_file = string.Format("{0}/{1}", str_folder, item.Name);
+
+                                        <div class="swiper-slide">
+                                            <img src="@Url.Content(str_file)" alt="@item.Name">
+                                        </div>
+                                    }
+                                }
+                            }
+                        }
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="portfolio-info">
+                    <h3>@Model.PhotoName</h3>
+                    <ul>
+                        <li><strong>分類名稱</strong>: @Model.CodeName</li>
+                        <li><strong>價格區間</strong>: @Model.PriceName</li>
+                        <li><strong>上架日期</strong>: @Model.SaleDate.ToString("yyyy/MM/dd")</li>
+                    </ul>
+                </div>
+                <div class="portfolio-description">
+                    <h2>商品 @Model.PhotoName 的簡介</h2>
+                    @Html.Raw(Model.DetailText)
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Portfolio Details Section -->

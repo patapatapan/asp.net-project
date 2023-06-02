@@ -1,0 +1,15 @@
+/*隱藏超過寬度*/
+.container-fluid {
+    overflow-x: hidden;
+}
+
+/*logo圖片*/
+.login-logo {
+    width: 56px;
+    height: 100%;
+}
+
+.login-logo img {
+    width: 100%;
+    height: 100%;
+}

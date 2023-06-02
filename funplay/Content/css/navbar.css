@@ -1,0 +1,171 @@
+/* 媒體查詢：大於等於 768px 的裝置*/
+@media screen and (min-width: 768px) {
+    .user {
+        order: 1;
+    }
+
+    .menu {
+        justify-content: center;
+    }
+
+    ul {
+        justify-content: center;
+    }
+
+    #search-button1 {
+        display: block;
+    }
+
+    #search-button2 {
+        display: none;
+    }
+}
+
+/* 媒體查詢：小於 768px 的裝置 */
+@media screen and (max-width: 767px) {
+
+    /* 按鈕置左 */
+    .navbar-toggler {
+        order: -1;
+        margin-right: auto;
+        margin-left: 10px;
+    }
+
+    /* 導覽列置左 */
+    .menu {
+        justify-content: start;
+        /*導覽列成豎狀*/
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .login-logo img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    #search-button1 {
+        display: none;
+    }
+
+    #search-button2 {
+        display: block;
+    }
+}
+
+/*背景顏色*/
+body {
+    background-color: rgba(221, 221, 221, 0.5);
+}
+
+.navbar {
+    background-color: rgb(73, 73, 73);
+    /*導覽列背景顏色*/
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    float: left;
+}
+
+.navbar-nav {
+    justify-content: center;
+    text-align: center;
+}
+
+/*漢堡包顏色*/
+.custom-toggler {
+    border-color: #ffffff;
+    /* 改變邊框顏色 */
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    /* 改變 toggle icon 的顏色 */
+}
+
+/* 導覽列項目 */
+/* 滑過去變色 */
+.nav-item:hover {
+    background-color: rgb(130, 130, 130);
+    border-radius: 15px;
+}
+
+/* 頁籤顏色 */
+.nav-pills .nav-link.active {
+    background-color: rgb(130, 130, 130);
+    opacity: 1;
+}
+
+/* 點擊頁籤變色 */
+.nav-link.active,
+.show>.nav-link {
+    background-color: rgb(130, 130, 130);
+    opacity: 1;
+    border-radius: 15px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    /* 防止图标换行 */
+}
+
+.icon {
+    opacity: 0.5;
+}
+
+.icon:hover {
+    opacity: 1;
+}
+
+/*燈箱搜尋框*/
+.modal-content {
+    transform: translate(0, -330%);
+}
+
+#search {
+    width: 80%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.modal-content {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+/* 搜尋按鈕設定 */
+i:hover {
+    opacity: 1;
+}
+
+.fa-solid {
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: rgb(161, 161, 161);
+    opacity: 0.5;
+}
+
+.fa-xl {
+    font-size: 26px;
+    color: aliceblue;
+}
+
+.fa-xl::before {
+    line-height: 2.5rem;
+    margin-left: 8px;
+}
+
+.half-rounded {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

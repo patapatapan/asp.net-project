@@ -1,0 +1,60 @@
+﻿@model vmFileManager
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    FileService fileService = new FileService();
+}
+
+<div class="row my-2">
+    <div class="col-md-10 fs-5">
+        @Html.DisplayNameFor(model => model.PathName) ：
+        @Html.DisplayFor(model => model.PathName)
+    </div>
+    <div class="col-md-2 text-end">
+        @Html.Partial("~/Views/PartialViews/_PartialFormUpload.cshtml")
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <tr class="table-secondary">
+        <th>
+        </th>
+        <th>
+            檔案名稱
+        </th>
+        <th>
+            修改日期
+        </th>
+        <th>
+            類型
+        </th>
+        <th>
+            大小
+        </th>
+    </tr>
+
+    @foreach (var item in Model.FileInfoList)
+    {
+        string str_file = $"{Model.PathName}/{item.Name}";
+        string str_ext_name = fileService.GetExtensionName(str_file);
+        <tr>
+            <td>
+                @Html.Partial("~/Views/PartialViews/_PartialFormDelete.cshtml")
+                @Html.Partial("~/Views/PartialViews/_PartialFormDownload.cshtml")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastWriteTime)
+            </td>
+            <td>
+                @str_ext_name
+            </td>
+            <td class="table-wrap">
+                @Html.DisplayFor(modelItem => item.Length)
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,34 @@
+﻿@model dmFileUpload
+
+@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal mt-2">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.AreaName)
+        @Html.HiddenFor(model => model.ControllerName)
+        @Html.HiddenFor(model => model.ActionName)
+        @Html.HiddenFor(model => model.Page)
+        @Html.HiddenFor(model => model.IdIntParm)
+        @Html.HiddenFor(model => model.IdStringParm)
+
+        <div class="row form-group mt-1">
+            <div class="col-md-10 float-left">
+                <input type="file" name="FileName" id="FileName" class="form-control" />
+            </div>
+            <div class="col-md-2 float-right">
+                <input type="submit" value="上傳檔案" class="btn btn-primary form-control" />
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                @Html.ActionLink("返回上頁", "return", "File", new { area = "" }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+}

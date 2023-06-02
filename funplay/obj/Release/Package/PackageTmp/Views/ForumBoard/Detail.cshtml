@@ -1,0 +1,93 @@
+﻿@using funplay.Models;
+@model IEnumerable<funplay.Models.Forums>
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int int_index = 0;
+    Forums forumsModel = new Forums();
+    using (z_repoForums forums = new z_repoForums())
+    {
+        forumsModel = forums.GetForums(SessionService.TagNo2);
+    }
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="float-start">
+            <table>
+                <tr>
+                    <td>
+                        <img src="@Url.Content(UserService.GetUserImage(forumsModel.UserNo))" style="max-width:32px;" alt="Profile" class="rounded-circle">
+                    </td>
+                    <td class="pt-2 ps-2">
+                        <h5 class="fw-bold">@Html.DisplayFor(modelItem => forumsModel.UserName)</h5>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="float-end">
+            <span class="form-header">@Html.DisplayNameFor(model => model.SubjectTime) </span>：@forumsModel.SubjectTime
+        </div>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-12">
+        @Html.ActionLink("回覆文章", "Reply", "ForumBoard", new { area = "" }, new { @class = "btn btn-success" })
+        @Html.ActionLink("返回列表", "Index", "ForumBoard", new { area = "" }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        @Html.Raw(forumsModel.SubjectContent)
+    </div>
+</div>
+<hr />
+@foreach (var item in Model)
+{
+    int_index++;
+
+    <div class="row">
+        <div class="col-md-2">
+            <div>
+                <h5 class="text-danger">
+                    @int_index 樓
+                </h5>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <img src="@Url.Content(UserService.GetUserImage(item.UserNo))" style="max-width:32px;" alt="Profile" class="rounded-circle">
+                        </td>
+                        <td class="pt-2 ps-2">
+                            <h5 class="fw-bold">@Html.DisplayFor(modelItem => item.UserName)</h5>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <span class="form-header">回覆時間 </span>：@Html.DisplayFor(modelItem => item.SubjectTime) <br />
+            </div>
+            <div>
+                @if (UserService.UserNo == item.UserNo)
+                {
+                    @Html.ActionLink("修改", "Reply", "ForumBoard", new { area = "" , id = item.GuidNo }, new { @class = "btn btn-success" })
+                }
+            </div>
+        </div>
+        <div class="col-md-10 border-secondary border-start">
+            @Html.Raw(item.SubjectContent)
+        </div>
+    </div>
+    <hr />
+}
+
+@section styles {
+    <link href="@Url.Content("~/Plugins/Prism/prism.css")" rel="stylesheet" />
+}
+
+@section scriptsbody {
+    <script src="@Url.Content("~/Plugins/Prism/prism.js")"></script>
+}

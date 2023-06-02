@@ -1,0 +1,59 @@
+﻿@using funplay.Models;
+
+@{
+    string str_expanded = "false";
+    string str_show = "";
+    string str_style = "";
+    string str_icon_name = "";
+    if (string.IsNullOrEmpty(UserService.RoleNo)) { UserService.DemoUser(); }
+    List<Modules> ModuleList = new List<Modules>();
+    List<Programs> PrgList = new List<Programs>();
+    using (z_repoModules repo_module = new z_repoModules())
+    {
+        ModuleList = repo_module.GetModuleList(UserService.RoleNo);
+    }
+}
+
+@foreach (var module in ModuleList)
+{
+    if (module.ModuleNo == PrgService.ModuleNo)
+    { str_expanded = "true"; str_show = "show"; }
+    else
+    { str_expanded = "false"; str_show = ""; }
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#@module.ModuleNo" data-bs-toggle="collapse" href="#" aria-expanded="@str_expanded">
+            <i class="@module.IconName"></i>
+            <span>@module.ModuleNo @module.ModuleName</span>
+            <i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="@module.ModuleNo" class="nav-content collapse @str_show" data-bs-parent="#sidebar-nav">
+            @{
+                using (z_repoPrograms repo_prg = new z_repoPrograms())
+                {
+                    PrgList = repo_prg.GetPrgList(UserService.RoleNo, module.ModuleNo);
+                }
+            }
+            @{
+                using (z_repoCodeDatas prgType = new z_repoCodeDatas())
+                {
+                    foreach (var prg in PrgList)
+                    {
+                        str_icon_name = prgType.GetCodeValue("Program", prg.CodeNo);
+                        if (prg.PrgNo == PrgService.PrgNo)
+                        { str_style = "background-color:#fff3cd;color:blue;"; }
+                        else
+                        { str_style = ""; }
+                    <li>
+                        <a href="@Url.Action("Index", "Menu", new { area = "", id = prg.PrgNo })" style="@str_style">
+                            <i class="@str_icon_name"></i>
+                            <span>
+                                @prg.PrgNo.Substring(prg.PrgNo.Length - 3, 3) @prg.PrgName
+                            </span>
+                        </a>
+                    </li>
+                        }
+                    }
+                }
+        </ul>
+    </li>
+}

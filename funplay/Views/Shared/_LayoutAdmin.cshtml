@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>@AppService.AppName</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="@Url.Content("~/Plugins/NiceAdmin/assets/img/favicon.png")" rel="icon">
+    <link href="@Url.Content("~/Plugins/NiceAdmin/assets/img/apple-touch-icon.png")" rel="apple-touch-icon">
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/themes/base/datepicker.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/all.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/PagedList.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/SweetAlert/sweetalert2.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/FullCalendar/5.11.0/lib/main.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/BootstrapSelect/bootstrap-select.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/DataPicker/datepicker.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/DataTimePicker/jquery.datetimepicker.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/Prism/prism.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/bootstrap-icons/bootstrap-icons.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/boxicons/css/boxicons.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/quill/quill.snow.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/quill/quill.bubble.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/remixicon/remixicon.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/simple-datatables/style.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Plugins/NiceAdmin/assets/css/style.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" />
+    @RenderSection("styles", false)
+
+    <script src="@Url.Content("~/Scripts/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-3.6.0.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.13.2.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobrusive.for.bootstrap5.js")"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-2.8.3.js")"></script>
+    <script src="@Url.Content("~/Scripts/moment.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/SweetAlert/sweetalert2.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/FullCalendar/5.11.0/lib/main.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/FullCalendar/5.11.0/lib/locales-all.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/FullCalendar/5.11.0/examples/js/theme-chooser.js")"></script>
+    <script src="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/BootstrapSelect/bootstrap-select.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/DataPicker/datepicker.js")"></script>
+    <script src="@Url.Content("~/Plugins/DataPicker/datepicker-zh-TW.js")"></script>
+    <script src="@Url.Content("~/Plugins/DataTimePicker/jquery.datetimepicker.full.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/DataTimePicker/jquery.datetimepicker.js")"></script>
+    <script src="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/chart.js/chart.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/echarts/echarts.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/quill/quill.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/simple-datatables/simple-datatables.js")"></script>
+    <script src="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/tinymce/tinymce.min.js")"></script>
+    <script src="@Url.Content("~/Plugins/NiceAdmin/assets/vendor/php-email-form/validate.js")"></script>
+    @RenderSection("scripts", false)
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <div class="d-flex align-items-center justify-content-between">
+            <a class="navbar-brand" href="@Url.Action("Index" , "Home" , new { area = UserService.RoleNo })">
+                @Html.Partial("~/Views/PartialViews/_PartialLogoShort.cshtml")
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div><!-- End Logo -->
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+                @if (UserService.RoleNo == "User" || UserService.RoleNo == "Mis")
+                {
+                    <li class="nav-item pe-3">
+                        <a class="nav-link" title="討論區" href="@Url.Action("Index", "Forum", new { area = "" })">
+                            <i class="far fa-comment-dots fa-2x"></i>
+                        </a>
+                    </li>
+                }
+                <li class="nav-item dropdown pe-3">
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                        <img src="@Url.Content(UserService.UserImage)" alt="Profile" class="rounded-circle">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">@UserService.UserName (@UserService.RoleName)</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        @if (UserService.RoleNo == "User")
+                        {
+                            <li class="dropdown-header text-start">
+
+                                <h6>
+                                    歸屬部門：@UserService.DeptName <br />
+                                    職務名稱：@UserService.TitleName
+                                </h6>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        }
+                        <li>
+                            <a class="dropdown-item d-flex align-items-start" href="@Url.Action("ChangePassword" , "Web" , new { area = ""})">
+                                <i class="bi bi-key-fill"></i>
+                                <h6>重設密碼</h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-start" href="@Url.Action("Index" , "Profile" , new { area = ""})">
+                                <i class="bi bi-person"></i>
+                                <h6>我的帳號</h6>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" title="登出系統" href="@Url.Action("Logout" , "Web" , new { area = ""})">
+                        <i class="fas fa-sign-out-alt fa-2x"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav><!-- End Icons Navigation -->
+
+    </header><!-- End Header -->
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+        <ul class="sidebar-nav" id="sidebar-nav">
+            <li class="nav-item nav-header">
+                <i class="fas fa-server"></i>
+                <span>@AppService.AppName @AppService.AppVersion</span>
+            </li>
+            @Html.Partial(Url.Content("~/Views/PartialViews/_PartialAdminSideMenu.cshtml"))
+        </ul>
+    </aside>
+
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>
+                @Html.ActionLink(ActionService.HomeName, ActionService.Index, ActionService.Home, new { area = UserService.RoleNo }, null)
+                / @PrgService.PrgNo @PrgService.PrgName
+            </h1>
+        </div><!-- End Page Title -->
+        <hr />
+        <section class="section dashboard">
+            <div class="card @PrgService.CardSizeCss">
+                <div class="card-header bg-primary text-white">
+                    <div class="float-start">
+                        <h4>@PrgService.Action</h4>
+                    </div>
+                    @if (!string.IsNullOrEmpty(PrgService.SubHeader))
+                    {
+                        <div class="float-end">
+                            <h4>@PrgService.SubHeader</h4>
+                        </div>
+                    }
+                </div>
+                <div class="card-body">
+                    @Html.Partial("~/Views/PartialViews/_PartialErrorMessage.cshtml")
+                    @RenderBody()
+                </div>
+            </div>
+        </section>
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="float-start copyright ms-2">
+            &copy;  @string.Format("Copyright {0} - {1} ", DateTime.Today.Year, DateTime.Today.Year + 10)
+            <strong>
+                <span> @AppService.PowerBy</span>
+            </strong>. All Rights Reserved
+        </div>
+        <div class="float-end copyright me-2">
+            @AppService.AppName 版本：@AppService.AppVersion
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")"></script>
+    <script src="@Url.Content("~/Plugins/Prism/prism.js")"></script>
+    <script src="@Url.Content("~/Plugins/NiceAdmin/assets/js/main.js")"></script>
+    @RenderSection("scriptsbody", false)
+</body>
+</html>

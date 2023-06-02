@@ -1,0 +1,119 @@
+﻿@model funplay.Models.Photos
+
+@{
+    ViewBag.Title = "CreateEdit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ActionService.RowId = Model.Id;
+    List<SelectListItem> PhotoTypeList = new List<SelectListItem>();
+    using (ListItemData listData = new ListItemData())
+    {
+        PhotoTypeList = listData.BaseDataList("Photo");
+    }
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal mt-2">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+    <div class="row">
+        <div class="col-md-12 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-2 border-end">
+                    @Html.LabelFor(model => model.CodeNo, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.CodeNo, PhotoTypeList , new { @class = "form-control  edit-control selectpicker", data_live_search = "true" })
+                    @Html.ValidationMessageFor(model => model.CodeNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-2 border-end">
+                    @Html.LabelFor(model => model.HeaderName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HeaderName, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                    @Html.ValidationMessageFor(model => model.HeaderName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-2 border-end">
+                    @Html.LabelFor(model => model.DetailName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DetailName, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                    @Html.ValidationMessageFor(model => model.DetailName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-2 border-end">
+                    @Html.LabelFor(model => model.TitleName, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TitleName, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                    @Html.ValidationMessageFor(model => model.TitleName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-2 border-end">
+                    @Html.LabelFor(model => model.ImageUrl, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ImageUrl, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                    @Html.ValidationMessageFor(model => model.ImageUrl, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-2 border-end">
+                    @Html.LabelFor(model => model.MoreUrl, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MoreUrl, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                    @Html.ValidationMessageFor(model => model.MoreUrl, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 border-bottom border-start border-end  border-top">
+            <div class="row form-group">
+                <div class="col-md-2 border-end">
+                    @Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "control-label text-success fw-bold" })
+                </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control edit-control" } })
+                    @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                @Html.Partial("~/Views/PartialViews/_PartialFormSumit.cshtml")
+            </div>
+        </div>
+    </div>
+}
+
+

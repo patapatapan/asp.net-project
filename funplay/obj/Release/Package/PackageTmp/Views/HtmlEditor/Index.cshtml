@@ -1,0 +1,37 @@
+﻿@model vmHtmlEditor
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal mt-2">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="row form-group">
+            <div class="col-md-12">
+                @Html.TextAreaFor(model => model.HtmlText, new { @class = "form-control", rows = 50 })
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                @Html.Partial("~/Views/PartialViews/_PartialFormSumitCancel.cshtml")
+            </div>
+        </div>
+    </div>
+}
+
+@section scriptsbody {
+    <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace('HtmlText', {
+            filebrowserImageUploadUrl: '@Url.Action("CKEditorUploadImage", "Image", new { area = "" , folderName = ActionService.PriorImageFolder })',
+            extraPlugins: 'codesnippet',
+            codeSnippet_theme: 'monokai_sublime'
+        });
+    </script>
+}

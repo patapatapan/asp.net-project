@@ -1,0 +1,75 @@
+﻿@model vmControllerModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    List<SelectListItem> ClassList = new List<SelectListItem>();
+    List<SelectListItem> ProgramList = new List<SelectListItem>();
+    using (ListItemData listData = new ListItemData())
+    {
+        ClassList = listData.ClassAllList();
+        ProgramList = listData.ProgramList();
+    }
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal mt-2">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.AreaName)
+        @Html.HiddenFor(model => model.ControllerName)
+
+        <div class="row form-group mt-1">
+            @Html.LabelFor(model => model.PrgNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.PrgNo, ProgramList, new { @class = "form-control selectpicker", data_live_search = "true" })
+                @Html.ValidationMessageFor(model => model.PrgNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row form-group mt-1">
+            @Html.LabelFor(model => model.ClassName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ClassName, ClassList, new { @class = "form-control selectpicker", data_live_search = "true" })
+                @Html.ValidationMessageFor(model => model.ClassName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <div class="row form-group">
+            <div class="col-md-12">
+                <input type="submit" value="預覽 Controller 類別" class="btn btn-primary" />
+                @Html.ActionLink("返回首頁", "Index", "Home", new { area = ActionService.Area }, new { @class = "btn btn-success" })
+            </div>
+        </div>
+    </div>
+}
+
+@Html.Partial("~/Views/PartialViews/_PartialCodePropertyList.cshtml")
+@section scriptsbody
+{
+    <script>
+        $('#ClassName').on('change', function (e) {
+            $.ajax({
+                url: '@Url.Action("GetPropertys" , "Code" , new { area = ""})',
+                type: 'POST',
+                data: { id: $("#ClassName").val() },
+                dataType: 'json',
+                success: function (response) {
+                    $('table#tblProperty > tbody#columns').empty();
+                    $.each(response, function (i, item) {
+                        $('table#tblProperty > tbody#columns').append("<tr>\
+										        <td >"+ item.ColumnName + "</td>\
+										        <td class=\"px-2\">"+ item.ColumnType + "</td>\
+                                                <td class=\"px-2\">"+ item.AllowNull + "</td>\
+										        </tr>");
+                    });
+                },
+                error: function () {
+                    alert('讀取類別屬性清單錯誤!!');
+                }
+            });
+        });
+    </script>
+}

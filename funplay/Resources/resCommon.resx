@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account" xml:space="preserve">
+    <value>帳戶</value>
+  </data>
+  <data name="AccountGender" xml:space="preserve">
+    <value>帳號性別</value>
+  </data>
+  <data name="AccountName" xml:space="preserve">
+    <value>帳號名稱</value>
+  </data>
+  <data name="AccountNo" xml:space="preserve">
+    <value>登入帳號</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="AddressBook" xml:space="preserve">
+    <value>通訊錄</value>
+  </data>
+  <data name="AllDay" xml:space="preserve">
+    <value>全天</value>
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value>行事曆</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>分類</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="CloseWindow" xml:space="preserve">
+    <value>關閉視窗</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>公司</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>公司名稱</value>
+  </data>
+  <data name="ContactAddress" xml:space="preserve">
+    <value>連絡地址</value>
+  </data>
+  <data name="Contactor" xml:space="preserve">
+    <value>連絡人</value>
+  </data>
+  <data name="ContactPhone" xml:space="preserve">
+    <value>連絡電話</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>複製</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="CreateDate" xml:space="preserve">
+    <value>建立日期</value>
+  </data>
+  <data name="CreateTime" xml:space="preserve">
+    <value>建立時間</value>
+  </data>
+  <data name="Current" xml:space="preserve">
+    <value>目前</value>
+  </data>
+  <data name="CurrentPosition" xml:space="preserve">
+    <value>目前位置</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>客戶</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>日期</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="DepartmentName" xml:space="preserve">
+    <value>部門名稱</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>說明</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>明細</value>
+  </data>
+  <data name="Dollar" xml:space="preserve">
+    <value>元</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>下載</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="EditData" xml:space="preserve">
+    <value>修改資料</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>電子信箱</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>員工</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>結束</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>結束日期</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>結束時間</value>
+  </data>
+  <data name="EnglishName" xml:space="preserve">
+    <value>英文名</value>
+  </data>
+  <data name="EstimatedDate" xml:space="preserve">
+    <value>預定完成日</value>
+  </data>
+  <data name="Event" xml:space="preserve">
+    <value>行程</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>檔案</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>查詢</value>
+  </data>
+  <data name="Finish" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>全名</value>
+  </data>
+  <data name="FullScreen" xml:space="preserve">
+    <value>全螢幕</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>性別</value>
+  </data>
+  <data name="Header" xml:space="preserve">
+    <value>標題</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>首頁</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>圖片</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>圖庫</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>列表</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>項目</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>語系</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>資料列表</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>登出</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>地圖</value>
+  </data>
+  <data name="Material" xml:space="preserve">
+    <value>材料</value>
+  </data>
+  <data name="Meeting" xml:space="preserve">
+    <value>會議</value>
+  </data>
+  <data name="MeetingRoom" xml:space="preserve">
+    <value>會議室</value>
+  </data>
+  <data name="Member" xml:space="preserve">
+    <value>會員</value>
+  </data>
+  <data name="Mis" xml:space="preserve">
+    <value>管理者</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>我的帳戶</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名稱</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>最新消息</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>編號</value>
+  </data>
+  <data name="OnboardDate" xml:space="preserve">
+    <value>到職日期</value>
+  </data>
+  <data name="PageCount" xml:space="preserve">
+    <value>頁總數</value>
+  </data>
+  <data name="PageNumber" xml:space="preserve">
+    <value>頁數</value>
+  </data>
+  <data name="Person" xml:space="preserve">
+    <value>人</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>個人</value>
+  </data>
+  <data name="Personalize" xml:space="preserve">
+    <value>個人化</value>
+  </data>
+  <data name="Piece" xml:space="preserve">
+    <value>件</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>地點</value>
+  </data>
+  <data name="PlaceHolder" xml:space="preserve">
+    <value>請輸入內容!!</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>列印</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>商品</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>規格</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>備註</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>重設密碼</value>
+  </data>
+  <data name="Resource" xml:space="preserve">
+    <value>資源</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>返回</value>
+  </data>
+  <data name="ReturnHome" xml:space="preserve">
+    <value>返回首頁</value>
+  </data>
+  <data name="ReturnIndex" xml:space="preserve">
+    <value>返回列表</value>
+  </data>
+  <data name="ReturnList" xml:space="preserve">
+    <value>返回資料列表</value>
+  </data>
+  <data name="Room" xml:space="preserve">
+    <value>房間</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>存檔</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>查詢</value>
+  </data>
+  <data name="Shop" xml:space="preserve">
+    <value>商城</value>
+  </data>
+  <data name="ShoppingMall" xml:space="preserve">
+    <value>購物商城</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="Sort" xml:space="preserve">
+    <value>排序</value>
+  </data>
+  <data name="Specification" xml:space="preserve">
+    <value>規格</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>開始</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>開始日期</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>開始時間</value>
+  </data>
+  <data name="Telphone" xml:space="preserve">
+    <value>電話</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="Times" xml:space="preserve">
+    <value>次</value>
+  </data>
+  <data name="TitleName" xml:space="preserve">
+    <value>職務名稱</value>
+  </data>
+  <data name="TodoList" xml:space="preserve">
+    <value>工作清單</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>類別</value>
+  </data>
+  <data name="TypeName" xml:space="preserve">
+    <value>類別名稱</value>
+  </data>
+  <data name="UnDefind" xml:space="preserve">
+    <value>未定義</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>上傳</value>
+  </data>
+  <data name="UploadFile" xml:space="preserve">
+    <value>上傳檔案</value>
+  </data>
+  <data name="UploadImage" xml:space="preserve">
+    <value>上傳圖片</value>
+  </data>
+  <data name="UploadImages" xml:space="preserve">
+    <value>上傳圖庫</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>使用者</value>
+  </data>
+  <data name="Vendor" xml:space="preserve">
+    <value>廠商</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+</root>
