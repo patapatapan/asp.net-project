@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace funplay.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Programs
     {
         public int Id { get; set; }
@@ -27,5 +27,8 @@ namespace funplay.Models
         public string ActionName { get; set; }
         public string ParmValue { get; set; }
         public string Remark { get; set; }
+        public bool IsPageSize { get; set; }
+        public bool IsSearch { get; set; }
+        public int PageSize { get; set; }
     }
 }

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace funplay.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class AboutUs
     {
         public int Id { get; set; }

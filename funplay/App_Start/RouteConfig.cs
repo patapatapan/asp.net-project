@@ -18,7 +18,7 @@ namespace funplay
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Web", action = "Login", id = UrlParameter.Optional },
                 new string[] { "funplay.Controllers" }
-            );
+                );
         }
     }
 }

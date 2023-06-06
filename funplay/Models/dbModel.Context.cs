@@ -7,24 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-
 namespace funplay.Models
 {
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    
     public partial class dbEntities : DbContext
     {
         public dbEntities()
             : base("name=dbEntities")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<AboutUs> AboutUs { get; set; }
         public virtual DbSet<AboutUsDetails> AboutUsDetails { get; set; }
         public virtual DbSet<AddressBooks> AddressBooks { get; set; }
@@ -62,7 +62,6 @@ namespace funplay.Models
         public virtual DbSet<PricingDetails> PricingDetails { get; set; }
         public virtual DbSet<Pricings> Pricings { get; set; }
         public virtual DbSet<ProductPropertys> ProductPropertys { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Programs> Programs { get; set; }
         public virtual DbSet<Promotions> Promotions { get; set; }
         public virtual DbSet<PropertyNames> PropertyNames { get; set; }
@@ -74,12 +73,29 @@ namespace funplay.Models
         public virtual DbSet<Teams> Teams { get; set; }
         public virtual DbSet<Titles> Titles { get; set; }
         public virtual DbSet<TodoLists> TodoLists { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Vacations> Vacations { get; set; }
         public virtual DbSet<WorkflowDetails> WorkflowDetails { get; set; }
         public virtual DbSet<WorkflowMasters> WorkflowMasters { get; set; }
         public virtual DbSet<WorkflowRoles> WorkflowRoles { get; set; }
         public virtual DbSet<WorkflowRoleUsers> WorkflowRoleUsers { get; set; }
         public virtual DbSet<WorkflowRoutes> WorkflowRoutes { get; set; }
+        public virtual DbSet<FormDetail> FormDetail { get; set; }
+        public virtual DbSet<FormMaster> FormMaster { get; set; }
+        public virtual DbSet<Game_Genre> Game_Genre { get; set; }
+        public virtual DbSet<Game_Mode> Game_Mode { get; set; }
+        public virtual DbSet<Games> Games { get; set; }
+        public virtual DbSet<Genres> Genres { get; set; }
+        public virtual DbSet<MainTypes> MainTypes { get; set; }
+        public virtual DbSet<Modes> Modes { get; set; }
+        public virtual DbSet<Platform> Platform { get; set; }
+        public virtual DbSet<Platform_Game> Platform_Game { get; set; }
+        public virtual DbSet<ProductFeatureds> ProductFeatureds { get; set; }
+        public virtual DbSet<ProductInventorys> ProductInventorys { get; set; }
+        public virtual DbSet<ProductRelations> ProductRelations { get; set; }
+        public virtual DbSet<SecondTypes> SecondTypes { get; set; }
+        public virtual DbSet<Songs> Songs { get; set; }
+        public virtual DbSet<User_Game> User_Game { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

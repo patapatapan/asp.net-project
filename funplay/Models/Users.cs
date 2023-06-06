@@ -7,15 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace funplay.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Users
     {
         public int Id { get; set; }
-        public bool IsValid { get; set; }
+        public Nullable<bool> IsValid { get; set; }
         public string UserNo { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
@@ -31,6 +31,10 @@ namespace funplay.Models
         public string ContactTel { get; set; }
         public string ContactAddress { get; set; }
         public string ValidateCode { get; set; }
+        public string NotifyPassword { get; set; }
         public string Remark { get; set; }
+        public string Account { get; set; }
+        public string Email { get; set; }
+        public string Tel { get; set; }
     }
 }

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace funplay.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Applications
     {
         public int Id { get; set; }
@@ -33,5 +33,7 @@ namespace funplay.Models
         public bool MailUseSSL { get; set; }
         public string WebSiteUrl { get; set; }
         public string Remark { get; set; }
+        public string AdminName { get; set; }
+        public string ShopName { get; set; }
     }
 }

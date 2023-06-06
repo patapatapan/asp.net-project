@@ -1,0 +1,1101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vmProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AboutUs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HeaderName" Type="nvarchar" MaxLength="250" />
+    <Property Name="TitleName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="DetailText" Type="nvarchar" MaxLength="500" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="AboutUsDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="AddressBooks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EngName" Type="nvarchar" MaxLength="50" />
+    <Property Name="GenderCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birthday" Type="date" />
+    <Property Name="CompName" Type="nvarchar" MaxLength="250" />
+    <Property Name="CompID" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeptName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="LineID" Type="nvarchar" MaxLength="50" />
+    <Property Name="FacebookID" Type="nvarchar" MaxLength="50" />
+    <Property Name="TwitterID" Type="nvarchar" MaxLength="50" />
+    <Property Name="InstagramID" Type="nvarchar" MaxLength="50" />
+    <Property Name="LinkedInID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsDebug" Type="bit" Nullable="false" />
+    <Property Name="AppName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AdminName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShopName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AppVersion" Type="nvarchar" MaxLength="50" />
+    <Property Name="EncryptionMode" Type="bit" Nullable="false" />
+    <Property Name="PowerBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="LanguageNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="GoogleMapKey" Type="nvarchar" MaxLength="50" />
+    <Property Name="MailSenderName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MailSenderEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="MailReceiverName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MailReceiverEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="MailAppPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="MailHostUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="MailHostPort" Type="int" Nullable="false" />
+    <Property Name="MailUseSSL" Type="bit" Nullable="false" />
+    <Property Name="WebSiteUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Calendars">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TargetCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="TargetNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubjectName" Type="nvarchar" MaxLength="50" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="StartTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="ColorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsFullday" Type="bit" Nullable="false" />
+    <Property Name="PlaceName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="PlaceAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="RoomNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResourceText" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Carousels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="HeaderName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="MoreUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Carts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LotNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="MemberNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="VendorNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProdName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProdSpec" Type="nvarchar" MaxLength="250" />
+    <Property Name="OrderQty" Type="int" Nullable="false" />
+    <Property Name="OrderPrice" Type="int" Nullable="false" />
+    <Property Name="OrderAmount" Type="int" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Categorys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsCategory" Type="bit" Nullable="false" />
+    <Property Name="ParentNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RouteName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="CityAreas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AreaName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Citys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="WebsiteUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="CloseDates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="CodeBases">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsAdmin" Type="bit" Nullable="false" />
+    <Property Name="BaseNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="BaseName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DefaultValue" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="CodeDatas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="BaseNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParentNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeValue" Type="nvarchar" MaxLength="250" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Companys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsDefault" Type="bit" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EngName" Type="nvarchar" MaxLength="250" />
+    <Property Name="EngShortName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+    <Property Name="BossName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompFax" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="CompUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="TwitterUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="FacebookUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="InstagramUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="SkypeUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="LinkedinUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="Latitude" Type="decimal" Precision="20" Scale="15" Nullable="false" />
+    <Property Name="Longitude" Type="decimal" Precision="20" Scale="15" Nullable="false" />
+    <Property Name="AboutusText" Type="nvarchar(max)" />
+    <Property Name="SupportText" Type="nvarchar(max)" />
+    <Property Name="ReturnText" Type="nvarchar(max)" />
+    <Property Name="ShippingText" Type="nvarchar(max)" />
+    <Property Name="PaymentText" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeptNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeptName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsValid" Type="bit" Nullable="false" />
+    <Property Name="EmpNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmpName" Type="nvarchar" MaxLength="50" />
+    <Property Name="GenderCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeptNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birthday" Type="date" />
+    <Property Name="OnboardDate" Type="date" />
+    <Property Name="LeaveDate" Type="date" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ExtensionTables">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentId" Type="int" Nullable="false" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Featureds">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="FormDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="FormCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="FormNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="GuidNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TargetNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TargetName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeptNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeptName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="StartTime" Type="datetime" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="EndTime" Type="datetime" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Qty1" Type="int" Nullable="false" />
+    <Property Name="Qty2" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="FormMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FormCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="StatusCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="FormNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="FormDate" Type="date" />
+    <Property Name="FormTime" Type="datetime" />
+    <Property Name="TargetNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TargetName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeptNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeptName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="StartTime" Type="datetime" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="EndTime" Type="datetime" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Qty1" Type="int" Nullable="false" />
+    <Property Name="Qty2" Type="int" Nullable="false" />
+    <Property Name="ApproveTime" Type="datetime" />
+    <Property Name="RejectTime" Type="datetime" />
+    <Property Name="SourceNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApproveNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="RejectNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="NextNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="GuidNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="NotifyKey" Type="nvarchar" MaxLength="50" />
+    <Property Name="FormDescribe" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ForumBoards">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="BoardNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="BoardName" Type="nvarchar" MaxLength="250" />
+    <Property Name="IconName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DescriptionText" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+    <Property Name="GuidNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Forums">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentGuid" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReplyGuid" Type="nvarchar" MaxLength="50" />
+    <Property Name="BoardNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsClosed" Type="bit" Nullable="false" />
+    <Property Name="SubjectDate" Type="datetime" Nullable="false" />
+    <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubjectName" Type="nvarchar" MaxLength="250" />
+    <Property Name="SubjectContent" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+    <Property Name="GuidNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Game_Genre">
+    <Key>
+      <PropertyRef Name="Game_Id" />
+      <PropertyRef Name="Genre_Id" />
+    </Key>
+    <Property Name="Game_Id" Type="int" Nullable="false" />
+    <Property Name="Genre_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Game_Mode">
+    <Key>
+      <PropertyRef Name="Game_Id" />
+      <PropertyRef Name="Mode_Id" />
+    </Key>
+    <Property Name="Game_Id" Type="int" Nullable="false" />
+    <Property Name="Mode_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Games">
+    <Key>
+      <PropertyRef Name="Game_id" />
+    </Key>
+    <Property Name="Game_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Release_Date" Type="date" />
+    <Property Name="Developer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="50" />
+    <Property Name="SalePrice" Type="int" />
+    <Property Name="DiscountPrice" Type="int" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'project.dbo.Genres' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="Genres">
+    <Key>
+      <PropertyRef Name="Genre_Id" />
+    </Key>
+    <Property Name="Genre_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LangNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="LangName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LogDate" Type="date" Nullable="false" />
+    <Property Name="LogTime" Type="datetime" Nullable="false" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TargetNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="LogNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="LogQty" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="MainTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MapPositions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TargetCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="TargetNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="Latitude" Type="decimal" Precision="18" Scale="15" Nullable="false" />
+    <Property Name="Longitude" Type="decimal" Precision="18" Scale="15" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsRead" Type="bit" Nullable="false" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SenderNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceiverNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SendDate" Type="date" Nullable="false" />
+    <Property Name="SendTime" Type="date" Nullable="false" />
+    <Property Name="HeaderText" Type="nvarchar" MaxLength="250" />
+    <Property Name="MessageText" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Modes">
+    <Key>
+      <PropertyRef Name="Mode_Id" />
+    </Key>
+    <Property Name="Mode_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mode_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Modules">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsWorkflow" Type="bit" Nullable="false" />
+    <Property Name="RoleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModuleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModuleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IconName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PublishDate" Type="datetime" Nullable="false" />
+    <Property Name="HeaderName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DetailText" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="NewsLetter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubscribeDate" Type="datetime" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Notifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsRead" Type="bit" Nullable="false" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SourceNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SenderNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceiverNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SendDate" Type="date" Nullable="false" />
+    <Property Name="SendTime" Type="date" Nullable="false" />
+    <Property Name="HeaderText" Type="nvarchar" MaxLength="250" />
+    <Property Name="MessageText" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="VendorNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProdName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProdSpec" Type="nvarchar" MaxLength="250" />
+    <Property Name="OrderPrice" Type="int" Nullable="false" />
+    <Property Name="OrderQty" Type="int" Nullable="false" />
+    <Property Name="OrderAmount" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SheetNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SheetDate" Type="datetime" Nullable="false" />
+    <Property Name="StatusCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsClosed" Type="bit" Nullable="false" />
+    <Property Name="IsValid" Type="bit" Nullable="false" />
+    <Property Name="CustNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShippingNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceiverName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceiverEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceiverAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="OrderAmount" Type="int" Nullable="false" />
+    <Property Name="TaxAmount" Type="int" Nullable="false" />
+    <Property Name="TotalAmount" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+    <Property Name="GuidNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrdersStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsPayed" Type="bit" Nullable="false" />
+    <Property Name="IsClosed" Type="bit" Nullable="false" />
+    <Property Name="StatusNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="StatusName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="FolderName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhotoName" Type="nvarchar" MaxLength="250" />
+    <Property Name="PriceName" Type="nvarchar" MaxLength="250" />
+    <Property Name="SaleDate" Type="date" Nullable="false" />
+    <Property Name="DetailText" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Platform">
+    <Key>
+      <PropertyRef Name="Platform_Id" />
+    </Key>
+    <Property Name="Platform_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Platform_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Platform_Game">
+    <Key>
+      <PropertyRef Name="Game_Id" />
+      <PropertyRef Name="Platform_Id" />
+    </Key>
+    <Property Name="Game_Id" Type="int" Nullable="false" />
+    <Property Name="Platform_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PricingDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PricingNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsSupport" Type="bit" Nullable="false" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Pricings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsAdvanced" Type="bit" Nullable="false" />
+    <Property Name="IsRecommend" Type="bit" Nullable="false" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PricingNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PricingName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProdPrice" Type="int" Nullable="false" />
+    <Property Name="CycleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ProductFeatureds">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="FeaturedName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ProductInventorys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PropertyNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsInventory" Type="bit" Nullable="false" />
+    <Property Name="InventoryQty" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ProductPropertys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsSelect" Type="bit" Nullable="false" />
+    <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PropertyNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PropertyValue" Type="nvarchar" MaxLength="500" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ProductRelations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsInventory" Type="bit" Nullable="false" />
+    <Property Name="IsShowPhoto" Type="bit" Nullable="false" />
+    <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProdName" Type="nvarchar" MaxLength="250" />
+    <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BrandSeriesName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BarcodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="VendorNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CostPrice" Type="int" Nullable="false" />
+    <Property Name="MarketPrice" Type="int" Nullable="false" />
+    <Property Name="SalePrice" Type="int" Nullable="false" />
+    <Property Name="DiscountPrice" Type="int" Nullable="false" />
+    <Property Name="InventoryQty" Type="int" Nullable="false" />
+    <Property Name="ContentText" Type="nvarchar(max)" />
+    <Property Name="SpecificationText" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Programs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsPageSize" Type="bit" Nullable="false" />
+    <Property Name="IsSearch" Type="bit" Nullable="false" />
+    <Property Name="RoleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModuleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrgNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrgName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="AreaName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ControllerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParmValue" Type="nvarchar" MaxLength="50" />
+    <Property Name="PageSize" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Promotions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="datetime" Nullable="false" />
+    <Property Name="SalePrice" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="PropertyNames">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PropName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Propertys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsSelect" Type="bit" Nullable="false" />
+    <Property Name="PropertyNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PropertyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PropertyValue" Type="nvarchar" MaxLength="500" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="RoleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="SecondTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Types" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Securitys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TargetNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModuleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrgNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsAdd" Type="bit" Nullable="false" />
+    <Property Name="IsEdit" Type="bit" Nullable="false" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsConfirm" Type="bit" Nullable="false" />
+    <Property Name="IsUndo" Type="bit" Nullable="false" />
+    <Property Name="IsInvalid" Type="bit" Nullable="false" />
+    <Property Name="IsUpload" Type="bit" Nullable="false" />
+    <Property Name="IsDownload" Type="bit" Nullable="false" />
+    <Property Name="IsPrint" Type="bit" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="HeaderName" Type="nvarchar" MaxLength="250" />
+    <Property Name="DetailName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Shippings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShippingNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShippingName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Songs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsValid" Type="bit" Nullable="false" />
+    <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Author" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mp3" Type="nvarchar" MaxLength="250" />
+    <Property Name="Picture" Type="nvarchar" MaxLength="250" />
+    <Property Name="PriceMax" Type="int" Nullable="false" />
+    <Property Name="PriceMedium" Type="int" />
+    <Property Name="PriceMin" Type="int" />
+    <Property Name="MainTypeNo" Type="int" Nullable="false" />
+    <Property Name="SecodaryTypeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Detail" Type="nvarchar(max)" />
+    <Property Name="Upload" Type="datetime" />
+    <Property Name="Published" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Teams">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TeamNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TeamName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EngName" Type="nvarchar" MaxLength="50" />
+    <Property Name="GenderCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeptName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TwitterUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="FacebookUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="LinkedinUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="InstagramUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="SkypeUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="DetailText" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Titles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TitleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="TodoLists">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsFinished" Type="bit" Nullable="false" />
+    <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleName" Type="nvarchar" MaxLength="250" />
+    <Property Name="DeadlineDate" Type="datetime" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="User_Game">
+    <Key>
+      <PropertyRef Name="Game_Id" />
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="Game_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="IsOwned" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsValid" Type="bit" />
+    <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="GenderCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeptNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TitleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birthday" Type="date" />
+    <Property Name="OnboardDate" Type="date" />
+    <Property Name="LeaveDate" Type="date" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="ValidateCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="NotifyPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+    <Property Name="Display_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Vacations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VacYear" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="WorkflowDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsClose" Type="bit" Nullable="false" />
+    <Property Name="IsApprove" Type="bit" Nullable="false" />
+    <Property Name="IsReject" Type="bit" Nullable="false" />
+    <Property Name="MasterGuidNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="RouteGuidNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="RouteOrder" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AgentNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="AgentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UserReadTime" Type="datetime" />
+    <Property Name="AgentReadTime" Type="datetime" />
+    <Property Name="SignUserNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SignUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SignTime" Type="datetime" />
+    <Property Name="SignComment" Type="nvarchar" MaxLength="250" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+    <Property Name="GuidNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WorkflowMasters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsClose" Type="bit" Nullable="false" />
+    <Property Name="IsApprove" Type="bit" Nullable="false" />
+    <Property Name="IsReject" Type="bit" Nullable="false" />
+    <Property Name="FlowGuidNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SheetNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SheetName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeadlineTime" Type="datetime" Nullable="false" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="datetime" />
+    <Property Name="ContentText" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+    <Property Name="GuidNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WorkflowRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="WorkflowRoleUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
+    <Property Name="RoleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="AgentNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="WorkflowRoutes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrgNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="RouteOrder" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityContainer Name="vmProjectModelStoreContainer">
+    <EntitySet Name="AboutUs" EntityType="Self.AboutUs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AboutUsDetails" EntityType="Self.AboutUsDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddressBooks" EntityType="Self.AddressBooks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Applications" EntityType="Self.Applications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Calendars" EntityType="Self.Calendars" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Carousels" EntityType="Self.Carousels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Carts" EntityType="Self.Carts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categorys" EntityType="Self.Categorys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CityAreas" EntityType="Self.CityAreas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Citys" EntityType="Self.Citys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CloseDates" EntityType="Self.CloseDates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CodeBases" EntityType="Self.CodeBases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CodeDatas" EntityType="Self.CodeDatas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Companys" EntityType="Self.Companys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExtensionTables" EntityType="Self.ExtensionTables" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Featureds" EntityType="Self.Featureds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormDetail" EntityType="Self.FormDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormMaster" EntityType="Self.FormMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ForumBoards" EntityType="Self.ForumBoards" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Forums" EntityType="Self.Forums" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Game_Genre" EntityType="Self.Game_Genre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Game_Mode" EntityType="Self.Game_Mode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MainTypes" EntityType="Self.MainTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MapPositions" EntityType="Self.MapPositions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modes" EntityType="Self.Modes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modules" EntityType="Self.Modules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NewsLetter" EntityType="Self.NewsLetter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdersStatus" EntityType="Self.OrdersStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Platform" EntityType="Self.Platform" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Platform_Game" EntityType="Self.Platform_Game" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PricingDetails" EntityType="Self.PricingDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pricings" EntityType="Self.Pricings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductFeatureds" EntityType="Self.ProductFeatureds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductInventorys" EntityType="Self.ProductInventorys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductPropertys" EntityType="Self.ProductPropertys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductRelations" EntityType="Self.ProductRelations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Programs" EntityType="Self.Programs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Promotions" EntityType="Self.Promotions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyNames" EntityType="Self.PropertyNames" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Propertys" EntityType="Self.Propertys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SecondTypes" EntityType="Self.SecondTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Securitys" EntityType="Self.Securitys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shippings" EntityType="Self.Shippings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Songs" EntityType="Self.Songs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Titles" EntityType="Self.Titles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TodoLists" EntityType="Self.TodoLists" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Game" EntityType="Self.User_Game" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacations" EntityType="Self.Vacations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkflowDetails" EntityType="Self.WorkflowDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkflowMasters" EntityType="Self.WorkflowMasters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkflowRoles" EntityType="Self.WorkflowRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkflowRoleUsers" EntityType="Self.WorkflowRoleUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkflowRoutes" EntityType="Self.WorkflowRoutes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genres" EntityType="Self.Genres" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Genres].[Genre_Id] AS [Genre_Id], 
+    [Genres].[Type] AS [Type]
+    FROM [dbo].[Genres] AS [Genres]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

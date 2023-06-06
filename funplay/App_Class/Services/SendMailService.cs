@@ -20,7 +20,7 @@ public class SendMailService : BaseClass
                 //驗證
                 var userData = users.repo.ReadSingle(m => m.ValidateCode == validateCode);
                 if (userData == null) { return "查無驗證碼!!"; }
-                if (userData.IsValid) { return "此驗證碼已通過驗證!!"; }
+                if ((bool)userData.IsValid) { return "此驗證碼已通過驗證!!"; }
                 if (string.IsNullOrEmpty(userData.ContactEmail)) { return "此會員未輸入電子信箱!!"; }
                 if (string.IsNullOrEmpty(AppService.WebSiteUrl)) { return "Web.config 未設定 WebSiteUrl 參數!!"; }
                 //變數

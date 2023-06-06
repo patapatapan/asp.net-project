@@ -315,7 +315,7 @@
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
-    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\ProjectHomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="Controllers\WebController.cs" />
@@ -408,16 +408,37 @@
     <Compile Include="Models\Featureds.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FormDetail.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormMaster.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ForumBoards.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Forums.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Games.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Game_Genre.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Game_Mode.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Genres.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Languages.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Logs.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MainTypes.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MapPositions.cs">
@@ -480,6 +501,9 @@
     <Compile Include="Models\MetadataModel\metaWorkflowRoles.cs" />
     <Compile Include="Models\MetadataModel\metaWorkflowRoleUsers.cs" />
     <Compile Include="Models\MetadataModel\metaWorkflowRoutes.cs" />
+    <Compile Include="Models\Modes.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Modules.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
@@ -507,13 +531,28 @@
     <Compile Include="Models\Photos.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Platform.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Platform_Game.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PricingDetails.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Pricings.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductFeatureds.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductInventorys.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ProductPropertys.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductRelations.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Products.cs">
@@ -589,6 +628,9 @@
     <Compile Include="Models\Roles.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SecondTypes.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Securitys.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
@@ -623,6 +665,9 @@
     <Compile Include="Models\Shippings.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Songs.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Teams.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
@@ -633,6 +678,9 @@
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Users.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User_Game.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vacations.cs">
@@ -648,6 +696,7 @@
     <Compile Include="Models\ViewModel\vmLogin.cs" />
     <Compile Include="Models\ViewModel\vmMetadataModel.cs" />
     <Compile Include="Models\ViewModel\vmPhoto.cs" />
+    <Compile Include="Models\ViewModel\vmProjectLogin.cs" />
     <Compile Include="Models\ViewModel\vmRegister.cs" />
     <Compile Include="Models\ViewModel\vmRepositoryModel.cs" />
     <Compile Include="Models\ViewModel\vmSelectListItem.cs" />
@@ -1746,6 +1795,7 @@
     <Content Include="Content\css\bootstrap.min.css.map" />
     <Content Include="Content\css\bootstrap.rtl.css.map" />
     <Content Include="Content\css\bootstrap.rtl.min.css.map" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -2667,7 +2717,7 @@
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
-    <Content Include="Views\Project\Index.cshtml" />
+    <Content Include="Views\ProjectHome\ProjectIndex.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2762,11 +2812,11 @@
     <Content Include="Scripts\js\bootstrap.esm.min.js.map" />
     <Content Include="Scripts\js\bootstrap.js.map" />
     <Content Include="Scripts\js\bootstrap.min.js.map" />
-    <Content Include="Views\Project\Login.cshtml" />
+    <Content Include="Views\ProjectHome\ProjectLogin.cshtml" />
     <Content Include="Views\Shared\_LayoutHeader.cshtml" />
     <Content Include="Views\Shared\_LayoutFooter.cshtml" />
-    <Content Include="Views\Project\Product.cshtml" />
-    <Content Include="Views\Project\Register.cshtml" />
+    <Content Include="Views\ProjectHome\ProjectProduct.cshtml" />
+    <Content Include="Views\ProjectHome\ProjectRegister.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2778,6 +2828,7 @@
     <Folder Include="Views\Code\" />
     <Folder Include="Views\GetDataList\" />
     <Folder Include="Views\Menu\" />
+    <Folder Include="Views\ProjectWeb\" />
     <Folder Include="Views\Shop\" />
     <Folder Include="Views\Users\" />
     <Folder Include="Views\ValidationController\" />

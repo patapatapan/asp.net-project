@@ -263,6 +263,37 @@ LEFT OUTER JOIN Departments ON Users.DeptNo = Departments.DeptNo
         }
         return bln_value;
     }
+
+    /*我自己的登入系統*/
+    public bool ProjectLogin(string account, string password)
+    {
+        bool bln_value = false;
+        UserService.Logout();
+        //處理帳號密碼加密
+        if (AppService.EncryptionMode)
+        {
+            using (CryptographyService cryp = new CryptographyService())
+            { password = cryp.SHA256Encode(password); }
+            if (AppService.DebugMode)
+            {
+                var user = repo.ReadSingle(m => m.Account == account);
+                if (user != null && string.IsNullOrEmpty(user.Password))
+                {
+                    user.Password = password;
+                    repo.Update(user);
+                    repo.SaveChanges();
+                }
+            }
+        }
+        //檢查登入帳密正確性
+        var data = repo.ReadSingle(m => m.Account == account && m.Password == password);
+        if (data != null)
+        {
+            UserService.Login(data.Account, data.UserName, data.RoleNo);
+            bln_value = true;
+        }
+        return bln_value;
+    }
     /// <summary>
     /// 重設密碼
     /// </summary>
@@ -396,7 +427,7 @@ LEFT OUTER JOIN Departments ON Users.DeptNo = Departments.DeptNo
             errorMessage = "驗證碼不存在!!";
             return false;
         }
-        if (userData.IsValid)
+        if ((bool)userData.IsValid)
         {
             errorMessage = "會員已驗證，不可重覆驗證!!";
             return false;

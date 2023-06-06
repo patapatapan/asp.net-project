@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="nicedemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="nicedemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AboutUs">
           <Key>
             <PropertyRef Name="Id" />
@@ -60,6 +60,8 @@
           <Property Name="IsEnabled" Type="bit" Nullable="false" />
           <Property Name="IsDebug" Type="bit" Nullable="false" />
           <Property Name="AppName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdminName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShopName" Type="nvarchar" MaxLength="50" />
           <Property Name="AppVersion" Type="nvarchar" MaxLength="50" />
           <Property Name="EncryptionMode" Type="bit" Nullable="false" />
           <Property Name="PowerBy" Type="nvarchar" MaxLength="50" />
@@ -120,6 +122,9 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LotNo" Type="nvarchar" MaxLength="50" />
           <Property Name="MemberNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="VendorNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoryNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="250" />
           <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
           <Property Name="ProdName" Type="nvarchar" MaxLength="250" />
           <Property Name="ProdSpec" Type="nvarchar" MaxLength="250" />
@@ -294,6 +299,67 @@
           <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
           <Property Name="Remark" Type="nvarchar" MaxLength="250" />
         </EntityType>
+        <EntityType Name="FormDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="FormCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="FormNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="GuidNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TargetNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TargetName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeptNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeptName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TitleNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TitleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CodeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Qty1" Type="int" Nullable="false" />
+          <Property Name="Qty2" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="FormMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FormCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="FormNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="FormDate" Type="date" />
+          <Property Name="FormTime" Type="datetime" />
+          <Property Name="TargetNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TargetName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeptNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeptName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TitleNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TitleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="CodeNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CodeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Qty1" Type="int" Nullable="false" />
+          <Property Name="Qty2" Type="int" Nullable="false" />
+          <Property Name="ApproveTime" Type="datetime" />
+          <Property Name="RejectTime" Type="datetime" />
+          <Property Name="SourceNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApproveNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="RejectNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="NextNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="GuidNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="NotifyKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="FormDescribe" Type="nvarchar(max)" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
         <EntityType Name="ForumBoards">
           <Key>
             <PropertyRef Name="Id" />
@@ -325,6 +391,42 @@
           <Property Name="Remark" Type="nvarchar" MaxLength="250" />
           <Property Name="GuidNo" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Game_Genre">
+          <Key>
+            <PropertyRef Name="Game_Id" />
+            <PropertyRef Name="Genre_Id" />
+          </Key>
+          <Property Name="Game_Id" Type="int" Nullable="false" />
+          <Property Name="Genre_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Game_Mode">
+          <Key>
+            <PropertyRef Name="Game_Id" />
+            <PropertyRef Name="Mode_Id" />
+          </Key>
+          <Property Name="Game_Id" Type="int" Nullable="false" />
+          <Property Name="Mode_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="Game_id" />
+          </Key>
+          <Property Name="Game_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="Release_Date" Type="date" />
+          <Property Name="Developer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Publisher" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalePrice" Type="int" />
+          <Property Name="DiscountPrice" Type="int" />
+        </EntityType>
+        <EntityType Name="Genres">
+          <Key>
+            <PropertyRef Name="Genre_Id" />
+          </Key>
+          <Property Name="Genre_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Languages">
           <Key>
             <PropertyRef Name="Id" />
@@ -348,6 +450,13 @@
           <Property Name="LogNo" Type="nvarchar" MaxLength="50" />
           <Property Name="LogQty" Type="int" Nullable="false" />
           <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="MainTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="MapPositions">
           <Key>
@@ -379,6 +488,13 @@
           <Property Name="HeaderText" Type="nvarchar" MaxLength="250" />
           <Property Name="MessageText" Type="nvarchar(max)" />
           <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Modes">
+          <Key>
+            <PropertyRef Name="Mode_Id" />
+          </Key>
+          <Property Name="Mode_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mode_Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Modules">
           <Key>
@@ -502,6 +618,21 @@
           <Property Name="DetailText" Type="nvarchar(max)" />
           <Property Name="Remark" Type="nvarchar" MaxLength="250" />
         </EntityType>
+        <EntityType Name="Platform">
+          <Key>
+            <PropertyRef Name="Platform_Id" />
+          </Key>
+          <Property Name="Platform_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Platform_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Platform_Game">
+          <Key>
+            <PropertyRef Name="Game_Id" />
+            <PropertyRef Name="Platform_Id" />
+          </Key>
+          <Property Name="Game_Id" Type="int" Nullable="false" />
+          <Property Name="Platform_Id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="PricingDetails">
           <Key>
             <PropertyRef Name="Id" />
@@ -528,14 +659,45 @@
           <Property Name="CycleName" Type="nvarchar" MaxLength="50" />
           <Property Name="Remark" Type="nvarchar" MaxLength="250" />
         </EntityType>
-        <EntityType Name="ProductPropertys">
+        <EntityType Name="ProductFeatureds">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="FeaturedName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="ProductInventorys">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
           <Property Name="PropertyNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsInventory" Type="bit" Nullable="false" />
+          <Property Name="InventoryQty" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="ProductPropertys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsSelect" Type="bit" Nullable="false" />
+          <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="PropertyNo" Type="nvarchar" MaxLength="50" />
           <Property Name="PropertyValue" Type="nvarchar" MaxLength="500" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="ProductRelations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoryNo" Type="nvarchar" MaxLength="50" />
           <Property Name="Remark" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Products">
@@ -544,16 +706,22 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IsEnabled" Type="bit" Nullable="false" />
+          <Property Name="IsInventory" Type="bit" Nullable="false" />
+          <Property Name="IsShowPhoto" Type="bit" Nullable="false" />
           <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
           <Property Name="ProdName" Type="nvarchar" MaxLength="250" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BrandSeriesName" Type="nvarchar" MaxLength="50" />
           <Property Name="BarcodeNo" Type="nvarchar" MaxLength="50" />
           <Property Name="VendorNo" Type="nvarchar" MaxLength="50" />
           <Property Name="CategoryNo" Type="nvarchar" MaxLength="50" />
           <Property Name="CostPrice" Type="int" Nullable="false" />
+          <Property Name="MarketPrice" Type="int" Nullable="false" />
           <Property Name="SalePrice" Type="int" Nullable="false" />
           <Property Name="DiscountPrice" Type="int" Nullable="false" />
+          <Property Name="InventoryQty" Type="int" Nullable="false" />
           <Property Name="ContentText" Type="nvarchar(max)" />
-          <Property Name="DetailText" Type="nvarchar(max)" />
+          <Property Name="SpecificationText" Type="nvarchar(max)" />
           <Property Name="Remark" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Programs">
@@ -562,6 +730,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IsEnabled" Type="bit" Nullable="false" />
+          <Property Name="IsPageSize" Type="bit" Nullable="false" />
+          <Property Name="IsSearch" Type="bit" Nullable="false" />
           <Property Name="RoleNo" Type="nvarchar" MaxLength="50" />
           <Property Name="ModuleNo" Type="nvarchar" MaxLength="50" />
           <Property Name="SortNo" Type="nvarchar" MaxLength="50" />
@@ -572,6 +742,7 @@
           <Property Name="ControllerName" Type="nvarchar" MaxLength="50" />
           <Property Name="ActionName" Type="nvarchar" MaxLength="50" />
           <Property Name="ParmValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="PageSize" Type="int" Nullable="false" />
           <Property Name="Remark" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Promotions">
@@ -600,6 +771,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsSelect" Type="bit" Nullable="false" />
           <Property Name="PropertyNo" Type="nvarchar" MaxLength="50" />
           <Property Name="PropertyName" Type="nvarchar" MaxLength="50" />
           <Property Name="PropertyValue" Type="nvarchar" MaxLength="500" />
@@ -614,6 +786,13 @@
           <Property Name="RoleNo" Type="nvarchar" MaxLength="50" />
           <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
           <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="SecondTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Types" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Securitys">
           <Key>
@@ -655,6 +834,26 @@
           <Property Name="ShippingNo" Type="nvarchar" MaxLength="50" />
           <Property Name="ShippingName" Type="nvarchar" MaxLength="50" />
           <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Songs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsValid" Type="bit" Nullable="false" />
+          <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mp3" Type="nvarchar" MaxLength="250" />
+          <Property Name="Picture" Type="nvarchar" MaxLength="250" />
+          <Property Name="PriceMax" Type="int" Nullable="false" />
+          <Property Name="PriceMedium" Type="int" />
+          <Property Name="PriceMin" Type="int" />
+          <Property Name="MainTypeNo" Type="int" Nullable="false" />
+          <Property Name="SecodaryTypeNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+          <Property Name="Upload" Type="datetime" />
+          <Property Name="Published" Type="datetime" />
         </EntityType>
         <EntityType Name="Teams">
           <Key>
@@ -698,12 +897,21 @@
           <Property Name="DeadlineDate" Type="datetime" Nullable="false" />
           <Property Name="Remark" Type="nvarchar" MaxLength="500" />
         </EntityType>
+        <EntityType Name="User_Game">
+          <Key>
+            <PropertyRef Name="Game_Id" />
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="Game_Id" Type="int" Nullable="false" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="IsOwned" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IsValid" Type="bit" Nullable="false" />
+          <Property Name="IsValid" Type="bit" />
           <Property Name="UserNo" Type="nvarchar" MaxLength="50" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
@@ -719,7 +927,11 @@
           <Property Name="ContactTel" Type="nvarchar" MaxLength="50" />
           <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
           <Property Name="ValidateCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="NotifyPassword" Type="nvarchar" MaxLength="50" />
           <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+          <Property Name="Account" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Vacations">
           <Key>
@@ -830,12 +1042,20 @@
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExtensionTables" EntityType="Self.ExtensionTables" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Featureds" EntityType="Self.Featureds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormDetail" EntityType="Self.FormDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormMaster" EntityType="Self.FormMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ForumBoards" EntityType="Self.ForumBoards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Forums" EntityType="Self.Forums" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Game_Genre" EntityType="Self.Game_Genre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Game_Mode" EntityType="Self.Game_Mode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MainTypes" EntityType="Self.MainTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MapPositions" EntityType="Self.MapPositions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modes" EntityType="Self.Modes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Modules" EntityType="Self.Modules" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewsLetter" EntityType="Self.NewsLetter" Schema="dbo" store:Type="Tables" />
@@ -845,21 +1065,29 @@
           <EntitySet Name="OrdersStatus" EntityType="Self.OrdersStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Platform" EntityType="Self.Platform" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Platform_Game" EntityType="Self.Platform_Game" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PricingDetails" EntityType="Self.PricingDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pricings" EntityType="Self.Pricings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductFeatureds" EntityType="Self.ProductFeatureds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductInventorys" EntityType="Self.ProductInventorys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductPropertys" EntityType="Self.ProductPropertys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductRelations" EntityType="Self.ProductRelations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Programs" EntityType="Self.Programs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Promotions" EntityType="Self.Promotions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PropertyNames" EntityType="Self.PropertyNames" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Propertys" EntityType="Self.Propertys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SecondTypes" EntityType="Self.SecondTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Securitys" EntityType="Self.Securitys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shippings" EntityType="Self.Shippings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Songs" EntityType="Self.Songs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Titles" EntityType="Self.Titles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TodoLists" EntityType="Self.TodoLists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Game" EntityType="Self.User_Game" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vacations" EntityType="Self.Vacations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkflowDetails" EntityType="Self.WorkflowDetails" Schema="dbo" store:Type="Tables" />
@@ -868,8 +1096,7 @@
           <EntitySet Name="WorkflowRoleUsers" EntityType="Self.WorkflowRoleUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkflowRoutes" EntityType="Self.WorkflowRoutes" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="nicedemoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -943,6 +1170,8 @@
           <Property Name="MailUseSSL" Type="Boolean" Nullable="false" />
           <Property Name="WebSiteUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShopName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Calendars">
           <Key>
@@ -996,6 +1225,9 @@
           <Property Name="OrderAmount" Type="Int32" Nullable="false" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VendorNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Categorys">
           <Key>
@@ -1405,24 +1637,7 @@
           <Property Name="PropertyNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PropertyValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Products">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IsEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="ProdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProdName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="BarcodeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="VendorNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CategoryNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CostPrice" Type="Int32" Nullable="false" />
-          <Property Name="SalePrice" Type="Int32" Nullable="false" />
-          <Property Name="DiscountPrice" Type="Int32" Nullable="false" />
-          <Property Name="ContentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DetailText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsSelect" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Programs">
           <Key>
@@ -1441,6 +1656,9 @@
           <Property Name="ActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ParmValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsPageSize" Type="Boolean" Nullable="false" />
+          <Property Name="IsSearch" Type="Boolean" Nullable="false" />
+          <Property Name="PageSize" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Promotions">
           <Key>
@@ -1472,6 +1690,7 @@
           <Property Name="PropertyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PropertyValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsSelect" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -1565,29 +1784,6 @@
           <Property Name="TitleName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="DeadlineDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IsValid" Type="Boolean" Nullable="false" />
-          <Property Name="UserNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CodeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RoleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GenderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DeptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TitleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Birthday" Type="DateTime" Precision="0" />
-          <Property Name="OnboardDate" Type="DateTime" Precision="0" />
-          <Property Name="LeaveDate" Type="DateTime" Precision="0" />
-          <Property Name="ContactEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContactTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContactAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="ValidateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Vacations">
           <Key>
@@ -1716,7 +1912,6 @@
           <EntitySet Name="PricingDetails" EntityType="Self.PricingDetails" />
           <EntitySet Name="Pricings" EntityType="Self.Pricings" />
           <EntitySet Name="ProductPropertys" EntityType="Self.ProductPropertys" />
-          <EntitySet Name="Products" EntityType="Self.Products" />
           <EntitySet Name="Programs" EntityType="Self.Programs" />
           <EntitySet Name="Promotions" EntityType="Self.Promotions" />
           <EntitySet Name="PropertyNames" EntityType="Self.PropertyNames" />
@@ -1728,14 +1923,274 @@
           <EntitySet Name="Teams" EntityType="Self.Teams" />
           <EntitySet Name="Titles" EntityType="Self.Titles" />
           <EntitySet Name="TodoLists" EntityType="Self.TodoLists" />
-          <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="Vacations" EntityType="Self.Vacations" />
           <EntitySet Name="WorkflowDetails" EntityType="Self.WorkflowDetails" />
           <EntitySet Name="WorkflowMasters" EntityType="Self.WorkflowMasters" />
           <EntitySet Name="WorkflowRoles" EntityType="Self.WorkflowRoles" />
           <EntitySet Name="WorkflowRoleUsers" EntityType="Self.WorkflowRoleUsers" />
           <EntitySet Name="WorkflowRoutes" EntityType="Self.WorkflowRoutes" />
+          <EntitySet Name="FormDetail" EntityType="nicedemoModel.FormDetail" />
+          <EntitySet Name="FormMaster" EntityType="nicedemoModel.FormMaster" />
+          <EntitySet Name="Game_Genre" EntityType="nicedemoModel.Game_Genre" />
+          <EntitySet Name="Game_Mode" EntityType="nicedemoModel.Game_Mode" />
+          <EntitySet Name="Games" EntityType="nicedemoModel.Games" />
+          <EntitySet Name="Genres" EntityType="nicedemoModel.Genres" />
+          <EntitySet Name="MainTypes" EntityType="nicedemoModel.MainTypes" />
+          <EntitySet Name="Modes" EntityType="nicedemoModel.Modes" />
+          <EntitySet Name="Platform" EntityType="nicedemoModel.Platform" />
+          <EntitySet Name="Platform_Game" EntityType="nicedemoModel.Platform_Game" />
+          <EntitySet Name="ProductFeatureds" EntityType="nicedemoModel.ProductFeatureds" />
+          <EntitySet Name="ProductInventorys" EntityType="nicedemoModel.ProductInventorys" />
+          <EntitySet Name="ProductRelations" EntityType="nicedemoModel.ProductRelations" />
+          <EntitySet Name="SecondTypes" EntityType="nicedemoModel.SecondTypes" />
+          <EntitySet Name="Songs" EntityType="nicedemoModel.Songs" />
+          <EntitySet Name="User_Game" EntityType="nicedemoModel.User_Game" />
+          <EntitySet Name="Products" EntityType="nicedemoModel.Products" />
+          <EntitySet Name="Users" EntityType="nicedemoModel.Users" />
         </EntityContainer>
+        <EntityType Name="FormDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="FormCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FormNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GuidNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TargetNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TargetName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeptName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TitleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TitleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="CodeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CodeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Qty1" Type="Int32" Nullable="false" />
+          <Property Name="Qty2" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FormMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FormCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FormNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FormDate" Type="DateTime" Precision="0" />
+          <Property Name="FormTime" Type="DateTime" Precision="3" />
+          <Property Name="TargetNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TargetName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeptName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TitleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TitleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="CodeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CodeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Qty1" Type="Int32" Nullable="false" />
+          <Property Name="Qty2" Type="Int32" Nullable="false" />
+          <Property Name="ApproveTime" Type="DateTime" Precision="3" />
+          <Property Name="RejectTime" Type="DateTime" Precision="3" />
+          <Property Name="SourceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApproveNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RejectNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NextNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GuidNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NotifyKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FormDescribe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Game_Genre">
+          <Key>
+            <PropertyRef Name="Game_Id" />
+            <PropertyRef Name="Genre_Id" />
+          </Key>
+          <Property Name="Game_Id" Type="Int32" Nullable="false" />
+          <Property Name="Genre_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Game_Mode">
+          <Key>
+            <PropertyRef Name="Game_Id" />
+            <PropertyRef Name="Mode_Id" />
+          </Key>
+          <Property Name="Game_Id" Type="Int32" Nullable="false" />
+          <Property Name="Mode_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="Game_id" />
+          </Key>
+          <Property Name="Game_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Release_Date" Type="DateTime" Precision="0" />
+          <Property Name="Developer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SalePrice" Type="Int32" />
+          <Property Name="DiscountPrice" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Genres">
+          <Key>
+            <PropertyRef Name="Genre_Id" />
+          </Key>
+          <Property Name="Genre_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MainTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Modes">
+          <Key>
+            <PropertyRef Name="Mode_Id" />
+          </Key>
+          <Property Name="Mode_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mode_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Platform">
+          <Key>
+            <PropertyRef Name="Platform_Id" />
+          </Key>
+          <Property Name="Platform_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Platform_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Platform_Game">
+          <Key>
+            <PropertyRef Name="Game_Id" />
+            <PropertyRef Name="Platform_Id" />
+          </Key>
+          <Property Name="Game_Id" Type="Int32" Nullable="false" />
+          <Property Name="Platform_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductFeatureds">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SortNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FeaturedName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductInventorys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PropertyNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsInventory" Type="Boolean" Nullable="false" />
+          <Property Name="InventoryQty" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductRelations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SecondTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Types" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Songs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsValid" Type="Boolean" Nullable="false" />
+          <Property Name="UserNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mp3" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PriceMax" Type="Int32" Nullable="false" />
+          <Property Name="PriceMedium" Type="Int32" />
+          <Property Name="PriceMin" Type="Int32" />
+          <Property Name="MainTypeNo" Type="Int32" Nullable="false" />
+          <Property Name="SecodaryTypeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Upload" Type="DateTime" Precision="3" />
+          <Property Name="Published" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="User_Game">
+          <Key>
+            <PropertyRef Name="Game_Id" />
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="Game_Id" Type="Int32" Nullable="false" />
+          <Property Name="User_Id" Type="Int32" Nullable="false" />
+          <Property Name="IsOwned" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="IsInventory" Type="Boolean" Nullable="false" />
+          <Property Name="IsShowPhoto" Type="Boolean" Nullable="false" />
+          <Property Name="ProdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProdName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrandSeriesName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BarcodeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VendorNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CostPrice" Type="Int32" Nullable="false" />
+          <Property Name="MarketPrice" Type="Int32" Nullable="false" />
+          <Property Name="SalePrice" Type="Int32" Nullable="false" />
+          <Property Name="DiscountPrice" Type="Int32" Nullable="false" />
+          <Property Name="InventoryQty" Type="Int32" Nullable="false" />
+          <Property Name="ContentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SpecificationText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsValid" Type="Boolean" />
+          <Property Name="UserNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CodeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GenderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TitleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="OnboardDate" Type="DateTime" Precision="0" />
+          <Property Name="LeaveDate" Type="DateTime" Precision="0" />
+          <Property Name="ContactEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ValidateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NotifyPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1795,6 +2250,8 @@
           <EntitySetMapping Name="Applications">
             <EntityTypeMapping TypeName="nicedemoModel.Applications">
               <MappingFragment StoreEntitySet="Applications">
+                <ScalarProperty Name="ShopName" ColumnName="ShopName" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
                 <ScalarProperty Name="IsDebug" ColumnName="IsDebug" />
@@ -1859,6 +2316,9 @@
           <EntitySetMapping Name="Carts">
             <EntityTypeMapping TypeName="nicedemoModel.Carts">
               <MappingFragment StoreEntitySet="Carts">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryNo" ColumnName="CategoryNo" />
+                <ScalarProperty Name="VendorNo" ColumnName="VendorNo" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LotNo" ColumnName="LotNo" />
                 <ScalarProperty Name="MemberNo" ColumnName="MemberNo" />
@@ -2304,6 +2764,7 @@
           <EntitySetMapping Name="ProductPropertys">
             <EntityTypeMapping TypeName="nicedemoModel.ProductPropertys">
               <MappingFragment StoreEntitySet="ProductPropertys">
+                <ScalarProperty Name="IsSelect" ColumnName="IsSelect" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
                 <ScalarProperty Name="PropertyNo" ColumnName="PropertyNo" />
@@ -2312,28 +2773,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="nicedemoModel.Products">
-              <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-                <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
-                <ScalarProperty Name="ProdName" ColumnName="ProdName" />
-                <ScalarProperty Name="BarcodeNo" ColumnName="BarcodeNo" />
-                <ScalarProperty Name="VendorNo" ColumnName="VendorNo" />
-                <ScalarProperty Name="CategoryNo" ColumnName="CategoryNo" />
-                <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
-                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-                <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
-                <ScalarProperty Name="ContentText" ColumnName="ContentText" />
-                <ScalarProperty Name="DetailText" ColumnName="DetailText" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Programs">
             <EntityTypeMapping TypeName="nicedemoModel.Programs">
               <MappingFragment StoreEntitySet="Programs">
+                <ScalarProperty Name="PageSize" ColumnName="PageSize" />
+                <ScalarProperty Name="IsSearch" ColumnName="IsSearch" />
+                <ScalarProperty Name="IsPageSize" ColumnName="IsPageSize" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
                 <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
@@ -2376,6 +2821,7 @@
           <EntitySetMapping Name="Propertys">
             <EntityTypeMapping TypeName="nicedemoModel.Propertys">
               <MappingFragment StoreEntitySet="Propertys">
+                <ScalarProperty Name="IsSelect" ColumnName="IsSelect" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PropertyNo" ColumnName="PropertyNo" />
                 <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
@@ -2484,30 +2930,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="nicedemoModel.Users">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
-                <ScalarProperty Name="UserNo" ColumnName="UserNo" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-                <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
-                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
-                <ScalarProperty Name="DeptNo" ColumnName="DeptNo" />
-                <ScalarProperty Name="TitleNo" ColumnName="TitleNo" />
-                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="OnboardDate" ColumnName="OnboardDate" />
-                <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
-                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
-                <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
-                <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
-                <ScalarProperty Name="ValidateCode" ColumnName="ValidateCode" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Vacations">
             <EntityTypeMapping TypeName="nicedemoModel.Vacations">
               <MappingFragment StoreEntitySet="Vacations">
@@ -2600,6 +3022,263 @@
                 <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormDetail">
+            <EntityTypeMapping TypeName="nicedemoModel.FormDetail">
+              <MappingFragment StoreEntitySet="FormDetail">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Qty2" ColumnName="Qty2" />
+                <ScalarProperty Name="Qty1" ColumnName="Qty1" />
+                <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+                <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="TitleName" ColumnName="TitleName" />
+                <ScalarProperty Name="TitleNo" ColumnName="TitleNo" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="DeptNo" ColumnName="DeptNo" />
+                <ScalarProperty Name="TargetName" ColumnName="TargetName" />
+                <ScalarProperty Name="TargetNo" ColumnName="TargetNo" />
+                <ScalarProperty Name="GuidNo" ColumnName="GuidNo" />
+                <ScalarProperty Name="FormNo" ColumnName="FormNo" />
+                <ScalarProperty Name="FormCode" ColumnName="FormCode" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormMaster">
+            <EntityTypeMapping TypeName="nicedemoModel.FormMaster">
+              <MappingFragment StoreEntitySet="FormMaster">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="FormDescribe" ColumnName="FormDescribe" />
+                <ScalarProperty Name="NotifyKey" ColumnName="NotifyKey" />
+                <ScalarProperty Name="GuidNo" ColumnName="GuidNo" />
+                <ScalarProperty Name="NextNo" ColumnName="NextNo" />
+                <ScalarProperty Name="RejectNo" ColumnName="RejectNo" />
+                <ScalarProperty Name="ApproveNo" ColumnName="ApproveNo" />
+                <ScalarProperty Name="SourceNo" ColumnName="SourceNo" />
+                <ScalarProperty Name="RejectTime" ColumnName="RejectTime" />
+                <ScalarProperty Name="ApproveTime" ColumnName="ApproveTime" />
+                <ScalarProperty Name="Qty2" ColumnName="Qty2" />
+                <ScalarProperty Name="Qty1" ColumnName="Qty1" />
+                <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+                <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="TitleName" ColumnName="TitleName" />
+                <ScalarProperty Name="TitleNo" ColumnName="TitleNo" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="DeptNo" ColumnName="DeptNo" />
+                <ScalarProperty Name="TargetName" ColumnName="TargetName" />
+                <ScalarProperty Name="TargetNo" ColumnName="TargetNo" />
+                <ScalarProperty Name="FormTime" ColumnName="FormTime" />
+                <ScalarProperty Name="FormDate" ColumnName="FormDate" />
+                <ScalarProperty Name="FormNo" ColumnName="FormNo" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+                <ScalarProperty Name="FormCode" ColumnName="FormCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Game_Genre">
+            <EntityTypeMapping TypeName="nicedemoModel.Game_Genre">
+              <MappingFragment StoreEntitySet="Game_Genre">
+                <ScalarProperty Name="Genre_Id" ColumnName="Genre_Id" />
+                <ScalarProperty Name="Game_Id" ColumnName="Game_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Game_Mode">
+            <EntityTypeMapping TypeName="nicedemoModel.Game_Mode">
+              <MappingFragment StoreEntitySet="Game_Mode">
+                <ScalarProperty Name="Mode_Id" ColumnName="Mode_Id" />
+                <ScalarProperty Name="Game_Id" ColumnName="Game_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="nicedemoModel.Games">
+              <MappingFragment StoreEntitySet="Games">
+                <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="Developer" ColumnName="Developer" />
+                <ScalarProperty Name="Release_Date" ColumnName="Release_Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Game_id" ColumnName="Game_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genres">
+            <EntityTypeMapping TypeName="nicedemoModel.Genres">
+              <MappingFragment StoreEntitySet="Genres">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Genre_Id" ColumnName="Genre_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainTypes">
+            <EntityTypeMapping TypeName="nicedemoModel.MainTypes">
+              <MappingFragment StoreEntitySet="MainTypes">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modes">
+            <EntityTypeMapping TypeName="nicedemoModel.Modes">
+              <MappingFragment StoreEntitySet="Modes">
+                <ScalarProperty Name="Mode_Name" ColumnName="Mode_Name" />
+                <ScalarProperty Name="Mode_Id" ColumnName="Mode_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Platform">
+            <EntityTypeMapping TypeName="nicedemoModel.Platform">
+              <MappingFragment StoreEntitySet="Platform">
+                <ScalarProperty Name="Platform_Name" ColumnName="Platform_Name" />
+                <ScalarProperty Name="Platform_Id" ColumnName="Platform_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Platform_Game">
+            <EntityTypeMapping TypeName="nicedemoModel.Platform_Game">
+              <MappingFragment StoreEntitySet="Platform_Game">
+                <ScalarProperty Name="Platform_Id" ColumnName="Platform_Id" />
+                <ScalarProperty Name="Game_Id" ColumnName="Game_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductFeatureds">
+            <EntityTypeMapping TypeName="nicedemoModel.ProductFeatureds">
+              <MappingFragment StoreEntitySet="ProductFeatureds">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="FeaturedName" ColumnName="FeaturedName" />
+                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+                <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductInventorys">
+            <EntityTypeMapping TypeName="nicedemoModel.ProductInventorys">
+              <MappingFragment StoreEntitySet="ProductInventorys">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="InventoryQty" ColumnName="InventoryQty" />
+                <ScalarProperty Name="IsInventory" ColumnName="IsInventory" />
+                <ScalarProperty Name="PropertyNo" ColumnName="PropertyNo" />
+                <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductRelations">
+            <EntityTypeMapping TypeName="nicedemoModel.ProductRelations">
+              <MappingFragment StoreEntitySet="ProductRelations">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CategoryNo" ColumnName="CategoryNo" />
+                <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SecondTypes">
+            <EntityTypeMapping TypeName="nicedemoModel.SecondTypes">
+              <MappingFragment StoreEntitySet="SecondTypes">
+                <ScalarProperty Name="Types" ColumnName="Types" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Songs">
+            <EntityTypeMapping TypeName="nicedemoModel.Songs">
+              <MappingFragment StoreEntitySet="Songs">
+                <ScalarProperty Name="Published" ColumnName="Published" />
+                <ScalarProperty Name="Upload" ColumnName="Upload" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="SecodaryTypeNo" ColumnName="SecodaryTypeNo" />
+                <ScalarProperty Name="MainTypeNo" ColumnName="MainTypeNo" />
+                <ScalarProperty Name="PriceMin" ColumnName="PriceMin" />
+                <ScalarProperty Name="PriceMedium" ColumnName="PriceMedium" />
+                <ScalarProperty Name="PriceMax" ColumnName="PriceMax" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Mp3" ColumnName="Mp3" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Game">
+            <EntityTypeMapping TypeName="nicedemoModel.User_Game">
+              <MappingFragment StoreEntitySet="User_Game">
+                <ScalarProperty Name="IsOwned" ColumnName="IsOwned" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Game_Id" ColumnName="Game_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="nicedemoModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="SpecificationText" ColumnName="SpecificationText" />
+                <ScalarProperty Name="ContentText" ColumnName="ContentText" />
+                <ScalarProperty Name="InventoryQty" ColumnName="InventoryQty" />
+                <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="MarketPrice" ColumnName="MarketPrice" />
+                <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+                <ScalarProperty Name="CategoryNo" ColumnName="CategoryNo" />
+                <ScalarProperty Name="VendorNo" ColumnName="VendorNo" />
+                <ScalarProperty Name="BarcodeNo" ColumnName="BarcodeNo" />
+                <ScalarProperty Name="BrandSeriesName" ColumnName="BrandSeriesName" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+                <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
+                <ScalarProperty Name="IsShowPhoto" ColumnName="IsShowPhoto" />
+                <ScalarProperty Name="IsInventory" ColumnName="IsInventory" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="nicedemoModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="NotifyPassword" ColumnName="NotifyPassword" />
+                <ScalarProperty Name="ValidateCode" ColumnName="ValidateCode" />
+                <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
+                <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
+                <ScalarProperty Name="OnboardDate" ColumnName="OnboardDate" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="TitleNo" ColumnName="TitleNo" />
+                <ScalarProperty Name="DeptNo" ColumnName="DeptNo" />
+                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+                <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
+                <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

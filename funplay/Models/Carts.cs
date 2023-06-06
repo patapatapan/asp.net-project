@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace funplay.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Carts
     {
         public int Id { get; set; }
@@ -25,5 +25,8 @@ namespace funplay.Models
         public int OrderAmount { get; set; }
         public System.DateTime CreateTime { get; set; }
         public string Remark { get; set; }
+        public string VendorNo { get; set; }
+        public string CategoryNo { get; set; }
+        public string CategoryName { get; set; }
     }
 }

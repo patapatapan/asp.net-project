@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
 namespace funplay.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class ProductPropertys
     {
         public int Id { get; set; }
@@ -19,5 +19,6 @@ namespace funplay.Models
         public string PropertyNo { get; set; }
         public string PropertyValue { get; set; }
         public string Remark { get; set; }
+        public bool IsSelect { get; set; }
     }
 }
