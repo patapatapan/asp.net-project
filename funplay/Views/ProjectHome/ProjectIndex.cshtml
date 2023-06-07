@@ -15,7 +15,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <div class="input-group">
-                                <input type="search" placeholder="想找些甚麼" class="form-control" id="search" value>
+                                <input type="search" placeholder="想找些甚麼" class="form-control" id="search">
                                 <i class="fa-solid fa-magnifying-glass fa-xl half-rounded" type="submit"></i>
                             </div>
                         </div>
@@ -46,7 +46,8 @@
                         </div>
                         <!-- 使用者按鈕 -->
                         <div class="user dropdown">
-                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);" class="text-white" data-bs-toggle="dropdown">用戶: @UserService.Account</button>
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);" class="text-white" data-bs-toggle="dropdown">用戶: @UserService.Account</button> 
+                             @*@UserService.Account 去撈 Session 抓到的 Account 的值*@ 
                             <div class="dropdown-menu">
                                 <a href="#" class="dropdown-item">會員資料</a>
                                 <a href="#" class="dropdown-item">登出</a>

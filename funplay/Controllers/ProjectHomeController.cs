@@ -43,6 +43,7 @@ namespace funplay.Controllers
                     ModelState.AddModelError("DisplayName", "帳號或密碼輸入錯誤!!");
                     return View(model);
                 }
+                //if(!UserService.IsValid)
                 if (!AppService.IsConfig) AppService.Init();
                 return RedirectToAction("ProjectIndex", "ProjectHome", new { area = "" });
             }
@@ -59,10 +60,11 @@ namespace funplay.Controllers
         [HttpPost]
         [LoginAuthorize()]
         public ActionResult ProjectRegister(FormCollection collection)
+        //public ActionResult ProjectRegister(vmProjectRegister model)
         {
             vmProjectRegister model = new vmProjectRegister();
             model.UserName = collection["UserName"].ToString();
-            model.Birthday = collection["Birthday"].ToString();
+            //model.Birthday = DateTime.Parse(collection["Birthday"]);
             model.Email = collection["Email"].ToString();
             model.Account = collection["Account"].ToString();
             model.Password = collection["Password"].ToString();
@@ -75,11 +77,11 @@ namespace funplay.Controllers
             {
                 if (str_message == "登入信箱重複註冊!!")
                 {
-                    ModelState.AddModelError("UserEmail", str_message);
+                    ModelState.AddModelError("Email", str_message);
                     return View(model);
                 }
 
-                ModelState.AddModelError("UserNo", str_message);
+                ModelState.AddModelError("Account", str_message);
                 return View(model);
             }
             //3.新增一筆未審核會員資訊
@@ -91,12 +93,18 @@ namespace funplay.Controllers
             }
             //5.顯示註冊訊息
             TempData["MessageText"] = $"您的註冊資訊已提交，請至您的電子信箱{model.Email}中驗證電子信箱功能,謝謝!!";
-            return RedirectToAction("ProjectIndex", "ProjectHome", new { area = "" });
+            return RedirectToAction("Message", "ProjectHome", new { area = "" });
         }
 
         [HttpGet]
         [LoginAuthorize()]
         public ActionResult ProjectProduct()
+        {
+            return View();
+        }
+
+        //顯示訊息用
+        public ActionResult Message()
         {
             return View();
         }

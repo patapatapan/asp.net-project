@@ -1,4 +1,5 @@
 ﻿@model vmProjectLogin
+@*用來存取表單輸入的值*@
 
 @{
     ViewBag.Title = "登入";
@@ -21,10 +22,10 @@
         <!-- 登入畫面白色底框 -->
         <div class="form-box">
             <form action="ProjectLogin" method="post">
-                <input type="text" name="Account" placeholder="帳號" id="account" value="">
+                <input type="text" name="Account" placeholder="帳號" id="Account">
                 @Html.ValidationMessageFor(model => model.Account, "", new { @class = "text-danger" })
             <div class="pwd">
-                <input type="password" name="Password" placeholder="密碼" id="pwd" value="">
+                <input type="password" name="Password" placeholder="密碼" id="Password">
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                 <button onclick="changePwdType()" type="button"><i class="fa-solid fa-eye-slash"></i></button>
             </div>

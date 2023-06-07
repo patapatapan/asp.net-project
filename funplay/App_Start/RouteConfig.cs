@@ -16,9 +16,10 @@ namespace funplay
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "ProjectHome", action = "ProjectIndex", id = UrlParameter.Optional },
+                //defaults: new { controller = "ProjectHome", action = "ProjectIndex", id = UrlParameter.Optional },
+                defaults: new { controller = "Web", action = "Login", id = UrlParameter.Optional },
                 new string[] { "funplay.Controllers" }
-                );
+            );
         }
     }
 }

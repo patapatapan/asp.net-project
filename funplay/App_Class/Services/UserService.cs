@@ -21,6 +21,9 @@ public static class UserService
     public static string DeptName { get { return SessionService.GetValue("DeptName"); } set { SessionService.SetValue("DeptName", value); } }
     public static string TitleName { get { return SessionService.GetValue("TitleName"); } set { SessionService.SetValue("TitleName", value); } }
     public static string Account { get { return SessionService.GetValue("Account"); } set { SessionService.SetValue("Account", value); } }
+
+    public static DateTime Birthday { get; set; }
+    //把存取的值轉換成 Session 讓暫存的值的生命周期較長
     public static string UserImage { get { return GetUserImage(UserNo); } }
     public static bool IsLogin { get { return SessionService.GetBoolValue("IsLogin"); } set { SessionService.SetValue("IsLogin", value); } }
     public static Securitys UserSecurity { get; set; } = new Securitys
@@ -45,6 +48,7 @@ public static class UserService
         return string.Format("{0}?t={1}", str_image, str_stamp);
     }
 
+    //檢測是否重複
     public static string ProjectRegister(vmProjectRegister model)
     {
         using (z_repoUsers user = new z_repoUsers())
@@ -57,6 +61,7 @@ public static class UserService
         }
     }
 
+    //將表單輸入的值傳送至資料庫
     public static string ProjectRegisterCreate(vmProjectRegister model)
     {
         using (z_repoUsers user = new z_repoUsers())
@@ -64,17 +69,18 @@ public static class UserService
             using (CryptographyService cryp = new CryptographyService())
             {
                 string str_code = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                string str_password = cryp.SHA256Encode(model.Password);
+                //string str_password = cryp.SHA256Encode(model.Password);
                 Users newUser = new Users();
+                //資料庫的值 = 從 vmProjectRegister 取得的值
                 newUser.IsValid = false;
                 newUser.RoleNo = "Member";
                 newUser.ValidateCode = str_code;
-                newUser.UserNo = model.Account;
+                newUser.Account = model.Account;
                 newUser.UserName = model.UserName;
-                //newUser.Password = str_password;
                 newUser.Password = model.Password;
-                newUser.ContactEmail = model.Email;
-                newUser.ContactTel = model.Tel;
+                //newUser.Birthday = model.Birthday;
+                newUser.Email = model.Email;
+                newUser.Tel = model.Tel;
                 user.repo.Create(newUser);
                 user.repo.SaveChanges();
                 return str_code;
