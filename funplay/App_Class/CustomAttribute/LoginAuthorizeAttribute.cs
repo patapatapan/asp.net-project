@@ -33,6 +33,7 @@ public class LoginAuthorizeAttribute : AuthorizeAttribute
         if (AppService.DebugMode) return true;
 
         //未登入即不通過驗證 
+        if (string.IsNullOrEmpty(UserService.UserNo)) return false;
         if (!UserService.IsLogin) return false;
 
         //未限制角色不檢查權限
@@ -63,8 +64,8 @@ public class LoginAuthorizeAttribute : AuthorizeAttribute
                 new
                 {
                     area = "",
-                    controller = "Web",
-                    action = "Login"
+                    controller = "ProjectHome",
+                    action = "ProjectLogin"
                 }
             )
         );

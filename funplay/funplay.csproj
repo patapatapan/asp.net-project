@@ -697,6 +697,7 @@
     <Compile Include="Models\ViewModel\vmMetadataModel.cs" />
     <Compile Include="Models\ViewModel\vmPhoto.cs" />
     <Compile Include="Models\ViewModel\vmProjectLogin.cs" />
+    <Compile Include="Models\ViewModel\vmProjectRegister.cs" />
     <Compile Include="Models\ViewModel\vmRegister.cs" />
     <Compile Include="Models\ViewModel\vmRepositoryModel.cs" />
     <Compile Include="Models\ViewModel\vmSelectListItem.cs" />

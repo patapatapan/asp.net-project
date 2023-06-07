@@ -24,13 +24,13 @@ public class BaseController : Controller
         Thread.CurrentThread.CurrentUICulture = culture;
         Thread.CurrentThread.CurrentCulture = culture;
         if (!AppService.IsConfig) AppService.Init();
-        if (AppService.DebugMode && !UserService.IsLogin)
-        {
-            UserService.RoleNo = "User";
-            if (!string.IsNullOrEmpty(ActionService.Area))
-                UserService.RoleNo = ActionService.Area;
-            UserService.DemoUser();
-        }
+        //if (AppService.DebugMode && !UserService.IsLogin)
+        //{
+        //    UserService.RoleNo = "User";
+        //    if (!string.IsNullOrEmpty(ActionService.Area))
+        //        UserService.RoleNo = ActionService.Area;
+        //    UserService.DemoUser();
+        //}
         base.ExecuteCore();
     }
 

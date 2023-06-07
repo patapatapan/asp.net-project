@@ -1,4 +1,5 @@
-﻿
+﻿@model vmProjectRegister
+
 @{
     ViewBag.Title = "註冊";
     Layout = "~/Views/Shared/_LayoutHeader.cshtml";
@@ -19,35 +20,36 @@
     <div class="login">
         <!-- 畫面白色底框 -->
         <div class="form-box">
-            <form action="">
+            @using (Html.BeginForm("ProjectRegister","ProjectHome", FormMethod.Post))
+            {
                 <div class="row">
                     <div class="title mb-1 d-flex justify-content-center">
                         <h4>創建您的帳號</h4>
                     </div>
                     <div class="row-flex">
                         <label for="dateInput">姓名</label>
-                        <input type="text" name="name" placeholder="姓名" id="name">
+                        <input type="text" name="UserName" placeholder="姓名" id="UserName">
                     </div>
                     <div class="row-flex">
                         <label for="dateInput">出生日期</label>
-                        <input type="date" id="birth" name="birth">
-                    </div>
-                    <div class="row-flex">
-                        <label for="dateInput">顯示名稱</label>
-                        <input type="text" name="displayname" placeholder="顯示名稱" id="displayname">
+                        <input type="date" id="Birthday" name="Birthday">
                     </div>
                     <div class="row-flex">
                         <label for="dateInput">電子信箱</label>
-                        <input type="email" name="email" placeholder="註冊信箱" id="email">
+                        <input type="email" name="Email" placeholder="註冊信箱" id="Email">
+                    </div>
+                    <div class="row-flex">
+                        <label for="dateInput">連絡電話</label>
+                        <input type="text" name="Tel" placeholder="連絡電話" id="Tel">
                     </div>
                     <div class="row-flex">
                         <label for="dateInput">帳號</label>
-                        <input type="text" name="userid" placeholder="帳號" id="userid">
+                        <input type="text" name="Account" placeholder="帳號" id="Account">
                     </div>
                     <div class="row-flex">
                         <label for="dateInput">密碼</label>
                         <div class="pwd">
-                            <input type="password" name="password" placeholder="密碼" id="pwd">
+                            <input type="password" name="Password" placeholder="密碼" id="Password">
                             <button onclick="changePwdType()" type="button">
                                 <i class="fa-solid fa-eye-slash"></i>
                             </button>
@@ -61,7 +63,7 @@
 
 
                 </div>
-            </form>
+            }
         </div>
     </div>
 

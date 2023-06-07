@@ -1,4 +1,5 @@
-﻿using funplay.Models;
+﻿using DocumentFormat.OpenXml.EMMA;
+using funplay.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,20 +7,22 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Security;
+using System.Web.SessionState;
 
 /// <summary>
 /// 使用者相關服務
 /// </summary>
 public static class UserService
 {
-    public static string UserNo { get; set; } = "";
-    public static string UserName { get; set; } = "";
-    public static string RoleNo { get; set; } = "";
+    public static string UserNo { get { return SessionService.GetValue("UserNo"); } set { SessionService.SetValue("UserNo", value); } }
+    public static string UserName { get { return SessionService.GetValue("UserName"); } set { SessionService.SetValue("UserName", value); } }
+    public static string RoleNo { get { return SessionService.GetValue("RoleNo"); } set { SessionService.SetValue("RoleNo", value); } }
     public static string RoleName { get { using (z_repoRoles roles = new z_repoRoles()) { return roles.GetDataName(RoleNo); } } }
-    public static string DeptName { get; set; } = "";
-    public static string TitleName { get; set; } = "";
+    public static string DeptName { get { return SessionService.GetValue("DeptName"); } set { SessionService.SetValue("DeptName", value); } }
+    public static string TitleName { get { return SessionService.GetValue("TitleName"); } set { SessionService.SetValue("TitleName", value); } }
+    public static string Account { get { return SessionService.GetValue("Account"); } set { SessionService.SetValue("Account", value); } }
     public static string UserImage { get { return GetUserImage(UserNo); } }
-    public static bool IsLogin { get; set; } = false;
+    public static bool IsLogin { get { return SessionService.GetBoolValue("IsLogin"); } set { SessionService.SetValue("IsLogin", value); } }
     public static Securitys UserSecurity { get; set; } = new Securitys
     {
         TargetNo = "",
@@ -41,15 +44,65 @@ public static class UserService
             str_image = "~/Images/User/none.jpg";
         return string.Format("{0}?t={1}", str_image, str_stamp);
     }
+
+    public static string ProjectRegister(vmProjectRegister model)
+    {
+        using (z_repoUsers user = new z_repoUsers())
+        {
+            var data = user.repo.ReadSingle(m => m.Account == model.Account);
+            if (data != null) return "登入帳號重複註冊!!";
+            data = user.repo.ReadSingle(m => m.Email == model.Email);
+            if (data != null) return "登入信箱重複註冊!!";
+            return "";
+        }
+    }
+
+    public static string ProjectRegisterCreate(vmProjectRegister model)
+    {
+        using (z_repoUsers user = new z_repoUsers())
+        {
+            using (CryptographyService cryp = new CryptographyService())
+            {
+                string str_code = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                string str_password = cryp.SHA256Encode(model.Password);
+                Users newUser = new Users();
+                newUser.IsValid = false;
+                newUser.RoleNo = "Member";
+                newUser.ValidateCode = str_code;
+                newUser.UserNo = model.Account;
+                newUser.UserName = model.UserName;
+                //newUser.Password = str_password;
+                newUser.Password = model.Password;
+                newUser.ContactEmail = model.Email;
+                newUser.ContactTel = model.Tel;
+                user.repo.Create(newUser);
+                user.repo.SaveChanges();
+                return str_code;
+            }
+        }
+    }
+
     /// <summary>
     /// 登入
     /// </summary>
     /// <param name="userNo">使用者代號</param>
     /// <param name="userName">使用者姓名</param>
     /// <param name="roleNo">角色代號</param>
-    public static void Login(string userNo, string userName, string roleNo)
+    //public static void Login(string userNo, string userName, string roleNo)
+    //{
+    //    UserNo = userNo;
+    //    UserName = userName;
+    //    RoleNo = roleNo;
+    //    DeptName = "";
+    //    TitleName = "";
+    //    IsLogin = true;
+    //    if (roleNo == "User")
+    //    { using (z_repoUsers user = new z_repoUsers()) { user.SetUserInfo(); } }
+    //    { using (z_repoCompanys user = new z_repoCompanys()) { user.SetDefaultCompany(); } }
+    //}
+    public static void Login(string account, string userName, string roleNo)
     {
-        UserNo = userNo;
+        Account = account;
         UserName = userName;
         RoleNo = roleNo;
         DeptName = "";
@@ -59,6 +112,7 @@ public static class UserService
         { using (z_repoUsers user = new z_repoUsers()) { user.SetUserInfo(); } }
         { using (z_repoCompanys user = new z_repoCompanys()) { user.SetDefaultCompany(); } }
     }
+
     /// <summary>
     /// 登出
     /// </summary>

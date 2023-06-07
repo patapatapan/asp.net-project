@@ -22,10 +22,12 @@
         <div class="form-box">
             <form action="ProjectLogin" method="post">
                 <input type="text" name="Account" placeholder="帳號" id="account" value="">
-                <div class="pwd">
-                    <input type="password" name="Password" placeholder="密碼" id="pwd" value="">
-                    <button onclick="changePwdType()" type="button"><i class="fa-solid fa-eye-slash"></i></button>
-                </div>
+                @Html.ValidationMessageFor(model => model.Account, "", new { @class = "text-danger" })
+            <div class="pwd">
+                <input type="password" name="Password" placeholder="密碼" id="pwd" value="">
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                <button onclick="changePwdType()" type="button"><i class="fa-solid fa-eye-slash"></i></button>
+            </div>
 
                 <div class="" style="width: 100%; height: 40px;">
                     <ul class="check-box">
