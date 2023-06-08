@@ -21,15 +21,15 @@ public class SendMailService : BaseClass
                 var userData = users.repo.ReadSingle(m => m.ValidateCode == validateCode);
                 if (userData == null) { return "查無驗證碼!!"; }
                 if ((bool)userData.IsValid) { return "此驗證碼已通過驗證!!"; }
-                if (string.IsNullOrEmpty(userData.ContactEmail)) { return "此會員未輸入電子信箱!!"; }
+                if (string.IsNullOrEmpty(userData.Email)) { return "此會員未輸入電子信箱!!"; }
                 if (string.IsNullOrEmpty(AppService.WebSiteUrl)) { return "Web.config 未設定 WebSiteUrl 參數!!"; }
                 //變數
                 string str_member_no = userData.UserNo;
                 string str_member_name = userData.UserName;
-                string str_member_email = userData.ContactEmail;
+                string str_member_email = userData.Email;
                 string str_reg_date = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
 
-                string str_controller = "Web";
+                string str_controller = "ProjectHome";
                 string str_action = "ValidateEmail";
                 string str_url = AppService.WebSiteUrl;
                 string str_validate_url = $"{str_url}/{str_controller}/{str_action}/{validateCode}";

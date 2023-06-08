@@ -14,7 +14,8 @@ namespace funplay.Models
     
     public partial class Games
     {
-        public int Game_id { get; set; }
+        public int Id { get; set; }
+        public string GameNo { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> Release_Date { get; set; }

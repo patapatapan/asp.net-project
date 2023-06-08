@@ -67,8 +67,8 @@ public static class AppService
     }
     public static string MailSenderName
     {
-        get { return SessionService.GetValue("WebSiteUrl", "網站管理員"); }
-        set { SessionService.SetValue("WebSiteUrl", value); }
+        get { return SessionService.GetValue("MailSenderName", "網站管理員"); }
+        set { SessionService.SetValue("MailSenderName", value); }
     }
     public static string MailSenderEmail
     {

@@ -14,7 +14,7 @@ namespace funplay.Models
     
     public partial class Game_Mode
     {
-        public int Game_Id { get; set; }
-        public int Mode_Id { get; set; }
+        public string GameNo { get; set; }
+        public string ModeNo { get; set; }
     }
 }

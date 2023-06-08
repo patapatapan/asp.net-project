@@ -44,12 +44,20 @@ namespace funplay.Models
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<ExtensionTables> ExtensionTables { get; set; }
         public virtual DbSet<Featureds> Featureds { get; set; }
+        public virtual DbSet<FormDetail> FormDetail { get; set; }
+        public virtual DbSet<FormMaster> FormMaster { get; set; }
         public virtual DbSet<ForumBoards> ForumBoards { get; set; }
         public virtual DbSet<Forums> Forums { get; set; }
+        public virtual DbSet<Game_Genre> Game_Genre { get; set; }
+        public virtual DbSet<Game_Mode> Game_Mode { get; set; }
+        public virtual DbSet<Games> Games { get; set; }
+        public virtual DbSet<Genres> Genres { get; set; }
         public virtual DbSet<Languages> Languages { get; set; }
         public virtual DbSet<Logs> Logs { get; set; }
+        public virtual DbSet<MainTypes> MainTypes { get; set; }
         public virtual DbSet<MapPositions> MapPositions { get; set; }
         public virtual DbSet<Messages> Messages { get; set; }
+        public virtual DbSet<Modes> Modes { get; set; }
         public virtual DbSet<Modules> Modules { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<NewsLetter> NewsLetter { get; set; }
@@ -59,43 +67,35 @@ namespace funplay.Models
         public virtual DbSet<OrdersStatus> OrdersStatus { get; set; }
         public virtual DbSet<Payments> Payments { get; set; }
         public virtual DbSet<Photos> Photos { get; set; }
+        public virtual DbSet<Platform> Platform { get; set; }
+        public virtual DbSet<Platform_Game> Platform_Game { get; set; }
         public virtual DbSet<PricingDetails> PricingDetails { get; set; }
         public virtual DbSet<Pricings> Pricings { get; set; }
+        public virtual DbSet<ProductFeatureds> ProductFeatureds { get; set; }
+        public virtual DbSet<ProductInventorys> ProductInventorys { get; set; }
         public virtual DbSet<ProductPropertys> ProductPropertys { get; set; }
+        public virtual DbSet<ProductRelations> ProductRelations { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Programs> Programs { get; set; }
         public virtual DbSet<Promotions> Promotions { get; set; }
         public virtual DbSet<PropertyNames> PropertyNames { get; set; }
         public virtual DbSet<Propertys> Propertys { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<SecondTypes> SecondTypes { get; set; }
         public virtual DbSet<Securitys> Securitys { get; set; }
         public virtual DbSet<Services> Services { get; set; }
         public virtual DbSet<Shippings> Shippings { get; set; }
+        public virtual DbSet<Songs> Songs { get; set; }
         public virtual DbSet<Teams> Teams { get; set; }
         public virtual DbSet<Titles> Titles { get; set; }
         public virtual DbSet<TodoLists> TodoLists { get; set; }
+        public virtual DbSet<User_Game> User_Game { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Vacations> Vacations { get; set; }
         public virtual DbSet<WorkflowDetails> WorkflowDetails { get; set; }
         public virtual DbSet<WorkflowMasters> WorkflowMasters { get; set; }
         public virtual DbSet<WorkflowRoles> WorkflowRoles { get; set; }
         public virtual DbSet<WorkflowRoleUsers> WorkflowRoleUsers { get; set; }
         public virtual DbSet<WorkflowRoutes> WorkflowRoutes { get; set; }
-        public virtual DbSet<FormDetail> FormDetail { get; set; }
-        public virtual DbSet<FormMaster> FormMaster { get; set; }
-        public virtual DbSet<Game_Genre> Game_Genre { get; set; }
-        public virtual DbSet<Game_Mode> Game_Mode { get; set; }
-        public virtual DbSet<Games> Games { get; set; }
-        public virtual DbSet<Genres> Genres { get; set; }
-        public virtual DbSet<MainTypes> MainTypes { get; set; }
-        public virtual DbSet<Modes> Modes { get; set; }
-        public virtual DbSet<Platform> Platform { get; set; }
-        public virtual DbSet<Platform_Game> Platform_Game { get; set; }
-        public virtual DbSet<ProductFeatureds> ProductFeatureds { get; set; }
-        public virtual DbSet<ProductInventorys> ProductInventorys { get; set; }
-        public virtual DbSet<ProductRelations> ProductRelations { get; set; }
-        public virtual DbSet<SecondTypes> SecondTypes { get; set; }
-        public virtual DbSet<Songs> Songs { get; set; }
-        public virtual DbSet<User_Game> User_Game { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
     }
 }

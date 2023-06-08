@@ -4,828 +4,313 @@
     <EntitySetMapping Name="AboutUs">
       <EntityTypeMapping TypeName="nicedemoModel.AboutUs">
         <MappingFragment StoreEntitySet="AboutUs">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="HeaderName" ColumnName="HeaderName" />
-          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="DetailText" ColumnName="DetailText" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DetailText" ColumnName="DetailText" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
+          <ScalarProperty Name="HeaderName" ColumnName="HeaderName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AboutUsDetails">
       <EntityTypeMapping TypeName="nicedemoModel.AboutUsDetails">
         <MappingFragment StoreEntitySet="AboutUsDetails">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AddressBooks">
       <EntityTypeMapping TypeName="nicedemoModel.AddressBooks">
         <MappingFragment StoreEntitySet="AddressBooks">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="EngName" ColumnName="EngName" />
-          <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="CompName" ColumnName="CompName" />
-          <ScalarProperty Name="CompID" ColumnName="CompID" />
-          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
-          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
-          <ScalarProperty Name="CompTel" ColumnName="CompTel" />
-          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
-          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
-          <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
-          <ScalarProperty Name="LineID" ColumnName="LineID" />
-          <ScalarProperty Name="FacebookID" ColumnName="FacebookID" />
-          <ScalarProperty Name="TwitterID" ColumnName="TwitterID" />
-          <ScalarProperty Name="InstagramID" ColumnName="InstagramID" />
-          <ScalarProperty Name="LinkedInID" ColumnName="LinkedInID" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="LinkedInID" ColumnName="LinkedInID" />
+          <ScalarProperty Name="InstagramID" ColumnName="InstagramID" />
+          <ScalarProperty Name="TwitterID" ColumnName="TwitterID" />
+          <ScalarProperty Name="FacebookID" ColumnName="FacebookID" />
+          <ScalarProperty Name="LineID" ColumnName="LineID" />
+          <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
+          <ScalarProperty Name="CompTel" ColumnName="CompTel" />
+          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="CompName" ColumnName="CompName" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+          <ScalarProperty Name="EngName" ColumnName="EngName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Applications">
       <EntityTypeMapping TypeName="nicedemoModel.Applications">
         <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="WebSiteUrl" ColumnName="WebSiteUrl" />
+          <ScalarProperty Name="MailUseSSL" ColumnName="MailUseSSL" />
+          <ScalarProperty Name="MailHostPort" ColumnName="MailHostPort" />
+          <ScalarProperty Name="MailHostUrl" ColumnName="MailHostUrl" />
+          <ScalarProperty Name="MailAppPassword" ColumnName="MailAppPassword" />
+          <ScalarProperty Name="MailReceiverEmail" ColumnName="MailReceiverEmail" />
+          <ScalarProperty Name="MailReceiverName" ColumnName="MailReceiverName" />
+          <ScalarProperty Name="MailSenderEmail" ColumnName="MailSenderEmail" />
+          <ScalarProperty Name="MailSenderName" ColumnName="MailSenderName" />
+          <ScalarProperty Name="GoogleMapKey" ColumnName="GoogleMapKey" />
+          <ScalarProperty Name="LanguageNo" ColumnName="LanguageNo" />
+          <ScalarProperty Name="PowerBy" ColumnName="PowerBy" />
+          <ScalarProperty Name="EncryptionMode" ColumnName="EncryptionMode" />
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
           <ScalarProperty Name="ShopName" ColumnName="ShopName" />
           <ScalarProperty Name="AdminName" ColumnName="AdminName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="IsDebug" ColumnName="IsDebug" />
           <ScalarProperty Name="AppName" ColumnName="AppName" />
-          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
-          <ScalarProperty Name="EncryptionMode" ColumnName="EncryptionMode" />
-          <ScalarProperty Name="PowerBy" ColumnName="PowerBy" />
-          <ScalarProperty Name="LanguageNo" ColumnName="LanguageNo" />
-          <ScalarProperty Name="GoogleMapKey" ColumnName="GoogleMapKey" />
-          <ScalarProperty Name="MailSenderName" ColumnName="MailSenderName" />
-          <ScalarProperty Name="MailSenderEmail" ColumnName="MailSenderEmail" />
-          <ScalarProperty Name="MailReceiverName" ColumnName="MailReceiverName" />
-          <ScalarProperty Name="MailReceiverEmail" ColumnName="MailReceiverEmail" />
-          <ScalarProperty Name="MailAppPassword" ColumnName="MailAppPassword" />
-          <ScalarProperty Name="MailHostUrl" ColumnName="MailHostUrl" />
-          <ScalarProperty Name="MailHostPort" ColumnName="MailHostPort" />
-          <ScalarProperty Name="MailUseSSL" ColumnName="MailUseSSL" />
-          <ScalarProperty Name="WebSiteUrl" ColumnName="WebSiteUrl" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="IsDebug" ColumnName="IsDebug" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Calendars">
       <EntityTypeMapping TypeName="nicedemoModel.Calendars">
         <MappingFragment StoreEntitySet="Calendars">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="TargetCode" ColumnName="TargetCode" />
-          <ScalarProperty Name="TargetNo" ColumnName="TargetNo" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
-          <ScalarProperty Name="IsFullday" ColumnName="IsFullday" />
-          <ScalarProperty Name="PlaceName" ColumnName="PlaceName" />
-          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
-          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
-          <ScalarProperty Name="PlaceAddress" ColumnName="PlaceAddress" />
-          <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
-          <ScalarProperty Name="ResourceText" ColumnName="ResourceText" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ResourceText" ColumnName="ResourceText" />
+          <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+          <ScalarProperty Name="PlaceAddress" ColumnName="PlaceAddress" />
+          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="PlaceName" ColumnName="PlaceName" />
+          <ScalarProperty Name="IsFullday" ColumnName="IsFullday" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="TargetNo" ColumnName="TargetNo" />
+          <ScalarProperty Name="TargetCode" ColumnName="TargetCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Carousels">
       <EntityTypeMapping TypeName="nicedemoModel.Carousels">
         <MappingFragment StoreEntitySet="Carousels">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="HeaderName" ColumnName="HeaderName" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
-          <ScalarProperty Name="MoreUrl" ColumnName="MoreUrl" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="MoreUrl" ColumnName="MoreUrl" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="HeaderName" ColumnName="HeaderName" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Carts">
       <EntityTypeMapping TypeName="nicedemoModel.Carts">
         <MappingFragment StoreEntitySet="Carts">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+          <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="ProdSpec" ColumnName="ProdSpec" />
+          <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+          <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
           <ScalarProperty Name="CategoryNo" ColumnName="CategoryNo" />
           <ScalarProperty Name="VendorNo" ColumnName="VendorNo" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="LotNo" ColumnName="LotNo" />
           <ScalarProperty Name="MemberNo" ColumnName="MemberNo" />
-          <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
-          <ScalarProperty Name="ProdName" ColumnName="ProdName" />
-          <ScalarProperty Name="ProdSpec" ColumnName="ProdSpec" />
-          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
-          <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
-          <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Categorys">
       <EntityTypeMapping TypeName="nicedemoModel.Categorys">
         <MappingFragment StoreEntitySet="Categorys">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="IsCategory" ColumnName="IsCategory" />
-          <ScalarProperty Name="ParentNo" ColumnName="ParentNo" />
-          <ScalarProperty Name="CategoryNo" ColumnName="CategoryNo" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="CategoryNo" ColumnName="CategoryNo" />
+          <ScalarProperty Name="ParentNo" ColumnName="ParentNo" />
+          <ScalarProperty Name="IsCategory" ColumnName="IsCategory" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CityAreas">
       <EntityTypeMapping TypeName="nicedemoModel.CityAreas">
         <MappingFragment StoreEntitySet="CityAreas">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="CityName" ColumnName="CityName" />
-          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Citys">
       <EntityTypeMapping TypeName="nicedemoModel.Citys">
         <MappingFragment StoreEntitySet="Citys">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="CityName" ColumnName="CityName" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Clients">
       <EntityTypeMapping TypeName="nicedemoModel.Clients">
         <MappingFragment StoreEntitySet="Clients">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
-          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
-          <ScalarProperty Name="WebsiteUrl" ColumnName="WebsiteUrl" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="WebsiteUrl" ColumnName="WebsiteUrl" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CloseDates">
       <EntityTypeMapping TypeName="nicedemoModel.CloseDates">
         <MappingFragment StoreEntitySet="CloseDates">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CodeBases">
       <EntityTypeMapping TypeName="nicedemoModel.CodeBases">
         <MappingFragment StoreEntitySet="CodeBases">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
-          <ScalarProperty Name="BaseNo" ColumnName="BaseNo" />
-          <ScalarProperty Name="BaseName" ColumnName="BaseName" />
-          <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+          <ScalarProperty Name="BaseName" ColumnName="BaseName" />
+          <ScalarProperty Name="BaseNo" ColumnName="BaseNo" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CodeDatas">
       <EntityTypeMapping TypeName="nicedemoModel.CodeDatas">
         <MappingFragment StoreEntitySet="CodeDatas">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="BaseNo" ColumnName="BaseNo" />
-          <ScalarProperty Name="ParentNo" ColumnName="ParentNo" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="CodeName" ColumnName="CodeName" />
-          <ScalarProperty Name="CodeValue" ColumnName="CodeValue" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CodeValue" ColumnName="CodeValue" />
+          <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="ParentNo" ColumnName="ParentNo" />
+          <ScalarProperty Name="BaseNo" ColumnName="BaseNo" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Companys">
       <EntityTypeMapping TypeName="nicedemoModel.Companys">
         <MappingFragment StoreEntitySet="Companys">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="CompNo" ColumnName="CompNo" />
-          <ScalarProperty Name="CompName" ColumnName="CompName" />
-          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
-          <ScalarProperty Name="EngName" ColumnName="EngName" />
-          <ScalarProperty Name="EngShortName" ColumnName="EngShortName" />
-          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
-          <ScalarProperty Name="BossName" ColumnName="BossName" />
-          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
-          <ScalarProperty Name="CompTel" ColumnName="CompTel" />
-          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
-          <ScalarProperty Name="CompFax" ColumnName="CompFax" />
-          <ScalarProperty Name="CompID" ColumnName="CompID" />
-          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
-          <ScalarProperty Name="CompAddress" ColumnName="CompAddress" />
-          <ScalarProperty Name="CompUrl" ColumnName="CompUrl" />
-          <ScalarProperty Name="TwitterUrl" ColumnName="TwitterUrl" />
-          <ScalarProperty Name="FacebookUrl" ColumnName="FacebookUrl" />
-          <ScalarProperty Name="InstagramUrl" ColumnName="InstagramUrl" />
-          <ScalarProperty Name="SkypeUrl" ColumnName="SkypeUrl" />
-          <ScalarProperty Name="LinkedinUrl" ColumnName="LinkedinUrl" />
-          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-          <ScalarProperty Name="AboutusText" ColumnName="AboutusText" />
-          <ScalarProperty Name="SupportText" ColumnName="SupportText" />
-          <ScalarProperty Name="ReturnText" ColumnName="ReturnText" />
-          <ScalarProperty Name="ShippingText" ColumnName="ShippingText" />
-          <ScalarProperty Name="PaymentText" ColumnName="PaymentText" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="PaymentText" ColumnName="PaymentText" />
+          <ScalarProperty Name="ShippingText" ColumnName="ShippingText" />
+          <ScalarProperty Name="ReturnText" ColumnName="ReturnText" />
+          <ScalarProperty Name="SupportText" ColumnName="SupportText" />
+          <ScalarProperty Name="AboutusText" ColumnName="AboutusText" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="LinkedinUrl" ColumnName="LinkedinUrl" />
+          <ScalarProperty Name="SkypeUrl" ColumnName="SkypeUrl" />
+          <ScalarProperty Name="InstagramUrl" ColumnName="InstagramUrl" />
+          <ScalarProperty Name="FacebookUrl" ColumnName="FacebookUrl" />
+          <ScalarProperty Name="TwitterUrl" ColumnName="TwitterUrl" />
+          <ScalarProperty Name="CompUrl" ColumnName="CompUrl" />
+          <ScalarProperty Name="CompAddress" ColumnName="CompAddress" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="CompFax" ColumnName="CompFax" />
+          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
+          <ScalarProperty Name="CompTel" ColumnName="CompTel" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="BossName" ColumnName="BossName" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="EngShortName" ColumnName="EngShortName" />
+          <ScalarProperty Name="EngName" ColumnName="EngName" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="CompName" ColumnName="CompName" />
+          <ScalarProperty Name="CompNo" ColumnName="CompNo" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Departments">
       <EntityTypeMapping TypeName="nicedemoModel.Departments">
         <MappingFragment StoreEntitySet="Departments">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="DeptNo" ColumnName="DeptNo" />
-          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="DeptNo" ColumnName="DeptNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="nicedemoModel.Employees">
         <MappingFragment StoreEntitySet="Employees">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
-          <ScalarProperty Name="EmpNo" ColumnName="EmpNo" />
-          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
-          <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
-          <ScalarProperty Name="DeptNo" ColumnName="DeptNo" />
-          <ScalarProperty Name="TitleNo" ColumnName="TitleNo" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="OnboardDate" ColumnName="OnboardDate" />
-          <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
-          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
-          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
-          <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
+          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
+          <ScalarProperty Name="OnboardDate" ColumnName="OnboardDate" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="TitleNo" ColumnName="TitleNo" />
+          <ScalarProperty Name="DeptNo" ColumnName="DeptNo" />
+          <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="EmpNo" ColumnName="EmpNo" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ExtensionTables">
       <EntityTypeMapping TypeName="nicedemoModel.ExtensionTables">
         <MappingFragment StoreEntitySet="ExtensionTables">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="ExtName" ColumnName="ExtName" />
-          <ScalarProperty Name="ExtNo" ColumnName="ExtNo" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ExtNo" ColumnName="ExtNo" />
+          <ScalarProperty Name="ExtName" ColumnName="ExtName" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Featureds">
       <EntityTypeMapping TypeName="nicedemoModel.Featureds">
         <MappingFragment StoreEntitySet="Featureds">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
           <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ForumBoards">
-      <EntityTypeMapping TypeName="nicedemoModel.ForumBoards">
-        <MappingFragment StoreEntitySet="ForumBoards">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
           <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="BoardNo" ColumnName="BoardNo" />
-          <ScalarProperty Name="BoardName" ColumnName="BoardName" />
-          <ScalarProperty Name="IconName" ColumnName="IconName" />
-          <ScalarProperty Name="DescriptionText" ColumnName="DescriptionText" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-          <ScalarProperty Name="GuidNo" ColumnName="GuidNo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Forums">
-      <EntityTypeMapping TypeName="nicedemoModel.Forums">
-        <MappingFragment StoreEntitySet="Forums">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ParentGuid" ColumnName="ParentGuid" />
-          <ScalarProperty Name="ReplyGuid" ColumnName="ReplyGuid" />
-          <ScalarProperty Name="BoardNo" ColumnName="BoardNo" />
           <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
-          <ScalarProperty Name="SubjectDate" ColumnName="SubjectDate" />
-          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
-          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
-          <ScalarProperty Name="SubjectContent" ColumnName="SubjectContent" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-          <ScalarProperty Name="GuidNo" ColumnName="GuidNo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Languages">
-      <EntityTypeMapping TypeName="nicedemoModel.Languages">
-        <MappingFragment StoreEntitySet="Languages">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="LangNo" ColumnName="LangNo" />
-          <ScalarProperty Name="LangName" ColumnName="LangName" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Logs">
-      <EntityTypeMapping TypeName="nicedemoModel.Logs">
-        <MappingFragment StoreEntitySet="Logs">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
-          <ScalarProperty Name="LogTime" ColumnName="LogTime" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="TargetNo" ColumnName="TargetNo" />
-          <ScalarProperty Name="LogNo" ColumnName="LogNo" />
-          <ScalarProperty Name="LogQty" ColumnName="LogQty" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MapPositions">
-      <EntityTypeMapping TypeName="nicedemoModel.MapPositions">
-        <MappingFragment StoreEntitySet="MapPositions">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="TargetCode" ColumnName="TargetCode" />
-          <ScalarProperty Name="TargetNo" ColumnName="TargetNo" />
-          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
-          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
-          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
-          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
-          <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
-          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Messages">
-      <EntityTypeMapping TypeName="nicedemoModel.Messages">
-        <MappingFragment StoreEntitySet="Messages">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="SenderNo" ColumnName="SenderNo" />
-          <ScalarProperty Name="ReceiverNo" ColumnName="ReceiverNo" />
-          <ScalarProperty Name="SendDate" ColumnName="SendDate" />
-          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
-          <ScalarProperty Name="HeaderText" ColumnName="HeaderText" />
-          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Modules">
-      <EntityTypeMapping TypeName="nicedemoModel.Modules">
-        <MappingFragment StoreEntitySet="Modules">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="IsWorkflow" ColumnName="IsWorkflow" />
-          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="ModuleNo" ColumnName="ModuleNo" />
-          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
-          <ScalarProperty Name="IconName" ColumnName="IconName" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="News">
-      <EntityTypeMapping TypeName="nicedemoModel.News">
-        <MappingFragment StoreEntitySet="News">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
-          <ScalarProperty Name="HeaderName" ColumnName="HeaderName" />
-          <ScalarProperty Name="DetailText" ColumnName="DetailText" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="NewsLetter">
-      <EntityTypeMapping TypeName="nicedemoModel.NewsLetter">
-        <MappingFragment StoreEntitySet="NewsLetter">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
-          <ScalarProperty Name="SubscribeDate" ColumnName="SubscribeDate" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Notifications">
-      <EntityTypeMapping TypeName="nicedemoModel.Notifications">
-        <MappingFragment StoreEntitySet="Notifications">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="SourceNo" ColumnName="SourceNo" />
-          <ScalarProperty Name="SenderNo" ColumnName="SenderNo" />
-          <ScalarProperty Name="ReceiverNo" ColumnName="ReceiverNo" />
-          <ScalarProperty Name="SendDate" ColumnName="SendDate" />
-          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
-          <ScalarProperty Name="HeaderText" ColumnName="HeaderText" />
-          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="OrderDetails">
-      <EntityTypeMapping TypeName="nicedemoModel.OrderDetails">
-        <MappingFragment StoreEntitySet="OrderDetails">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ParentNo" ColumnName="ParentNo" />
-          <ScalarProperty Name="VendorNo" ColumnName="VendorNo" />
-          <ScalarProperty Name="CategoryNo" ColumnName="CategoryNo" />
-          <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
-          <ScalarProperty Name="ProdName" ColumnName="ProdName" />
-          <ScalarProperty Name="ProdSpec" ColumnName="ProdSpec" />
-          <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
-          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
-          <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Orders">
-      <EntityTypeMapping TypeName="nicedemoModel.Orders">
-        <MappingFragment StoreEntitySet="Orders">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="SheetNo" ColumnName="SheetNo" />
-          <ScalarProperty Name="SheetDate" ColumnName="SheetDate" />
-          <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
-          <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
-          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
-          <ScalarProperty Name="CustNo" ColumnName="CustNo" />
-          <ScalarProperty Name="CustName" ColumnName="CustName" />
-          <ScalarProperty Name="PaymentNo" ColumnName="PaymentNo" />
-          <ScalarProperty Name="ShippingNo" ColumnName="ShippingNo" />
-          <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
-          <ScalarProperty Name="ReceiverEmail" ColumnName="ReceiverEmail" />
-          <ScalarProperty Name="ReceiverAddress" ColumnName="ReceiverAddress" />
-          <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
-          <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
-          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-          <ScalarProperty Name="GuidNo" ColumnName="GuidNo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="OrdersStatus">
-      <EntityTypeMapping TypeName="nicedemoModel.OrdersStatus">
-        <MappingFragment StoreEntitySet="OrdersStatus">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsPayed" ColumnName="IsPayed" />
-          <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
-          <ScalarProperty Name="StatusNo" ColumnName="StatusNo" />
-          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Payments">
-      <EntityTypeMapping TypeName="nicedemoModel.Payments">
-        <MappingFragment StoreEntitySet="Payments">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PaymentNo" ColumnName="PaymentNo" />
-          <ScalarProperty Name="PaymentName" ColumnName="PaymentName" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Photos">
-      <EntityTypeMapping TypeName="nicedemoModel.Photos">
-        <MappingFragment StoreEntitySet="Photos">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="FolderName" ColumnName="FolderName" />
-          <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
-          <ScalarProperty Name="PriceName" ColumnName="PriceName" />
-          <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
-          <ScalarProperty Name="DetailText" ColumnName="DetailText" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PricingDetails">
-      <EntityTypeMapping TypeName="nicedemoModel.PricingDetails">
-        <MappingFragment StoreEntitySet="PricingDetails">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PricingNo" ColumnName="PricingNo" />
-          <ScalarProperty Name="IsSupport" ColumnName="IsSupport" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Pricings">
-      <EntityTypeMapping TypeName="nicedemoModel.Pricings">
-        <MappingFragment StoreEntitySet="Pricings">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="IsAdvanced" ColumnName="IsAdvanced" />
-          <ScalarProperty Name="IsRecommend" ColumnName="IsRecommend" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="PricingNo" ColumnName="PricingNo" />
-          <ScalarProperty Name="PricingName" ColumnName="PricingName" />
-          <ScalarProperty Name="ProdPrice" ColumnName="ProdPrice" />
-          <ScalarProperty Name="CycleName" ColumnName="CycleName" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ProductPropertys">
-      <EntityTypeMapping TypeName="nicedemoModel.ProductPropertys">
-        <MappingFragment StoreEntitySet="ProductPropertys">
-          <ScalarProperty Name="IsSelect" ColumnName="IsSelect" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
-          <ScalarProperty Name="PropertyNo" ColumnName="PropertyNo" />
-          <ScalarProperty Name="PropertyValue" ColumnName="PropertyValue" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Programs">
-      <EntityTypeMapping TypeName="nicedemoModel.Programs">
-        <MappingFragment StoreEntitySet="Programs">
-          <ScalarProperty Name="PageSize" ColumnName="PageSize" />
-          <ScalarProperty Name="IsSearch" ColumnName="IsSearch" />
-          <ScalarProperty Name="IsPageSize" ColumnName="IsPageSize" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
-          <ScalarProperty Name="ModuleNo" ColumnName="ModuleNo" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="PrgNo" ColumnName="PrgNo" />
-          <ScalarProperty Name="PrgName" ColumnName="PrgName" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
-          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
-          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
-          <ScalarProperty Name="ParmValue" ColumnName="ParmValue" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Promotions">
-      <EntityTypeMapping TypeName="nicedemoModel.Promotions">
-        <MappingFragment StoreEntitySet="Promotions">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
-          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PropertyNames">
-      <EntityTypeMapping TypeName="nicedemoModel.PropertyNames">
-        <MappingFragment StoreEntitySet="PropertyNames">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PropName" ColumnName="PropName" />
-          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Propertys">
-      <EntityTypeMapping TypeName="nicedemoModel.Propertys">
-        <MappingFragment StoreEntitySet="Propertys">
-          <ScalarProperty Name="IsSelect" ColumnName="IsSelect" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PropertyNo" ColumnName="PropertyNo" />
-          <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
-          <ScalarProperty Name="PropertyValue" ColumnName="PropertyValue" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Roles">
-      <EntityTypeMapping TypeName="nicedemoModel.Roles">
-        <MappingFragment StoreEntitySet="Roles">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
-          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Securitys">
-      <EntityTypeMapping TypeName="nicedemoModel.Securitys">
-        <MappingFragment StoreEntitySet="Securitys">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
-          <ScalarProperty Name="TargetNo" ColumnName="TargetNo" />
-          <ScalarProperty Name="ModuleNo" ColumnName="ModuleNo" />
-          <ScalarProperty Name="PrgNo" ColumnName="PrgNo" />
-          <ScalarProperty Name="IsAdd" ColumnName="IsAdd" />
-          <ScalarProperty Name="IsEdit" ColumnName="IsEdit" />
-          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-          <ScalarProperty Name="IsConfirm" ColumnName="IsConfirm" />
-          <ScalarProperty Name="IsUndo" ColumnName="IsUndo" />
-          <ScalarProperty Name="IsInvalid" ColumnName="IsInvalid" />
-          <ScalarProperty Name="IsUpload" ColumnName="IsUpload" />
-          <ScalarProperty Name="IsDownload" ColumnName="IsDownload" />
-          <ScalarProperty Name="IsPrint" ColumnName="IsPrint" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Services">
-      <EntityTypeMapping TypeName="nicedemoModel.Services">
-        <MappingFragment StoreEntitySet="Services">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="HeaderName" ColumnName="HeaderName" />
-          <ScalarProperty Name="DetailName" ColumnName="DetailName" />
-          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Shippings">
-      <EntityTypeMapping TypeName="nicedemoModel.Shippings">
-        <MappingFragment StoreEntitySet="Shippings">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ShippingNo" ColumnName="ShippingNo" />
-          <ScalarProperty Name="ShippingName" ColumnName="ShippingName" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Teams">
-      <EntityTypeMapping TypeName="nicedemoModel.Teams">
-        <MappingFragment StoreEntitySet="Teams">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
-          <ScalarProperty Name="TeamNo" ColumnName="TeamNo" />
-          <ScalarProperty Name="TeamName" ColumnName="TeamName" />
-          <ScalarProperty Name="EngName" ColumnName="EngName" />
-          <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
-          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
-          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
-          <ScalarProperty Name="TwitterUrl" ColumnName="TwitterUrl" />
-          <ScalarProperty Name="FacebookUrl" ColumnName="FacebookUrl" />
-          <ScalarProperty Name="LinkedinUrl" ColumnName="LinkedinUrl" />
-          <ScalarProperty Name="InstagramUrl" ColumnName="InstagramUrl" />
-          <ScalarProperty Name="SkypeUrl" ColumnName="SkypeUrl" />
-          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
-          <ScalarProperty Name="DetailText" ColumnName="DetailText" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Titles">
-      <EntityTypeMapping TypeName="nicedemoModel.Titles">
-        <MappingFragment StoreEntitySet="Titles">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="TitleNo" ColumnName="TitleNo" />
-          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TodoLists">
-      <EntityTypeMapping TypeName="nicedemoModel.TodoLists">
-        <MappingFragment StoreEntitySet="TodoLists">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
-          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
-          <ScalarProperty Name="DeadlineDate" ColumnName="DeadlineDate" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Vacations">
-      <EntityTypeMapping TypeName="nicedemoModel.Vacations">
-        <MappingFragment StoreEntitySet="Vacations">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="VacYear" ColumnName="VacYear" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="WorkflowDetails">
-      <EntityTypeMapping TypeName="nicedemoModel.WorkflowDetails">
-        <MappingFragment StoreEntitySet="WorkflowDetails">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsClose" ColumnName="IsClose" />
-          <ScalarProperty Name="IsApprove" ColumnName="IsApprove" />
-          <ScalarProperty Name="IsReject" ColumnName="IsReject" />
-          <ScalarProperty Name="MasterGuidNo" ColumnName="MasterGuidNo" />
-          <ScalarProperty Name="RouteGuidNo" ColumnName="RouteGuidNo" />
-          <ScalarProperty Name="RouteOrder" ColumnName="RouteOrder" />
-          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
-          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="AgentNo" ColumnName="AgentNo" />
-          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="UserReadTime" ColumnName="UserReadTime" />
-          <ScalarProperty Name="AgentReadTime" ColumnName="AgentReadTime" />
-          <ScalarProperty Name="SignUserNo" ColumnName="SignUserNo" />
-          <ScalarProperty Name="SignUserName" ColumnName="SignUserName" />
-          <ScalarProperty Name="SignTime" ColumnName="SignTime" />
-          <ScalarProperty Name="SignComment" ColumnName="SignComment" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-          <ScalarProperty Name="GuidNo" ColumnName="GuidNo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="WorkflowMasters">
-      <EntityTypeMapping TypeName="nicedemoModel.WorkflowMasters">
-        <MappingFragment StoreEntitySet="WorkflowMasters">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsClose" ColumnName="IsClose" />
-          <ScalarProperty Name="IsApprove" ColumnName="IsApprove" />
-          <ScalarProperty Name="IsReject" ColumnName="IsReject" />
-          <ScalarProperty Name="FlowGuidNo" ColumnName="FlowGuidNo" />
-          <ScalarProperty Name="SheetNo" ColumnName="SheetNo" />
-          <ScalarProperty Name="SheetName" ColumnName="SheetName" />
-          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="DeadlineTime" ColumnName="DeadlineTime" />
-          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-          <ScalarProperty Name="ContentText" ColumnName="ContentText" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-          <ScalarProperty Name="GuidNo" ColumnName="GuidNo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="WorkflowRoles">
-      <EntityTypeMapping TypeName="nicedemoModel.WorkflowRoles">
-        <MappingFragment StoreEntitySet="WorkflowRoles">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
-          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="WorkflowRoleUsers">
-      <EntityTypeMapping TypeName="nicedemoModel.WorkflowRoleUsers">
-        <MappingFragment StoreEntitySet="WorkflowRoleUsers">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
-          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
-          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
-          <ScalarProperty Name="AgentNo" ColumnName="AgentNo" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="WorkflowRoutes">
-      <EntityTypeMapping TypeName="nicedemoModel.WorkflowRoutes">
-        <MappingFragment StoreEntitySet="WorkflowRoutes">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PrgNo" ColumnName="PrgNo" />
-          <ScalarProperty Name="RouteOrder" ColumnName="RouteOrder" />
-          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
-          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -892,19 +377,52 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ForumBoards">
+      <EntityTypeMapping TypeName="nicedemoModel.ForumBoards">
+        <MappingFragment StoreEntitySet="ForumBoards">
+          <ScalarProperty Name="GuidNo" ColumnName="GuidNo" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DescriptionText" ColumnName="DescriptionText" />
+          <ScalarProperty Name="IconName" ColumnName="IconName" />
+          <ScalarProperty Name="BoardName" ColumnName="BoardName" />
+          <ScalarProperty Name="BoardNo" ColumnName="BoardNo" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Forums">
+      <EntityTypeMapping TypeName="nicedemoModel.Forums">
+        <MappingFragment StoreEntitySet="Forums">
+          <ScalarProperty Name="GuidNo" ColumnName="GuidNo" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SubjectContent" ColumnName="SubjectContent" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="SubjectDate" ColumnName="SubjectDate" />
+          <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="BoardNo" ColumnName="BoardNo" />
+          <ScalarProperty Name="ReplyGuid" ColumnName="ReplyGuid" />
+          <ScalarProperty Name="ParentGuid" ColumnName="ParentGuid" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Game_Genre">
       <EntityTypeMapping TypeName="nicedemoModel.Game_Genre">
         <MappingFragment StoreEntitySet="Game_Genre">
-          <ScalarProperty Name="Genre_Id" ColumnName="Genre_Id" />
-          <ScalarProperty Name="Game_Id" ColumnName="Game_Id" />
+          <ScalarProperty Name="GenreNo" ColumnName="GenreNo" />
+          <ScalarProperty Name="GameNo" ColumnName="GameNo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Game_Mode">
       <EntityTypeMapping TypeName="nicedemoModel.Game_Mode">
         <MappingFragment StoreEntitySet="Game_Mode">
-          <ScalarProperty Name="Mode_Id" ColumnName="Mode_Id" />
-          <ScalarProperty Name="Game_Id" ColumnName="Game_Id" />
+          <ScalarProperty Name="ModeNo" ColumnName="ModeNo" />
+          <ScalarProperty Name="GameNo" ColumnName="GameNo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -918,7 +436,8 @@
           <ScalarProperty Name="Release_Date" ColumnName="Release_Date" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Game_id" ColumnName="Game_id" />
+          <ScalarProperty Name="GameNo" ColumnName="GameNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -926,7 +445,34 @@
       <EntityTypeMapping TypeName="nicedemoModel.Genres">
         <MappingFragment StoreEntitySet="Genres">
           <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Genre_Id" ColumnName="Genre_Id" />
+          <ScalarProperty Name="GenreNo" ColumnName="GenreNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="nicedemoModel.Languages">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="LangName" ColumnName="LangName" />
+          <ScalarProperty Name="LangNo" ColumnName="LangNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="nicedemoModel.Logs">
+        <MappingFragment StoreEntitySet="Logs">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="LogQty" ColumnName="LogQty" />
+          <ScalarProperty Name="LogNo" ColumnName="LogNo" />
+          <ScalarProperty Name="TargetNo" ColumnName="TargetNo" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -938,11 +484,176 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MapPositions">
+      <EntityTypeMapping TypeName="nicedemoModel.MapPositions">
+        <MappingFragment StoreEntitySet="MapPositions">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
+          <ScalarProperty Name="TargetNo" ColumnName="TargetNo" />
+          <ScalarProperty Name="TargetCode" ColumnName="TargetCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="nicedemoModel.Messages">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+          <ScalarProperty Name="HeaderText" ColumnName="HeaderText" />
+          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+          <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+          <ScalarProperty Name="ReceiverNo" ColumnName="ReceiverNo" />
+          <ScalarProperty Name="SenderNo" ColumnName="SenderNo" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Modes">
       <EntityTypeMapping TypeName="nicedemoModel.Modes">
         <MappingFragment StoreEntitySet="Modes">
-          <ScalarProperty Name="Mode_Name" ColumnName="Mode_Name" />
-          <ScalarProperty Name="Mode_Id" ColumnName="Mode_Id" />
+          <ScalarProperty Name="ModeName" ColumnName="ModeName" />
+          <ScalarProperty Name="ModeNo" ColumnName="ModeNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="nicedemoModel.Modules">
+        <MappingFragment StoreEntitySet="Modules">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="IconName" ColumnName="IconName" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="ModuleNo" ColumnName="ModuleNo" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
+          <ScalarProperty Name="IsWorkflow" ColumnName="IsWorkflow" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="nicedemoModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DetailText" ColumnName="DetailText" />
+          <ScalarProperty Name="HeaderName" ColumnName="HeaderName" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewsLetter">
+      <EntityTypeMapping TypeName="nicedemoModel.NewsLetter">
+        <MappingFragment StoreEntitySet="NewsLetter">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SubscribeDate" ColumnName="SubscribeDate" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="nicedemoModel.Notifications">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+          <ScalarProperty Name="HeaderText" ColumnName="HeaderText" />
+          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+          <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+          <ScalarProperty Name="ReceiverNo" ColumnName="ReceiverNo" />
+          <ScalarProperty Name="SenderNo" ColumnName="SenderNo" />
+          <ScalarProperty Name="SourceNo" ColumnName="SourceNo" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="nicedemoModel.OrderDetails">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+          <ScalarProperty Name="ProdSpec" ColumnName="ProdSpec" />
+          <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+          <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
+          <ScalarProperty Name="CategoryNo" ColumnName="CategoryNo" />
+          <ScalarProperty Name="VendorNo" ColumnName="VendorNo" />
+          <ScalarProperty Name="ParentNo" ColumnName="ParentNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="nicedemoModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="GuidNo" ColumnName="GuidNo" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+          <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+          <ScalarProperty Name="ReceiverAddress" ColumnName="ReceiverAddress" />
+          <ScalarProperty Name="ReceiverEmail" ColumnName="ReceiverEmail" />
+          <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
+          <ScalarProperty Name="ShippingNo" ColumnName="ShippingNo" />
+          <ScalarProperty Name="PaymentNo" ColumnName="PaymentNo" />
+          <ScalarProperty Name="CustName" ColumnName="CustName" />
+          <ScalarProperty Name="CustNo" ColumnName="CustNo" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+          <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
+          <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+          <ScalarProperty Name="SheetDate" ColumnName="SheetDate" />
+          <ScalarProperty Name="SheetNo" ColumnName="SheetNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdersStatus">
+      <EntityTypeMapping TypeName="nicedemoModel.OrdersStatus">
+        <MappingFragment StoreEntitySet="OrdersStatus">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="StatusNo" ColumnName="StatusNo" />
+          <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
+          <ScalarProperty Name="IsPayed" ColumnName="IsPayed" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="nicedemoModel.Payments">
+        <MappingFragment StoreEntitySet="Payments">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="PaymentName" ColumnName="PaymentName" />
+          <ScalarProperty Name="PaymentNo" ColumnName="PaymentNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="nicedemoModel.Photos">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DetailText" ColumnName="DetailText" />
+          <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+          <ScalarProperty Name="PriceName" ColumnName="PriceName" />
+          <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+          <ScalarProperty Name="FolderName" ColumnName="FolderName" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -959,6 +670,34 @@
         <MappingFragment StoreEntitySet="Platform_Game">
           <ScalarProperty Name="Platform_Id" ColumnName="Platform_Id" />
           <ScalarProperty Name="Game_Id" ColumnName="Game_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PricingDetails">
+      <EntityTypeMapping TypeName="nicedemoModel.PricingDetails">
+        <MappingFragment StoreEntitySet="PricingDetails">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="IsSupport" ColumnName="IsSupport" />
+          <ScalarProperty Name="PricingNo" ColumnName="PricingNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pricings">
+      <EntityTypeMapping TypeName="nicedemoModel.Pricings">
+        <MappingFragment StoreEntitySet="Pricings">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CycleName" ColumnName="CycleName" />
+          <ScalarProperty Name="ProdPrice" ColumnName="ProdPrice" />
+          <ScalarProperty Name="PricingName" ColumnName="PricingName" />
+          <ScalarProperty Name="PricingNo" ColumnName="PricingNo" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="IsRecommend" ColumnName="IsRecommend" />
+          <ScalarProperty Name="IsAdvanced" ColumnName="IsAdvanced" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -985,6 +724,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ProductPropertys">
+      <EntityTypeMapping TypeName="nicedemoModel.ProductPropertys">
+        <MappingFragment StoreEntitySet="ProductPropertys">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="PropertyValue" ColumnName="PropertyValue" />
+          <ScalarProperty Name="PropertyNo" ColumnName="PropertyNo" />
+          <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
+          <ScalarProperty Name="IsSelect" ColumnName="IsSelect" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ProductRelations">
       <EntityTypeMapping TypeName="nicedemoModel.ProductRelations">
         <MappingFragment StoreEntitySet="ProductRelations">
@@ -992,44 +743,6 @@
           <ScalarProperty Name="CategoryNo" ColumnName="CategoryNo" />
           <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="SecondTypes">
-      <EntityTypeMapping TypeName="nicedemoModel.SecondTypes">
-        <MappingFragment StoreEntitySet="SecondTypes">
-          <ScalarProperty Name="Types" ColumnName="Types" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Songs">
-      <EntityTypeMapping TypeName="nicedemoModel.Songs">
-        <MappingFragment StoreEntitySet="Songs">
-          <ScalarProperty Name="Published" ColumnName="Published" />
-          <ScalarProperty Name="Upload" ColumnName="Upload" />
-          <ScalarProperty Name="Detail" ColumnName="Detail" />
-          <ScalarProperty Name="SecodaryTypeNo" ColumnName="SecodaryTypeNo" />
-          <ScalarProperty Name="MainTypeNo" ColumnName="MainTypeNo" />
-          <ScalarProperty Name="PriceMin" ColumnName="PriceMin" />
-          <ScalarProperty Name="PriceMedium" ColumnName="PriceMedium" />
-          <ScalarProperty Name="PriceMax" ColumnName="PriceMax" />
-          <ScalarProperty Name="Picture" ColumnName="Picture" />
-          <ScalarProperty Name="Mp3" ColumnName="Mp3" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Author" ColumnName="Author" />
-          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
-          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="User_Game">
-      <EntityTypeMapping TypeName="nicedemoModel.User_Game">
-        <MappingFragment StoreEntitySet="User_Game">
-          <ScalarProperty Name="IsOwned" ColumnName="IsOwned" />
-          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
-          <ScalarProperty Name="Game_Id" ColumnName="Game_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1058,6 +771,201 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Programs">
+      <EntityTypeMapping TypeName="nicedemoModel.Programs">
+        <MappingFragment StoreEntitySet="Programs">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="PageSize" ColumnName="PageSize" />
+          <ScalarProperty Name="ParmValue" ColumnName="ParmValue" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="PrgName" ColumnName="PrgName" />
+          <ScalarProperty Name="PrgNo" ColumnName="PrgNo" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="ModuleNo" ColumnName="ModuleNo" />
+          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
+          <ScalarProperty Name="IsSearch" ColumnName="IsSearch" />
+          <ScalarProperty Name="IsPageSize" ColumnName="IsPageSize" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Promotions">
+      <EntityTypeMapping TypeName="nicedemoModel.Promotions">
+        <MappingFragment StoreEntitySet="Promotions">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="ProdNo" ColumnName="ProdNo" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyNames">
+      <EntityTypeMapping TypeName="nicedemoModel.PropertyNames">
+        <MappingFragment StoreEntitySet="PropertyNames">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="PropName" ColumnName="PropName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Propertys">
+      <EntityTypeMapping TypeName="nicedemoModel.Propertys">
+        <MappingFragment StoreEntitySet="Propertys">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="PropertyValue" ColumnName="PropertyValue" />
+          <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+          <ScalarProperty Name="PropertyNo" ColumnName="PropertyNo" />
+          <ScalarProperty Name="IsSelect" ColumnName="IsSelect" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="nicedemoModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SecondTypes">
+      <EntityTypeMapping TypeName="nicedemoModel.SecondTypes">
+        <MappingFragment StoreEntitySet="SecondTypes">
+          <ScalarProperty Name="Types" ColumnName="Types" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Securitys">
+      <EntityTypeMapping TypeName="nicedemoModel.Securitys">
+        <MappingFragment StoreEntitySet="Securitys">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="IsPrint" ColumnName="IsPrint" />
+          <ScalarProperty Name="IsDownload" ColumnName="IsDownload" />
+          <ScalarProperty Name="IsUpload" ColumnName="IsUpload" />
+          <ScalarProperty Name="IsInvalid" ColumnName="IsInvalid" />
+          <ScalarProperty Name="IsUndo" ColumnName="IsUndo" />
+          <ScalarProperty Name="IsConfirm" ColumnName="IsConfirm" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsEdit" ColumnName="IsEdit" />
+          <ScalarProperty Name="IsAdd" ColumnName="IsAdd" />
+          <ScalarProperty Name="PrgNo" ColumnName="PrgNo" />
+          <ScalarProperty Name="ModuleNo" ColumnName="ModuleNo" />
+          <ScalarProperty Name="TargetNo" ColumnName="TargetNo" />
+          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="nicedemoModel.Services">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="DetailName" ColumnName="DetailName" />
+          <ScalarProperty Name="HeaderName" ColumnName="HeaderName" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shippings">
+      <EntityTypeMapping TypeName="nicedemoModel.Shippings">
+        <MappingFragment StoreEntitySet="Shippings">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ShippingName" ColumnName="ShippingName" />
+          <ScalarProperty Name="ShippingNo" ColumnName="ShippingNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Songs">
+      <EntityTypeMapping TypeName="nicedemoModel.Songs">
+        <MappingFragment StoreEntitySet="Songs">
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="Upload" ColumnName="Upload" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="SecodaryTypeNo" ColumnName="SecodaryTypeNo" />
+          <ScalarProperty Name="MainTypeNo" ColumnName="MainTypeNo" />
+          <ScalarProperty Name="PriceMin" ColumnName="PriceMin" />
+          <ScalarProperty Name="PriceMedium" ColumnName="PriceMedium" />
+          <ScalarProperty Name="PriceMax" ColumnName="PriceMax" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Mp3" ColumnName="Mp3" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="nicedemoModel.Teams">
+        <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DetailText" ColumnName="DetailText" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="SkypeUrl" ColumnName="SkypeUrl" />
+          <ScalarProperty Name="InstagramUrl" ColumnName="InstagramUrl" />
+          <ScalarProperty Name="LinkedinUrl" ColumnName="LinkedinUrl" />
+          <ScalarProperty Name="FacebookUrl" ColumnName="FacebookUrl" />
+          <ScalarProperty Name="TwitterUrl" ColumnName="TwitterUrl" />
+          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+          <ScalarProperty Name="EngName" ColumnName="EngName" />
+          <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+          <ScalarProperty Name="TeamNo" ColumnName="TeamNo" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Titles">
+      <EntityTypeMapping TypeName="nicedemoModel.Titles">
+        <MappingFragment StoreEntitySet="Titles">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
+          <ScalarProperty Name="TitleNo" ColumnName="TitleNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TodoLists">
+      <EntityTypeMapping TypeName="nicedemoModel.TodoLists">
+        <MappingFragment StoreEntitySet="TodoLists">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DeadlineDate" ColumnName="DeadlineDate" />
+          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Game">
+      <EntityTypeMapping TypeName="nicedemoModel.User_Game">
+        <MappingFragment StoreEntitySet="User_Game">
+          <ScalarProperty Name="IsOwned" ColumnName="IsOwned" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="GameNo" ColumnName="GameNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="nicedemoModel.Users">
         <MappingFragment StoreEntitySet="Users">
@@ -1082,6 +990,101 @@
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="UserNo" ColumnName="UserNo" />
           <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacations">
+      <EntityTypeMapping TypeName="nicedemoModel.Vacations">
+        <MappingFragment StoreEntitySet="Vacations">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="VacYear" ColumnName="VacYear" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkflowDetails">
+      <EntityTypeMapping TypeName="nicedemoModel.WorkflowDetails">
+        <MappingFragment StoreEntitySet="WorkflowDetails">
+          <ScalarProperty Name="GuidNo" ColumnName="GuidNo" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SignComment" ColumnName="SignComment" />
+          <ScalarProperty Name="SignTime" ColumnName="SignTime" />
+          <ScalarProperty Name="SignUserName" ColumnName="SignUserName" />
+          <ScalarProperty Name="SignUserNo" ColumnName="SignUserNo" />
+          <ScalarProperty Name="AgentReadTime" ColumnName="AgentReadTime" />
+          <ScalarProperty Name="UserReadTime" ColumnName="UserReadTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="AgentNo" ColumnName="AgentNo" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
+          <ScalarProperty Name="RouteOrder" ColumnName="RouteOrder" />
+          <ScalarProperty Name="RouteGuidNo" ColumnName="RouteGuidNo" />
+          <ScalarProperty Name="MasterGuidNo" ColumnName="MasterGuidNo" />
+          <ScalarProperty Name="IsReject" ColumnName="IsReject" />
+          <ScalarProperty Name="IsApprove" ColumnName="IsApprove" />
+          <ScalarProperty Name="IsClose" ColumnName="IsClose" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkflowMasters">
+      <EntityTypeMapping TypeName="nicedemoModel.WorkflowMasters">
+        <MappingFragment StoreEntitySet="WorkflowMasters">
+          <ScalarProperty Name="GuidNo" ColumnName="GuidNo" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ContentText" ColumnName="ContentText" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="DeadlineTime" ColumnName="DeadlineTime" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="SheetName" ColumnName="SheetName" />
+          <ScalarProperty Name="SheetNo" ColumnName="SheetNo" />
+          <ScalarProperty Name="FlowGuidNo" ColumnName="FlowGuidNo" />
+          <ScalarProperty Name="IsReject" ColumnName="IsReject" />
+          <ScalarProperty Name="IsApprove" ColumnName="IsApprove" />
+          <ScalarProperty Name="IsClose" ColumnName="IsClose" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkflowRoles">
+      <EntityTypeMapping TypeName="nicedemoModel.WorkflowRoles">
+        <MappingFragment StoreEntitySet="WorkflowRoles">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkflowRoleUsers">
+      <EntityTypeMapping TypeName="nicedemoModel.WorkflowRoleUsers">
+        <MappingFragment StoreEntitySet="WorkflowRoleUsers">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="AgentNo" ColumnName="AgentNo" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkflowRoutes">
+      <EntityTypeMapping TypeName="nicedemoModel.WorkflowRoutes">
+        <MappingFragment StoreEntitySet="WorkflowRoutes">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
+          <ScalarProperty Name="RouteOrder" ColumnName="RouteOrder" />
+          <ScalarProperty Name="PrgNo" ColumnName="PrgNo" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -18,6 +18,8 @@ namespace funplay.Models
         public bool IsEnabled { get; set; }
         public bool IsDebug { get; set; }
         public string AppName { get; set; }
+        public string AdminName { get; set; }
+        public string ShopName { get; set; }
         public string AppVersion { get; set; }
         public bool EncryptionMode { get; set; }
         public string PowerBy { get; set; }
@@ -33,7 +35,5 @@ namespace funplay.Models
         public bool MailUseSSL { get; set; }
         public string WebSiteUrl { get; set; }
         public string Remark { get; set; }
-        public string AdminName { get; set; }
-        public string ShopName { get; set; }
     }
 }

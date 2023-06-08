@@ -1000,8 +1000,8 @@
     <Content Include="Images\project\a9.jpg" />
     <Content Include="Images\project\aaa.jpeg" />
     <Content Include="Images\project\Facebook.png" />
-    <Content Include="Images\project\google.png" />
     <Content Include="Images\project\logo-50px.png" />
+    <Content Include="Images\project\google.png" />
     <Content Include="Images\project\reddit.png" />
     <Content Include="Images\project\twitter.png" />
     <Content Include="Images\Team\team01.jpg" />

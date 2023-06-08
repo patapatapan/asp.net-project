@@ -14,8 +14,8 @@ namespace funplay.Models
     
     public partial class User_Game
     {
-        public int Game_Id { get; set; }
-        public int User_Id { get; set; }
+        public string GameNo { get; set; }
+        public string UserNo { get; set; }
         public bool IsOwned { get; set; }
     }
 }

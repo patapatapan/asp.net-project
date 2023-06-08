@@ -43,12 +43,14 @@ public abstract class z_metaUsers
     [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
     [Default(DefaultValueType = enDefaultValueType.Boolean_True, DefaultValue = "")]
     public bool IsValid { get; set; }
-    [Display(Name = "代號")]
-    [Required(ErrorMessage = "代號不可空白!!")]
-    [Unique("Users", "Id", "UserNo", ErrorMessage = "資料重覆輸入!!")]
-    [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
-    [Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
-    public string UserNo { get; set; }
+
+    // 不需要檢核的資料欄位全部隱藏
+    //[Display(Name = "代號")]
+    //[Required(ErrorMessage = "代號不可空白!!")]
+    //[Unique("Users", "Id", "UserNo", ErrorMessage = "資料重覆輸入!!")]
+    //[Column(CheckBox = false, Hidden = false, DropdownClass = "")]
+    //[Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
+    //public string UserNo { get; set; }
     [Display(Name = "名稱")]
     [Required(ErrorMessage = "名稱不可空白!!")]
     [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
@@ -58,59 +60,59 @@ public abstract class z_metaUsers
     [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
     [Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
     public string Password { get; set; }
-    [Display(Name = "類別")]
-    [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
-    [Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
-    public string CodeNo { get; set; }
+    //[Display(Name = "類別")]
+    //[Column(CheckBox = false, Hidden = false, DropdownClass = "")]
+    //[Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
+    //public string CodeNo { get; set; }
     [Display(Name = "角色代號")]
     [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
     [Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
     public string RoleNo { get; set; }
-    [Display(Name = "性別")]
-    [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
-    [Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
-    public string GenderCode { get; set; }
-    [Display(Name = "部門代號")]
-    [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
-    [Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
-    public string DeptNo { get; set; }
-    [Display(Name = "職務代號")]
-    [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
-    [Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
-    public string TitleNo { get; set; }
+    //[Display(Name = "性別")]
+    //[Column(CheckBox = false, Hidden = false, DropdownClass = "")]
+    //[Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
+    //public string GenderCode { get; set; }
+    //[Display(Name = "部門代號")]
+    //[Column(CheckBox = false, Hidden = false, DropdownClass = "")]
+    //[Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
+    //public string DeptNo { get; set; }
+    //[Display(Name = "職務代號")]
+    //[Column(CheckBox = false, Hidden = false, DropdownClass = "")]
+    //[Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
+    //public string TitleNo { get; set; }
     [Display(Name = "出生日期")]
     [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]
     [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
     [Default(DefaultValueType = enDefaultValueType.Date_Today, DefaultValue = "")]
     public Nullable<System.DateTime> Birthday { get; set; }
-    [Display(Name = "到職日期")]
-    [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]
-    [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
-    [Default(DefaultValueType = enDefaultValueType.Date_Today, DefaultValue = "")]
-    public Nullable<System.DateTime> OnboardDate { get; set; }
-    [Display(Name = "離職日期")]
-    [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]
-    [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
-    [Default(DefaultValueType = enDefaultValueType.Date_Today, DefaultValue = "")]
-    public Nullable<System.DateTime> LeaveDate { get; set; }
-    [Display(Name = "電子信箱")]
-    [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
-    [Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
-    public string ContactEmail { get; set; }
-    [Display(Name = "連絡電話")]
-    [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
-    [Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
-    public string ContactTel { get; set; }
-    [Display(Name = "連絡地址")]
-    [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
-    [Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
-    public string ContactAddress { get; set; }
+    //[Display(Name = "到職日期")]
+    //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]
+    //[Column(CheckBox = false, Hidden = false, DropdownClass = "")]
+    //[Default(DefaultValueType = enDefaultValueType.Date_Today, DefaultValue = "")]
+    //public Nullable<System.DateTime> OnboardDate { get; set; }
+    //[Display(Name = "離職日期")]
+    //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]
+    //[Column(CheckBox = false, Hidden = false, DropdownClass = "")]
+    //[Default(DefaultValueType = enDefaultValueType.Date_Today, DefaultValue = "")]
+    //public Nullable<System.DateTime> LeaveDate { get; set; }
+    //[Display(Name = "電子信箱")]
+    //[Column(CheckBox = false, Hidden = false, DropdownClass = "")]
+    //[Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
+    //public string ContactEmail { get; set; }
+    //[Display(Name = "連絡電話")]
+    //[Column(CheckBox = false, Hidden = false, DropdownClass = "")]
+    //[Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
+    //public string ContactTel { get; set; }
+    //[Display(Name = "連絡地址")]
+    //[Column(CheckBox = false, Hidden = false, DropdownClass = "")]
+    //[Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
+    //public string ContactAddress { get; set; }
     [Display(Name = "驗證碼")]
     [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
     [Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
     public string ValidateCode { get; set; }
-    [Display(Name = "備註")]
-    [Column(CheckBox = false, Hidden = false, DropdownClass = "")]
-    [Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
-    public string Remark { get; set; }
+    //[Display(Name = "備註")]
+    //[Column(CheckBox = false, Hidden = false, DropdownClass = "")]
+    //[Default(DefaultValueType = enDefaultValueType.String_Space, DefaultValue = "")]
+    //public string Remark { get; set; }
 }

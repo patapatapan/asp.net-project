@@ -388,25 +388,26 @@
   </EntityType>
   <EntityType Name="Game_Genre">
     <Key>
-      <PropertyRef Name="Game_Id" />
-      <PropertyRef Name="Genre_Id" />
+      <PropertyRef Name="GameNo" />
+      <PropertyRef Name="GenreNo" />
     </Key>
-    <Property Name="Game_Id" Type="int" Nullable="false" />
-    <Property Name="Genre_Id" Type="int" Nullable="false" />
+    <Property Name="GameNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GenreNo" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Game_Mode">
     <Key>
-      <PropertyRef Name="Game_Id" />
-      <PropertyRef Name="Mode_Id" />
+      <PropertyRef Name="GameNo" />
+      <PropertyRef Name="ModeNo" />
     </Key>
-    <Property Name="Game_Id" Type="int" Nullable="false" />
-    <Property Name="Mode_Id" Type="int" Nullable="false" />
+    <Property Name="GameNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModeNo" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Games">
     <Key>
-      <PropertyRef Name="Game_id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Game_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GameNo" Type="nvarchar" MaxLength="50" />
     <Property Name="Title" Type="nvarchar" MaxLength="50" />
     <Property Name="Description" Type="nvarchar" MaxLength="250" />
     <Property Name="Release_Date" Type="date" />
@@ -417,9 +418,10 @@
   </EntityType>
   <EntityType Name="Genres">
     <Key>
-      <PropertyRef Name="Genre_Id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Genre_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenreNo" Type="nvarchar" MaxLength="50" />
     <Property Name="Type" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Languages">
@@ -486,10 +488,11 @@
   </EntityType>
   <EntityType Name="Modes">
     <Key>
-      <PropertyRef Name="Mode_Id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Mode_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Mode_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModeName" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Modules">
     <Key>
@@ -894,11 +897,11 @@
   </EntityType>
   <EntityType Name="User_Game">
     <Key>
-      <PropertyRef Name="Game_Id" />
-      <PropertyRef Name="User_Id" />
+      <PropertyRef Name="GameNo" />
+      <PropertyRef Name="UserNo" />
     </Key>
-    <Property Name="Game_Id" Type="int" Nullable="false" />
-    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="GameNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserNo" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="IsOwned" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">

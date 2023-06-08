@@ -65,6 +65,7 @@ namespace funplay.Controllers
             vmProjectRegister model = new vmProjectRegister();
             model.UserName = collection["UserName"].ToString();
             //model.Birthday = DateTime.Parse(collection["Birthday"]);
+            model.Tel = collection["Tel"].ToString();
             model.Email = collection["Email"].ToString();
             model.Account = collection["Account"].ToString();
             model.Password = collection["Password"].ToString();
@@ -108,6 +109,31 @@ namespace funplay.Controllers
         {
             return View();
         }
+
+        //註冊信箱驗證
+        public ActionResult ValidateEmail(string id)
+        {
+            using (z_repoUsers users = new z_repoUsers())
+            {
+                var userData = users.repo.ReadSingle(m => m.ValidateCode == id);
+
+                string str_message = "";
+                if (!users.ValidateEmail(id, ref str_message))
+                    TempData["Message"] = str_message;
+                else
+                {
+                    //記錄會員註冊驗證成功時間
+                    using (z_repoLogs logs = new z_repoLogs())
+                    {
+                        logs.EventLogCount(enLogType.EmailSend, userData.UserNo, id);
+                    }
+                    TempData["MessageText"] = "電子郵件已驗證成功，您可以進入登入頁登入系統!!";
+                }
+                //顯示訊息畫面
+                return RedirectToAction("Message", "ProjectHome", new { area = "" });
+            }
+        }
+
     }
 
 

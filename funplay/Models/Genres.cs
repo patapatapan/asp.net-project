@@ -14,7 +14,8 @@ namespace funplay.Models
     
     public partial class Genres
     {
-        public int Genre_Id { get; set; }
+        public int Id { get; set; }
+        public string GenreNo { get; set; }
         public string Type { get; set; }
     }
 }
