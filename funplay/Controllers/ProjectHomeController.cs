@@ -17,8 +17,13 @@ namespace funplay.Controllers
         [HttpGet]
         [LoginAuthorize()]
         public ActionResult ProjectIndex()
-        {         
-            return View();
+        {
+            using (dbEntities db = new dbEntities())
+            {
+                var model = db.Games.OrderBy(m => m.GameNo).ToList();
+                return View(model);
+            }
+            //return View();
         }
 
         [HttpGet]
@@ -40,10 +45,10 @@ namespace funplay.Controllers
                 bool bln_value = repos.ProjectLogin(model.Account, model.Password);
                 if (!bln_value)
                 {
-                    ModelState.AddModelError("DisplayName", "帳號或密碼輸入錯誤!!");
+                    ModelState.AddModelError("Account", "帳號或密碼輸入錯誤!!");
                     return View(model);
                 }
-                //if(!UserService.IsValid)
+
                 if (!AppService.IsConfig) AppService.Init();
                 return RedirectToAction("ProjectIndex", "ProjectHome", new { area = "" });
             }
@@ -59,19 +64,28 @@ namespace funplay.Controllers
 
         [HttpPost]
         [LoginAuthorize()]
-        public ActionResult ProjectRegister(FormCollection collection)
+        public ActionResult ProjectRegister(vmProjectRegister model)
         //public ActionResult ProjectRegister(vmProjectRegister model)
         {
-            vmProjectRegister model = new vmProjectRegister();
-            model.UserName = collection["UserName"].ToString();
-            //model.Birthday = DateTime.Parse(collection["Birthday"]);
-            model.Tel = collection["Tel"].ToString();
-            model.Email = collection["Email"].ToString();
-            model.Account = collection["Account"].ToString();
-            model.Password = collection["Password"].ToString();
+            //vmProjectRegister model = new vmProjectRegister();
+            //model.UserName = collection["UserName"].ToString();
+            ////model.Birthday = DateTime.Parse(collection["Birthday"]);
+            //model.Tel = collection["Tel"].ToString();
+            //model.Email = collection["Email"].ToString();
+            //model.Account = collection["Account"].ToString();
+            //model.Password = collection["Password"].ToString();
+            //model.ConfirmPassword = collection["ConfirmPassword"].ToString();
+
+            //if (model.Password != model.ConfirmPassword)
+            //{
+            //    ModelState.AddModelError("ConfirmPassword", "密碼與確認密碼不一致");
+            //    return View(model);
+            //}
 
             //1. 沒有通過驗證，返回登入頁繼續輸入
             if (!ModelState.IsValid) return View(model);
+
+
             //2. 判斷登入資訊是否正確，不正確時手動引發一個錯誤
             string str_message = UserService.ProjectRegister(model);
             if (!string.IsNullOrEmpty(str_message))
@@ -82,8 +96,11 @@ namespace funplay.Controllers
                     return View(model);
                 }
 
-                ModelState.AddModelError("Account", str_message);
-                return View(model);
+                if (str_message == "登入帳號重複註冊!!")
+                {
+                    ModelState.AddModelError("Account", str_message);
+                    return View(model);
+                }    
             }
             //3.新增一筆未審核會員資訊
             string str_code = UserService.ProjectRegisterCreate(model);

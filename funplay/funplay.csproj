@@ -2819,6 +2819,7 @@
     <Content Include="Views\ProjectHome\ProjectProduct.cshtml" />
     <Content Include="Views\ProjectHome\ProjectRegister.cshtml" />
     <Content Include="Views\ProjectHome\Message.cshtml" />
+    <Content Include="Views\PartialViews\_PartialIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

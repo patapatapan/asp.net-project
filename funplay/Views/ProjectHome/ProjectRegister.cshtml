@@ -16,12 +16,12 @@
             </div>
         </div>
     </div>
-
     <div class="login">
         <!-- 畫面白色底框 -->
         <div class="form-box">
-            @using (Html.BeginForm("ProjectRegister","ProjectHome", FormMethod.Post))
+            @using (Html.BeginForm("ProjectRegister", "ProjectHome", FormMethod.Post))
             {
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="row">
                     <div class="title mb-1 d-flex justify-content-center">
                         <h4>創建您的帳號</h4>
@@ -32,49 +32,63 @@
                             <!-- 顯示原始輸入值和驗證錯誤提示 -->
                             @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                         </label>
-                        <input type="text" name="UserName" placeholder="姓名" id="UserName" value="">
+                        <input type="text" name="UserName" placeholder="姓名" id="UserName">
                     </div>
-                    
+
                     @*<div class="row-flex">
-                        <label for="dateInput">出生日期
-                        @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
-                        </label>
-                        <input type="date" name="Birthday" id="Birthday" value="">
-                    </div>*@
-                    
+                    <label for="dateInput">出生日期
+                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                    </label>
+                    <input type="date" name="Birthday" id="Birthday" value="">
+                </div>*@
+
                     <div class="row-flex">
-                        <label for="dateInput">電子信箱
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        <label for="dateInput">
+                            電子信箱
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </label>
-                        <input type="email" name="Email" placeholder="註冊信箱" id="Email" value="">
+                        <input type="email" name="Email" placeholder="註冊信箱" id="Email">
                     </div>
-                    
+
                     <div class="row-flex">
-                        <label for="dateInput">連絡電話
-                        @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
+                        <label for="dateInput">
+                            連絡電話
+                            @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
                         </label>
-                        <input type="text" name="Tel" placeholder="連絡電話" id="Tel" value="">
+                        <input type="text" name="Tel" placeholder="連絡電話" id="Tel">
                     </div>
-                    
+
                     <div class="row-flex">
-                        <label for="dateInput">帳號
-                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        <label for="dateInput">
+                            帳號
+                            @Html.ValidationMessageFor(model => model.Account, "", new { @class = "text-danger" })
                         </label>
-                        <input type="text" name="Account" placeholder="帳號" id="Account" value="">
+                        <input type="text" name="Account" placeholder="帳號" id="Account">
                     </div>
-                    
+
                     <div class="row-flex">
-                        <label for="dateInput">密碼
-                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        <label for="dateInput">
+                            密碼
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                         </label>
                         <div class="pwd">
-                            <input type="password" name="Password" placeholder="密碼" id="Password" value="">
+                            <input type="password" name="Password" placeholder="密碼" id="Password">
                             <button onclick="changePwdType()" type="button">
                                 <i class="fa-solid fa-eye-slash"></i>
                             </button>
                         </div>
                     </div>
-                    
+
+                    <div class="row-flex">
+                        <label for="dateInput">
+                            確認密碼
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        </label>
+                        <div class="pwd">
+                            <input type="password" name="ConfirmPassword" placeholder="確認密碼" id="ConfirmPassword">
+                        </div>
+                    </div>
+
                     <!-- 登入按鈕 -->
                     <div class="btn-login">
                         <button class="col-12">送出</button>

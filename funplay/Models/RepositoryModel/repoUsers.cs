@@ -265,9 +265,10 @@ LEFT OUTER JOIN Departments ON Users.DeptNo = Departments.DeptNo
     }
 
     /*我自己的登入系統*/
-    public bool ProjectLogin(string account, string password)
+    public int ProjectLogin(string account, string password)
     {
-        bool bln_value = false;
+        //bool bln_value = false;
+        int state = -1;  //預設登入不成功
         UserService.Logout();
         //處理帳號密碼加密
         if (AppService.EncryptionMode)
@@ -289,10 +290,13 @@ LEFT OUTER JOIN Departments ON Users.DeptNo = Departments.DeptNo
         var data = repo.ReadSingle(m => m.Account == account && m.Password == password);
         if (data != null)
         {
+            if()
             UserService.Login(data.Account, data.UserName, data.RoleNo);
-            bln_value = true;
+            state = 0;  //符合條件 登入成功
+            //bln_value = true;
         }
-        return bln_value;
+        //return bln_value;
+        return state;
     }
     /// <summary>
     /// 重設密碼
