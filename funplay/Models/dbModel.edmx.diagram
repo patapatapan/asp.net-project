@@ -70,13 +70,13 @@
         <EntityTypeShape EntityType="nicedemoModel.Titles" Width="1.5" PointX="22.75" PointY="13.75" />
         <EntityTypeShape EntityType="nicedemoModel.TodoLists" Width="1.5" PointX="22.75" PointY="16.75" />
         <EntityTypeShape EntityType="nicedemoModel.User_Game" Width="1.5" PointX="18.75" PointY="22.75" />
-        <EntityTypeShape EntityType="nicedemoModel.Users" Width="1.5" PointX="22.75" PointY="20.75" />
         <EntityTypeShape EntityType="nicedemoModel.Vacations" Width="1.5" PointX="14.75" PointY="23.75" />
         <EntityTypeShape EntityType="nicedemoModel.WorkflowDetails" Width="1.5" PointX="24.75" PointY="0.75" />
         <EntityTypeShape EntityType="nicedemoModel.WorkflowMasters" Width="1.5" PointX="0.75" PointY="24.75" />
         <EntityTypeShape EntityType="nicedemoModel.WorkflowRoles" Width="1.5" PointX="2.75" PointY="24.75" />
         <EntityTypeShape EntityType="nicedemoModel.WorkflowRoleUsers" Width="1.5" PointX="24.75" PointY="6.75" />
         <EntityTypeShape EntityType="nicedemoModel.WorkflowRoutes" Width="1.5" PointX="24.75" PointY="9.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Users" Width="1.5" PointX="21.375" PointY="22.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

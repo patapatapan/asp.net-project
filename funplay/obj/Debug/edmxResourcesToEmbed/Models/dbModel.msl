@@ -966,34 +966,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="nicedemoModel.Users">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="Tel" ColumnName="Tel" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Account" ColumnName="Account" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-          <ScalarProperty Name="NotifyPassword" ColumnName="NotifyPassword" />
-          <ScalarProperty Name="ValidateCode" ColumnName="ValidateCode" />
-          <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
-          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
-          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
-          <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
-          <ScalarProperty Name="OnboardDate" ColumnName="OnboardDate" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="TitleNo" ColumnName="TitleNo" />
-          <ScalarProperty Name="DeptNo" ColumnName="DeptNo" />
-          <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
-          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
-          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
-          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Vacations">
       <EntityTypeMapping TypeName="nicedemoModel.Vacations">
         <MappingFragment StoreEntitySet="Vacations">
@@ -1085,6 +1057,34 @@
           <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
           <ScalarProperty Name="RouteOrder" ColumnName="RouteOrder" />
           <ScalarProperty Name="PrgNo" ColumnName="PrgNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="nicedemoModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="NotifyPassword" ColumnName="NotifyPassword" />
+          <ScalarProperty Name="ValidateCode" ColumnName="ValidateCode" />
+          <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
+          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
+          <ScalarProperty Name="OnboardDate" ColumnName="OnboardDate" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="TitleNo" ColumnName="TitleNo" />
+          <ScalarProperty Name="DeptNo" ColumnName="DeptNo" />
+          <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+          <ScalarProperty Name="RoleNo" ColumnName="RoleNo" />
+          <ScalarProperty Name="CodeNo" ColumnName="CodeNo" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

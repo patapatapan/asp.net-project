@@ -290,10 +290,20 @@ LEFT OUTER JOIN Departments ON Users.DeptNo = Departments.DeptNo
         var data = repo.ReadSingle(m => m.Account == account && m.Password == password);
         if (data != null)
         {
-            if()
-            UserService.Login(data.Account, data.UserName, data.RoleNo);
-            state = 0;  //符合條件 登入成功
+            if (data.IsValid)
+            {
+                UserService.Login(data.Account, data.UserName, data.RoleNo);
+                state = 0;  //符合條件 登入成功
+            }
+            else
+            {
+                state = -2; //帳號驗證未通過
+            }
             //bln_value = true;
+        }
+        else
+        {
+            state = -1; //預防意外程序
         }
         //return bln_value;
         return state;

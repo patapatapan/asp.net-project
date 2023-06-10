@@ -42,15 +42,32 @@ namespace funplay.Controllers
             if (!ModelState.IsValid) return View(model);
             using (z_repoUsers repos = new z_repoUsers())
             {
-                bool bln_value = repos.ProjectLogin(model.Account, model.Password);
-                if (!bln_value)
+                //bool bln_value = repos.ProjectLogin(model.Account, model.Password);
+                int state = repos.ProjectLogin(model.Account, model.Password);
+                //if (!bln_value)
+                //{
+                //    ModelState.AddModelError("Account", "帳號或密碼輸入錯誤!!");
+                //    return View(model);
+                //}
+                switch (state)
                 {
-                    ModelState.AddModelError("Account", "帳號或密碼輸入錯誤!!");
-                    return View(model);
+                    case 0:
+                        //if (!AppService.IsConfig) AppService.Init();
+                        return RedirectToAction("ProjectIndex", "ProjectHome", new { area = "" });
+                        break;
+                    case -1:
+                        ModelState.AddModelError("Account", "帳號或密碼輸入錯誤!!");
+                        return View(model);
+                        break;
+                    case -2:
+                        ModelState.AddModelError("Account", "帳號驗證未通過，請去信箱接收驗證信!!");
+                        return View(model);
+                        break;
+                    default:
+                        ModelState.AddModelError("Account", "不明錯誤程序，請回報開發人員!!");
+                        return View(model);
+                        break;
                 }
-
-                if (!AppService.IsConfig) AppService.Init();
-                return RedirectToAction("ProjectIndex", "ProjectHome", new { area = "" });
             }
         }
 

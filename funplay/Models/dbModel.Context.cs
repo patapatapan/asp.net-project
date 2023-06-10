@@ -90,12 +90,12 @@ namespace funplay.Models
         public virtual DbSet<Titles> Titles { get; set; }
         public virtual DbSet<TodoLists> TodoLists { get; set; }
         public virtual DbSet<User_Game> User_Game { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Vacations> Vacations { get; set; }
         public virtual DbSet<WorkflowDetails> WorkflowDetails { get; set; }
         public virtual DbSet<WorkflowMasters> WorkflowMasters { get; set; }
         public virtual DbSet<WorkflowRoles> WorkflowRoles { get; set; }
         public virtual DbSet<WorkflowRoleUsers> WorkflowRoleUsers { get; set; }
         public virtual DbSet<WorkflowRoutes> WorkflowRoutes { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

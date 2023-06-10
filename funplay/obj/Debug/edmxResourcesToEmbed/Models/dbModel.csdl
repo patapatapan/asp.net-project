@@ -66,13 +66,13 @@
     <EntitySet Name="Titles" EntityType="nicedemoModel.Titles" />
     <EntitySet Name="TodoLists" EntityType="nicedemoModel.TodoLists" />
     <EntitySet Name="User_Game" EntityType="nicedemoModel.User_Game" />
-    <EntitySet Name="Users" EntityType="nicedemoModel.Users" />
     <EntitySet Name="Vacations" EntityType="nicedemoModel.Vacations" />
     <EntitySet Name="WorkflowDetails" EntityType="nicedemoModel.WorkflowDetails" />
     <EntitySet Name="WorkflowMasters" EntityType="nicedemoModel.WorkflowMasters" />
     <EntitySet Name="WorkflowRoles" EntityType="nicedemoModel.WorkflowRoles" />
     <EntitySet Name="WorkflowRoleUsers" EntityType="nicedemoModel.WorkflowRoleUsers" />
     <EntitySet Name="WorkflowRoutes" EntityType="nicedemoModel.WorkflowRoutes" />
+    <EntitySet Name="Users" EntityType="nicedemoModel.Users" />
   </EntityContainer>
   <EntityType Name="AboutUs">
     <Key>
@@ -978,33 +978,6 @@
     <Property Name="UserNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IsOwned" Type="Boolean" Nullable="false" />
   </EntityType>
-  <EntityType Name="Users">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IsValid" Type="Boolean" />
-    <Property Name="UserNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CodeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="RoleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="GenderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="DeptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="TitleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Birthday" Type="DateTime" Precision="0" />
-    <Property Name="OnboardDate" Type="DateTime" Precision="0" />
-    <Property Name="LeaveDate" Type="DateTime" Precision="0" />
-    <Property Name="ContactEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ContactTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ContactAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="ValidateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NotifyPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="Vacations">
     <Key>
       <PropertyRef Name="Id" />
@@ -1093,5 +1066,32 @@
     <Property Name="RoleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsValid" Type="Boolean" Nullable="false" />
+    <Property Name="UserNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CodeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GenderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TitleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="OnboardDate" Type="DateTime" Precision="0" />
+    <Property Name="LeaveDate" Type="DateTime" Precision="0" />
+    <Property Name="ContactEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ValidateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NotifyPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>
