@@ -30,7 +30,6 @@
         <EntityTypeShape EntityType="nicedemoModel.Forums" Width="1.5" PointX="14.75" PointY="0.75" />
         <EntityTypeShape EntityType="nicedemoModel.Game_Genre" Width="1.5" PointX="14.75" PointY="4.75" />
         <EntityTypeShape EntityType="nicedemoModel.Game_Mode" Width="1.5" PointX="14.75" PointY="7.75" />
-        <EntityTypeShape EntityType="nicedemoModel.Games" Width="1.5" PointX="14.75" PointY="10.75" />
         <EntityTypeShape EntityType="nicedemoModel.Genres" Width="1.5" PointX="10.75" PointY="14.75" />
         <EntityTypeShape EntityType="nicedemoModel.Languages" Width="1.5" PointX="12.75" PointY="14.75" />
         <EntityTypeShape EntityType="nicedemoModel.Logs" Width="1.5" PointX="14.75" PointY="14.75" />
@@ -77,6 +76,8 @@
         <EntityTypeShape EntityType="nicedemoModel.WorkflowRoleUsers" Width="1.5" PointX="24.75" PointY="6.75" />
         <EntityTypeShape EntityType="nicedemoModel.WorkflowRoutes" Width="1.5" PointX="24.75" PointY="9.75" />
         <EntityTypeShape EntityType="nicedemoModel.Users" Width="1.5" PointX="21.375" PointY="22.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Images" Width="1.5" PointX="23.375" PointY="20.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Games" Width="1.5" PointX="23.375" PointY="23.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

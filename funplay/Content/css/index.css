@@ -58,6 +58,10 @@
     background-color: rgb(109, 109, 109);
 }
 
+.li-box > active {
+    background-color: rgb(109, 109, 109);
+}
+
 .li-box img {
     margin: 0;
     width: 60%;

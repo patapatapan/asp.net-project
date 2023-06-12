@@ -432,6 +432,9 @@
     <Compile Include="Models\Genres.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Images.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Languages.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
@@ -468,6 +471,7 @@
     <Compile Include="Models\MetadataModel\metaFeatureds.cs" />
     <Compile Include="Models\MetadataModel\metaForumBoards.cs" />
     <Compile Include="Models\MetadataModel\metaForums.cs" />
+    <Compile Include="Models\MetadataModel\metaGames.cs" />
     <Compile Include="Models\MetadataModel\metaLanguages.cs" />
     <Compile Include="Models\MetadataModel\metaLogs.cs" />
     <Compile Include="Models\MetadataModel\metaMapPositions.cs" />
@@ -1000,6 +1004,16 @@
     <Content Include="Images\project\a9.jpg" />
     <Content Include="Images\project\aaa.jpeg" />
     <Content Include="Images\project\Facebook.png" />
+    <Content Include="Images\project\GM01\Main\HSR000.jpg" />
+    <Content Include="Images\project\GM02\Main\APEX000.jpg" />
+    <Content Include="Images\project\GM03\Main\MHW000.jpg" />
+    <Content Include="Images\project\GM04\Main\MHR000.jpg" />
+    <Content Include="Images\project\GM05\Main\GI000.jpg" />
+    <Content Include="Images\project\GM05\Sub\GI001.jpg" />
+    <Content Include="Images\project\GM06\Main\BOW000.jpg" />
+    <Content Include="Images\project\GM07\Main\TOK000.jpg" />
+    <Content Include="Images\project\GM07\Sub\TOK001.jpg" />
+    <Content Include="Images\project\GM08\Main\MHS000.jpg" />
     <Content Include="Images\project\logo-50px.png" />
     <Content Include="Images\project\google.png" />
     <Content Include="Images\project\reddit.png" />
@@ -2820,6 +2834,8 @@
     <Content Include="Views\ProjectHome\ProjectRegister.cshtml" />
     <Content Include="Views\ProjectHome\Message.cshtml" />
     <Content Include="Views\PartialViews\_PartialIndex.cshtml" />
+    <Content Include="Views\PartialViews\_PartialMain.cshtml" />
+    <Content Include="Views\PartialViews\_PartialBtn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2828,6 +2844,12 @@
     <Folder Include="Areas\User\Data\" />
     <Folder Include="Areas\User\Views\Shared\" />
     <Folder Include="Images\Forum\" />
+    <Folder Include="Images\project\GM01\Sub\" />
+    <Folder Include="Images\project\GM02\Sub\" />
+    <Folder Include="Images\project\GM03\Sub\" />
+    <Folder Include="Images\project\GM04\Sub\" />
+    <Folder Include="Images\project\GM06\Sub\" />
+    <Folder Include="Images\project\GM08\Sub\" />
     <Folder Include="Views\Code\" />
     <Folder Include="Views\GetDataList\" />
     <Folder Include="Views\Menu\" />

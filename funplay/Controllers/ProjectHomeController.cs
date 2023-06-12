@@ -6,6 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Runtime.Remoting.Contexts;
+using Dapper;
+using System.Web.UI.WebControls;
+using System.Data.Common;
 
 namespace funplay.Controllers
 {
@@ -18,12 +25,24 @@ namespace funplay.Controllers
         [LoginAuthorize()]
         public ActionResult ProjectIndex()
         {
+            //using (DapperRepository ImageFirst = new DapperRepository())
+            //{
+            //    var query = SELECT[dbo].[Games].* ,[dbo].[Images].ImageName FROM[dbo].[Games] left join[dbo].[Images] on[dbo].[Games].GameNo = [dbo].[Images].GameNo;
+            //}
+            //string str_conn = WebConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+            //using (var cn = new SqlConnection(str_conn))
+            //{
+            //    cn.Open();
+            //    List<Games> ImageName = cn.Query<Games>("SELECT *\r\nFROM (\r\n    SELECT [dbo].[Games].* ,[dbo].[Images].ImageName,\r\n        ROW_NUMBER() OVER (PARTITION BY [dbo].[Games].GameNo ORDER BY [dbo].[Images].ImageNo) AS RowNum\r\n    FROM [dbo].[Games]\r\n    LEFT JOIN [dbo].[Images] ON [dbo].[Games].GameNo = [dbo].[Images].GameNo\r\n) AS Subquery\r\nWHERE RowNum = 1\r\nORDER BY GameNo;").ToList();
+            //    //Console.WriteLine($"筆數{ImageName.Count()}");
+            //}
             using (dbEntities db = new dbEntities())
             {
+
                 var model = db.Games.OrderBy(m => m.GameNo).ToList();
+
                 return View(model);
             }
-            //return View();
         }
 
         [HttpGet]

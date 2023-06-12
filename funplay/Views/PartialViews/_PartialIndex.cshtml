@@ -1,60 +1,82 @@
-﻿
+﻿@using funplay.Models
+@using Dapper
+@{ List<Games> Carousel3 = new List<Games>();
+
+    //string query = " SELECT top(8) * from [dbo].[Images]";
+    string query = "SELECT *\r\nFROM (\r\n    SELECT [dbo].[Games].* ,[dbo].[Images].ImageName,\r\n        ROW_NUMBER() OVER (PARTITION BY [dbo].[Games].GameNo ORDER BY [dbo].[Images].ImageNo) AS RowNum\r\n    FROM [dbo].[Games]\r\n    LEFT JOIN [dbo].[Images] ON [dbo].[Games].GameNo = [dbo].[Images].GameNo\r\n) AS Subquery\r\nWHERE RowNum = 2\r\nORDER BY GameNo;";
+    using (DapperRepository dp = new DapperRepository())
+    {
+        Carousel3 = dp.ReadAll<Games>(query);
+    }
+}
+
 <div class="row">
+
     @foreach (var item in Model)
     {
         <div class="col-3">
-            <div class="aspect-ratio-container">
-                <img src="~/Images/project/a1.jpg" alt="" />
-            </div>
-            <div class="info-box">
-                @if (item.Title.Length < 26)
-                {
-                    <h2 class="h5 text-info mb-0 col-12" style="padding:10px 0 0 10px;">
-                        @item.Title
-                        <br>
-                        <span style="visibility:hidden;">abc</span>
-                    </h2>
-                }
-                else
-                {
-                    <h2 class="h5 text-info mb-0 col-12" style="padding:10px 0 0 10px;">
-                        @item.Title
-                    </h2>
-                }
-
-                <div class="price">
-                    @if (item.SalePrice == 0)
+            <a href="@Url.Action("ProjectProduct", "ProjectHome")" style="text-decoration:none;">
+                <div class="aspect-ratio-container">
+                    <img src="~/Images/project/@item.GameNo/Sub/@Carousel3[SessionService.TagId1].ImageName" alt="" />
+                </div>
+                <div class="info-box" style="height:132px;">
+                    @if (item.Title.Length < 26)
                     {
-                        <div class="d-flex col-4 p-0" style="flex-wrap: wrap;">
+                        <h2 class="h5 text-info mb-0 col-12" style="padding:10px 0 0 10px;">
+                            @item.Title
+                            <br>
                             <span style="visibility:hidden;">abc</span>
-                            <!-- ori-p => origin price -->
-                            <p class="mt-0 text-white col-12 p-0 disc-p">Free</p>
-                        </div>
+                        </h2>
                     }
-                    else if (item.SalePrice > 0)
+                    else
                     {
-                        if (item.DiscountPrice == 0)
+                        <h2 class="h5 text-info mb-0 col-12" style="padding:10px 0 0 10px;">
+                            @item.Title
+                        </h2>
+                    }
+
+                    <div class="price">
+                        @if (item.SalePrice == 0)
                         {
                             <div class="d-flex col-4 p-0" style="flex-wrap: wrap;">
                                 <span style="visibility:hidden;">abc</span>
                                 <!-- ori-p => origin price -->
-                                <p class="mt-0 text-white col-12 p-0 disc-p">NT$ @item.SalePrice</p>
+                                <p class="mt-0 text-white col-12 p-0 disc-p">Free</p>
                             </div>
                         }
-                        else if (item.DiscountPrice > 0)
+                        else if (item.SalePrice > 0)
                         {
-                            <div class="col-8 d-flex justify-content-end align-items-center"
-                                 style="padding-right: 5%;">
-                                <span class="text-white">- @(Math.Floor((Convert.ToDouble(item.DiscountPrice) / Convert.ToDouble(item.SalePrice)) * 100)) %</span>
-                            </div>
-                            <div class="d-flex col-4 p-0" style="flex-wrap: wrap;">
-                                <p class="mt-0 text-white col-12 pt-3 m-0 ori-p">
-                                    NT$ @item.SalePrice
-                                </p>
-                                <!-- ori-p => origin price -->
-                                <p class="mt-0 text-white col-12 p-0 disc-p">NT$ @item.DiscountPrice</p>
-                                <!-- disc-p => discount price -->
-                            </div>
+                            if (item.DiscountPrice == 0)
+                            {
+                                <div class="d-flex col-4 p-0" style="flex-wrap: wrap;">
+                                    <span style="visibility:hidden;">abc</span>
+                                    <!-- ori-p => origin price -->
+                                    <p class="mt-0 text-white col-12 p-0 disc-p">NT$ @item.SalePrice</p>
+                                </div>
+                            }
+                            else if (item.DiscountPrice > 0)
+                            {
+                                <div class="col-8 d-flex justify-content-end align-items-center"
+                                     style="padding-right: 5%;">
+                                    <span class="text-white">- @(Math.Floor((Convert.ToDouble(item.DiscountPrice) / Convert.ToDouble(item.SalePrice)) * 100)) %</span>
+                                </div>
+                                <div class="d-flex col-4 p-0" style="flex-wrap: wrap;">
+                                    <p class="mt-0 text-white col-12 pt-3 m-0 ori-p">
+                                        NT$ @item.SalePrice
+                                    </p>
+                                    <!-- ori-p => origin price -->
+                                    <p class="mt-0 text-white col-12 p-0 disc-p">NT$ @item.DiscountPrice</p>
+                                    <!-- disc-p => discount price -->
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="d-flex col-4 p-0" style="flex-wrap: wrap;">
+                                    <span style="visibility:hidden;">abc</span>
+                                    <!-- ori-p => origin price -->
+                                    <p class="mt-0 text-white col-12 p-0 disc-p">未定價</p>
+                                </div>
+                            }
                         }
                         else
                         {
@@ -62,24 +84,12 @@
                                 <span style="visibility:hidden;">abc</span>
                                 <!-- ori-p => origin price -->
                                 <p class="mt-0 text-white col-12 p-0 disc-p">未定價</p>
-                            </div>
-                        }
-                    }
-                    else
-                    {
-                        <div class="d-flex col-4 p-0" style="flex-wrap: wrap;">
-                            <span style="visibility:hidden;">abc</span>
-                            <!-- ori-p => origin price -->
-                            <p class="mt-0 text-white col-12 p-0 disc-p">未定價</p>
-                        </div>}
+                            </div>}
 
-
-
-
-
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
+        SessionService.TagId1++;
     }
-
 </div>

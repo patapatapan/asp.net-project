@@ -26,7 +26,6 @@
     <EntitySet Name="Forums" EntityType="nicedemoModel.Forums" />
     <EntitySet Name="Game_Genre" EntityType="nicedemoModel.Game_Genre" />
     <EntitySet Name="Game_Mode" EntityType="nicedemoModel.Game_Mode" />
-    <EntitySet Name="Games" EntityType="nicedemoModel.Games" />
     <EntitySet Name="Genres" EntityType="nicedemoModel.Genres" />
     <EntitySet Name="Languages" EntityType="nicedemoModel.Languages" />
     <EntitySet Name="Logs" EntityType="nicedemoModel.Logs" />
@@ -73,6 +72,8 @@
     <EntitySet Name="WorkflowRoleUsers" EntityType="nicedemoModel.WorkflowRoleUsers" />
     <EntitySet Name="WorkflowRoutes" EntityType="nicedemoModel.WorkflowRoutes" />
     <EntitySet Name="Users" EntityType="nicedemoModel.Users" />
+    <EntitySet Name="Images" EntityType="nicedemoModel.Images" />
+    <EntitySet Name="Games" EntityType="nicedemoModel.Games" />
   </EntityContainer>
   <EntityType Name="AboutUs">
     <Key>
@@ -475,20 +476,6 @@
     </Key>
     <Property Name="GameNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ModeNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="Games">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="GameNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Release_Date" Type="DateTime" Precision="0" />
-    <Property Name="Developer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SalePrice" Type="Int32" />
-    <Property Name="DiscountPrice" Type="Int32" />
   </EntityType>
   <EntityType Name="Genres">
     <Key>
@@ -1093,5 +1080,30 @@
     <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Images">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GameNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Games">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GameNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Release_Date" Type="DateTime" Precision="0" />
+    <Property Name="Developer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SalePrice" Type="Int32" />
+    <Property Name="DiscountPrice" Type="Int32" />
+    <Property Name="MainImg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

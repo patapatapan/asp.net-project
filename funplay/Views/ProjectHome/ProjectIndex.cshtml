@@ -8,17 +8,38 @@
     ViewBag.Css1 = Url.Content("~/Content/css/navbar.css");
     ViewBag.Css2 = Url.Content("~/Content/css/index.css");
 
+    //主要大圖
+    List<Games> Main = new List<Games>();
+
+    //優惠商品
     List<Games> Carousel1 = new List<Games>();
     List<Games> Carousel2 = new List<Games>();
 
-    if (Model.Count > 4)
+    string query1 = " SELECT top(4) * from [dbo].[Games]";
+    using (DapperRepository dp = new DapperRepository())
     {
-        if (Model.Count >= 8)
-        {
-            Carousel2 = Model.Skip(4).Take(4).ToList();
-        }
-        Carousel1 = Model.Take(4).ToList();
+        Carousel1 = dp.ReadAll<Games>(query1);
     }
+    string query2 = " DECLARE @OFFSET tinyint =4, @FETCH tinyint =4\r\n\r\nSELECT * from [dbo].[Games] ORDER BY GameNo OFFSET @OFFSET ROWS FETCH NEXT @FETCH ROWS ONLY";
+    using (DapperRepository dp = new DapperRepository())
+    {
+        Carousel2 = dp.ReadAll<Games>(query2);
+    }
+
+    if (Model.Count > 5)
+    {
+        Main = Model.Take(5).ToList();
+    }
+
+    //if (Model.Count > 4)
+    //{
+    //    if (Model.Count >= 8)
+    //    {
+    //        Carousel2 = Model.Skip(4).Take(4).ToList();
+    //    }
+    //    //else if(Model.Count)
+    //    Carousel1 = Model.Take(4).ToList();
+    //}
 }
 
 <div class="container-fluid g-0">
@@ -84,8 +105,6 @@
                         </div>
                     } }
 
-
-
                 <!-- 導覽列 -->
                 <div class="collapse navbar-collapse menu mr-auto" id="menu">
                     <ul class="nav navbar-nav nav-pills d-flex justify-content-between" style="width:300px">
@@ -103,7 +122,7 @@
                         </li>
                     </ul>
 
-                    <div class="user">
+                    @*<div class="user">
                         <span style="margin-right: 10px;">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px"
                                  height="30px" fill="#ffffff" type="button" data-bs-toggle="modal"
@@ -111,96 +130,29 @@
                                 <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
                             </svg>
                         </span>
-                    </div>
+                    </div>*@
                 </div>
             </div>
-
-
-
         </div>
     </div>
 
     <!-- 輪播 -->
     <div class="row shop-list mt-5">
         <!-- 圖片區 -->
-        <div class="col-9">
-            <div class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-slide-to="0">
-                        <img src="~/Images/project/1.jpg" alt=""
-                             class="h-100 w-100">
-                    </div>
-                    <div class="carousel-item" data-slide-to="1">
-                        <img src="~/Images/project/2.jpg" alt="" class="h-100 w-100">
-                    </div>
-                    <div class="carousel-item" data-slide-to="2">
-                        <img src="~/Images/project/3.jpg" alt="" class="h-100 w-100">
-                    </div>
-                    <div class="carousel-item" data-slide-to="3">
-                        <img src="~/Images/project/4.jpg" alt="" class="h-100 w-100">
-                    </div>
-                    <div class="carousel-item" data-slide-to="4">
-                        <img src="~/Images/project/5.jpg" alt="" class="h-100 w-100">
-                    </div>
-                </div>
-            </div>
-        </div>
+        @{ SessionService.TagId1 = 0;}
+        @if (Main.Count > 0)
+        {
+            @Html.Partial("~/Views/PartialViews/_PartialMain.cshtml", Main)
+        }
+
         <!-- 按鈕控制項 -->
-        <div class="col-3">
-            <ul class="picShow list-unstyled ">
-                <div class="li-box" type="button">
-                <li class="active" data-bs-target=".picShow" data-slide-to="0">
-                    <div class="row">
-                        <div class="col-4 sm-pic d-flex justify-content-center">
-                            <img src="~/Images/project/aaa.jpeg" alt="">
-                        </div>
-                        <div class="col-8 d-flex justify-content-center">000</div>
-                    </div>
-                </li>
-        </div>
-        <div class="li-box" type="button">
-            <li class="active" data-bs-target=".picShow" data-slide-to="1">
-                <div class="row">
-                    <div class="col-4 sm-pic d-flex justify-content-center">
-                        <img src="~/Images/project/aaa.jpeg" alt="">
-                    </div>
-                    <div class="col-8 d-flex justify-content-center">111</div>
-                </div>
-            </li>
-        </div>
-        <div class="li-box" type="button">
-            <li class="active" data-bs-target=".picShow" data-slide-to="2">
-                <div class="row">
-                    <div class="col-4 sm-pic d-flex justify-content-center">
-                        <img src="~/Images/project/aaa.jpeg" alt="">
-                    </div>
-                    <div class="col-8 d-flex justify-content-center">222</div>
-                </div>
-            </li>
-        </div>
-        <div class="li-box" type="button">
-            <li class="active" data-bs-target=".picShow" data-slide-to="3">
-                <div class="row">
-                    <div class="col-4 sm-pic d-flex justify-content-center">
-                        <img src="~/Images/project/aaa.jpeg" alt="">
-                    </div>
-                    <div class="col-8 d-flex justify-content-center">333</div>
-                </div>
-            </li>
-        </div>
-        <div class="li-box" type="button">
-            <li class="active" data-bs-target=".picShow" data-slide-to="4">
-                <div class="row">
-                    <div class="col-4 sm-pic d-flex justify-content-center">
-                        <img src="~/Images/project/aaa.jpeg" alt="">
-                    </div>
-                    <div class="col-8 d-flex justify-content-center">444</div>
-                </div>
-            </li>
-        </div>
-        </ul>
+        @if (Main.Count > 0)
+        {
+            @Html.Partial("~/Views/PartialViews/_PartialBtn.cshtml", Main)
+        }
+
     </div>
-</div>
+
 
 <!-- 滑動商品列 -->
 <div class="row swipe-list">
@@ -229,12 +181,16 @@
 
                         <div class="carousel-item active" id="1">
                             @if (Carousel1.Count > 0)
-                            {@Html.Partial("~/Views/PartialViews/_PartialIndex.cshtml", Carousel1)}
+                            {
+                                @Html.Partial("~/Views/PartialViews/_PartialIndex.cshtml", Carousel1)
+                            }
 
                         </div>
                         <div class="carousel-item" id="2">
                             @if (Carousel2.Count > 0)
-                            {@Html.Partial("~/Views/PartialViews/_PartialIndex.cshtml", Carousel2)}
+                            {
+                                @Html.Partial("~/Views/PartialViews/_PartialIndex.cshtml", Carousel2)
+                            }
                         </div>
                     </div>
                 </div>
@@ -291,11 +247,21 @@
     })
 
     /*點擊監聽切換輪播圖*/
+    //$(document).ready(function () {
+    //    $('.li-box[type="button"]').click(function () {
+    //        var slideId = $(this).find('li').attr('data-slide-to');//抓取li上data-slide-to屬性的值
+    //        console.log(slideId);
+    //        $('.carousel').carousel(parseInt(slideId));//切換至對應的索引圖片
+    //    });
+    //});
     $(document).ready(function () {
         $('.li-box[type="button"]').click(function () {
-            var slideId = $(this).find('li').attr('data-slide-to');//抓取li上data-slide-to屬性的值
-            //console.log(slideId);
-            $('.carousel').carousel(parseInt(slideId));//切換至對應的索引圖片
+            var slideId = $(this).find('li').attr('id'); // 抓取 li 上 data-slide-to 屬性的值
+            console.log(slideId);
+            /*$('.picShow').carousel(parseInt(slideId));*/ // 切換至對應的索引圖片
+            $('.shop-list .carousel-item').removeClass('active'); // 從所有輪播項目移除 'active' 類別
+            $('#' + slideId).addClass('active'); // 將對應ID的輪播項目加上 'active' 類別
+
         });
     });
 

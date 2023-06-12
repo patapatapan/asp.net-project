@@ -23,5 +23,6 @@ namespace funplay.Models
         public string Publisher { get; set; }
         public Nullable<int> SalePrice { get; set; }
         public Nullable<int> DiscountPrice { get; set; }
+        public string MainImg { get; set; }
     }
 }

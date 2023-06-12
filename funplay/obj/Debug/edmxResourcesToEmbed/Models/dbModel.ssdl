@@ -415,6 +415,7 @@
     <Property Name="Publisher" Type="nvarchar" MaxLength="50" />
     <Property Name="SalePrice" Type="int" />
     <Property Name="DiscountPrice" Type="int" />
+    <Property Name="MainImg" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Genres">
     <Key>
@@ -423,6 +424,16 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="GenreNo" Type="nvarchar" MaxLength="50" />
     <Property Name="Type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Images">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="GameNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="Languages">
     <Key>
@@ -1048,6 +1059,7 @@
     <EntitySet Name="Game_Mode" EntityType="Self.Game_Mode" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MainTypes" EntityType="Self.MainTypes" Schema="dbo" store:Type="Tables" />

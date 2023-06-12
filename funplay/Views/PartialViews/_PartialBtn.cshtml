@@ -1,0 +1,21 @@
+﻿<div class="col-3">
+    <ul class="picShow list-unstyled ">
+        @foreach (var item in Model)
+        {
+            <div class="li-box" type="button">
+                @*<li class="active" data-bs-target=".picShow" data-bs-slide-to="@(Model.IndexOf(item))">*@
+            <li class="active" id="@item.GameNo">
+                <div class="row">
+                    <div class="col-4 sm-pic d-flex justify-content-center">
+                        <img src="~/Images/project/@item.GameNo/Main/@item.MainImg" alt="">
+                    </div>
+                    <div class="col-8 d-flex justify-content-center">
+                        @item.Title
+                    </div>
+                </div>
+            </li>
+</div>
+        }
+    </ul>
+</div>
+

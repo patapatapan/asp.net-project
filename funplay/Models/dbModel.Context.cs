@@ -50,7 +50,6 @@ namespace funplay.Models
         public virtual DbSet<Forums> Forums { get; set; }
         public virtual DbSet<Game_Genre> Game_Genre { get; set; }
         public virtual DbSet<Game_Mode> Game_Mode { get; set; }
-        public virtual DbSet<Games> Games { get; set; }
         public virtual DbSet<Genres> Genres { get; set; }
         public virtual DbSet<Languages> Languages { get; set; }
         public virtual DbSet<Logs> Logs { get; set; }
@@ -97,5 +96,7 @@ namespace funplay.Models
         public virtual DbSet<WorkflowRoleUsers> WorkflowRoleUsers { get; set; }
         public virtual DbSet<WorkflowRoutes> WorkflowRoutes { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Images> Images { get; set; }
+        public virtual DbSet<Games> Games { get; set; }
     }
 }

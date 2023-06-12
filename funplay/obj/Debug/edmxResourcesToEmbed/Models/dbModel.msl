@@ -426,21 +426,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Games">
-      <EntityTypeMapping TypeName="nicedemoModel.Games">
-        <MappingFragment StoreEntitySet="Games">
-          <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
-          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
-          <ScalarProperty Name="Developer" ColumnName="Developer" />
-          <ScalarProperty Name="Release_Date" ColumnName="Release_Date" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="GameNo" ColumnName="GameNo" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Genres">
       <EntityTypeMapping TypeName="nicedemoModel.Genres">
         <MappingFragment StoreEntitySet="Genres">
@@ -1085,6 +1070,33 @@
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="UserNo" ColumnName="UserNo" />
           <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="nicedemoModel.Images">
+        <MappingFragment StoreEntitySet="Images">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="GameNo" ColumnName="GameNo" />
+          <ScalarProperty Name="ImageNo" ColumnName="ImageNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Games">
+      <EntityTypeMapping TypeName="nicedemoModel.Games">
+        <MappingFragment StoreEntitySet="Games">
+          <ScalarProperty Name="MainImg" ColumnName="MainImg" />
+          <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Developer" ColumnName="Developer" />
+          <ScalarProperty Name="Release_Date" ColumnName="Release_Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="GameNo" ColumnName="GameNo" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -1,0 +1,16 @@
+﻿<div class="col-9">
+    <div class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+        <div class="carousel-inner">
+            @foreach (var item in Model)
+            {
+                @*<div class="carousel-item @(Model.IndexOf(item) == 0 ? "active" : "")" data-bs-slide-to="@(Model.IndexOf(item))">*@
+                <div class="carousel-item @(Model.IndexOf(item) == 0 ? "active" : "")" id="@item.GameNo">
+                    <img src="~/Images/project/@item.GameNo/Main/@item.MainImg" alt=""
+                         class="h-100 w-100">
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
