@@ -45,113 +45,112 @@
 <div class="container-fluid g-0">
     <div class="row d-block" style="height: 56px;">
         <div class="col">
-
-            <!-- 燈箱效果的搜尋框 -->
-            <div class="modal" id="search-box">
-                <div class="modal-dialog modal-sm modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <div class="input-group">
-                                <input type="search" placeholder="想找些甚麼" class="form-control" id="search">
-                                <i class="fa-solid fa-magnifying-glass fa-xl half-rounded" type="submit"></i>
-                            </div>
-                        </div>
-                    </div>
+ @*燈箱效果的搜尋框*@ 
+<div class="modal" id="search-box">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="input-group">
+                    <input type="search" placeholder="想找些甚麼" class="form-control" id="search">
+                    <i class="fa-solid fa-magnifying-glass fa-xl half-rounded" type="submit"></i>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
-            <div class="navbar fixed-top navbar-expand-md">
-                <!-- <h1>title</h1> -->
-                <!-- logo -->
-                <div class="login-logo">
-                    <img src="~/Images/project/logo-50px.png" alt="" style="margin-left: 20px;" type="button" onclick="redirectToIndex()">
+<div class="navbar fixed-top navbar-expand-md">
+ @*<h1>title</h1>*@ 
+ @*logo*@ 
+<div class="login-logo">
+    <img src="~/Images/project/logo-50px.png" alt="" style="margin-left: 20px;" type="button" onclick="redirectToIndex()">
+</div>
+ @*rwd 縮小後導覽列變成漢堡*@ 
+<button class="navbar-toggler custom-toggler" data-bs-toggle="collapse" data-bs-target=".menu">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+
+
+    <!-- 主要內容區域的內容 -->
+     @{ if (UserService.IsLogin)
+        {
+            <!-- 搜尋按鈕 -->
+            <div class="user">
+                <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);" class="text-white">搜尋</button>
+            </div>
+            <!-- 使用者按鈕 -->
+            <div class="user dropdown">
+                <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);" class="text-white" data-bs-toggle="dropdown">用戶: @UserService.Account</button>
+                @*@UserService.Account 去撈 Session 抓到的 Account 的值*@
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">會員資料</a>
+                    <a href="#" class="dropdown-item">登出</a>
                 </div>
-
-                <!-- rwd 縮小後導覽列變成漢堡 -->
-                <button class="navbar-toggler custom-toggler" data-bs-toggle="collapse" data-bs-target=".menu">
-                    <span class="navbar-toggler-icon"></span>
+            </div>
+        }
+        else
+        {
+            <div class="user">
+                <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);">
+                    <a href="@Url.Action("ProjectLogin", "ProjectHome")" class="text-white">登入</a>
                 </button>
-
-
-
-
-                @{ if (UserService.IsLogin)
-                    {
-                        <!-- 搜尋按鈕 -->
-                        <div class="user">
-                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);" class="text-white">搜尋</button>
-                        </div>
-                        <!-- 使用者按鈕 -->
-                        <div class="user dropdown">
-                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);" class="text-white" data-bs-toggle="dropdown">用戶: @UserService.Account</button>
-                            @*@UserService.Account 去撈 Session 抓到的 Account 的值*@
-                            <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item">會員資料</a>
-                                <a href="#" class="dropdown-item">登出</a>
-                            </div>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="user">
-                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);">
-                                <a href="@Url.Action("ProjectLogin", "ProjectHome")" class="text-white">登入</a>
-                            </button>
-                        </div>
-                        <div class="user">
-                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);">
-                                <a href="@Url.Action("ProjectRegister", "ProjectHome")" class="text-white">註冊</a>
-                            </button>
-                        </div>
-                    } }
-
-                <!-- 導覽列 -->
-                <div class="collapse navbar-collapse menu mr-auto" id="menu">
-                    <ul class="nav navbar-nav nav-pills d-flex justify-content-between" style="width:300px">
-                        <li class="nav-item">
-                            <a href="" class="nav-link active text-white" data-bs-toggle="pill"
-                               style="color: black;">商店首頁</a> <!--active 顯示當下選擇-->
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link text-white" data-bs-toggle="pill"
-                               style="color: black;">我的收藏</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link text-white" data-bs-toggle="pill"
-                               style="color: black;">服務項目</a>
-                        </li>
-                    </ul>
-
-                    @*<div class="user">
-                        <span style="margin-right: 10px;">
-                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px"
-                                 height="30px" fill="#ffffff" type="button" data-bs-toggle="modal"
-                                 data-bs-target=".modal" id="search-button2">
-                                <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
-                            </svg>
-                        </span>
-                    </div>*@
+            </div>
+            <div class="user">
+                <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);">
+                    <a href="@Url.Action("ProjectRegister", "ProjectHome")" class="text-white">註冊</a>
+                </button>
+            </div>
+        } 
+        
+}
+ @*導覽列*@ 
+<div class="collapse navbar-collapse menu mr-auto" id="menu">
+    <ul class="nav navbar-nav nav-pills d-flex justify-content-between" style="width:300px">
+        <li class="nav-item">
+            <a href="" class="nav-link active text-white" data-bs-toggle="pill"
+               style="color: black;">商店首頁</a>
+ @*active 顯示當下選擇*@
+</li>
+    <li class="nav-item">
+        <a href="" class="nav-link text-white" data-bs-toggle="pill"
+           style="color: black;">我的收藏</a>
+    </li>
+    <li class="nav-item">
+        <a href="" class="nav-link text-white" data-bs-toggle="pill"
+           style="color: black;">服務項目</a>
+    </li>
+</ul>
+@*<div class="user">
+        <span style="margin-right: 10px;">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px"
+                 height="30px" fill="#ffffff" type="button" data-bs-toggle="modal"
+                 data-bs-target=".modal" id="search-button2">
+                <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
+            </svg>
+        </span>
+    </div>*@
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 輪播 -->
-    <div class="row shop-list mt-5">
-        <!-- 圖片區 -->
-        @{ SessionService.TagId1 = 0;}
-        @if (Main.Count > 0)
-        {
-            @Html.Partial("~/Views/PartialViews/_PartialMain.cshtml", Main)
-        }
+<!-- 輪播 -->
+<div class="row shop-list mt-5">
+    <!-- 圖片區 -->
+    @{ SessionService.TagId1 = 0;}
+    @if (Main.Count > 0)
+    {
+        @Html.Partial("~/Views/PartialViews/_PartialMain.cshtml", Main)
+    }
 
-        <!-- 按鈕控制項 -->
-        @if (Main.Count > 0)
-        {
-            @Html.Partial("~/Views/PartialViews/_PartialBtn.cshtml", Main)
-        }
+    <!-- 按鈕控制項 -->
+    @if (Main.Count > 0)
+    {
+        @Html.Partial("~/Views/PartialViews/_PartialBtn.cshtml", Main)
+    }
 
-    </div>
+</div>
 
 
 <!-- 滑動商品列 -->

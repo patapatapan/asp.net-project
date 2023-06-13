@@ -116,18 +116,15 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LotNo" Type="nvarchar" MaxLength="50" />
-    <Property Name="MemberNo" Type="nvarchar" MaxLength="50" />
     <Property Name="VendorNo" Type="nvarchar" MaxLength="50" />
-    <Property Name="CategoryNo" Type="nvarchar" MaxLength="50" />
-    <Property Name="CategoryName" Type="nvarchar" MaxLength="250" />
-    <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
-    <Property Name="ProdName" Type="nvarchar" MaxLength="250" />
     <Property Name="ProdSpec" Type="nvarchar" MaxLength="250" />
-    <Property Name="OrderQty" Type="int" Nullable="false" />
-    <Property Name="OrderPrice" Type="int" Nullable="false" />
-    <Property Name="OrderAmount" Type="int" Nullable="false" />
     <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+    <Property Name="Account" Type="nvarchar" MaxLength="50" />
+    <Property Name="GameNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="PerPrice" Type="int" />
+    <Property Name="TotalPrice" Type="int" />
   </EntityType>
   <EntityType Name="Categorys">
     <Key>

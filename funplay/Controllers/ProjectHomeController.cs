@@ -21,6 +21,10 @@ namespace funplay.Controllers
     /// </summary>
     public class ProjectHomeController : BaseController
     {
+        /// <summary>
+        /// 首頁
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [LoginAuthorize()]
         public ActionResult ProjectIndex()
@@ -45,6 +49,10 @@ namespace funplay.Controllers
             }
         }
 
+        /// <summary>
+        /// 登入(畫面)
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [LoginAuthorize()]
         public ActionResult ProjectLogin()
@@ -72,24 +80,24 @@ namespace funplay.Controllers
                 {
                     case 0:
                         //if (!AppService.IsConfig) AppService.Init();
-                        return RedirectToAction("ProjectIndex", "ProjectHome", new { area = "" });
-                        break;
+                        return RedirectToAction("ProjectIndex", "ProjectHome", new { area = "" });         
                     case -1:
                         ModelState.AddModelError("Account", "帳號或密碼輸入錯誤!!");
                         return View(model);
-                        break;
                     case -2:
                         ModelState.AddModelError("Account", "帳號驗證未通過，請去信箱接收驗證信!!");
-                        return View(model);
-                        break;
+                        return View(model);    
                     default:
                         ModelState.AddModelError("Account", "不明錯誤程序，請回報開發人員!!");
                         return View(model);
-                        break;
                 }
             }
         }
 
+        /// <summary>
+        /// 註冊(畫面)
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [LoginAuthorize()]
         public ActionResult ProjectRegister()
@@ -98,6 +106,11 @@ namespace funplay.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 註冊(送出)
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [LoginAuthorize()]
         public ActionResult ProjectRegister(vmProjectRegister model)
@@ -136,6 +149,11 @@ namespace funplay.Controllers
             return RedirectToAction("Message", "ProjectHome", new { area = "" });
         }
 
+        /// <summary>
+        /// 商品介紹頁面
+        /// </summary>
+        /// <param name="GameNo"></param>
+        /// <returns></returns>
         [HttpGet]
         [LoginAuthorize()]
         public ActionResult ProjectProduct(string GameNo)
@@ -205,22 +223,59 @@ namespace funplay.Controllers
         //    }
         //}
 
+        
+
+        /// <summary>
+        /// 加入購物車
+        /// </summary>
+        /// <param name="GameNo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        //[LoginAuthorize()]
+        public ActionResult AddToCart(FormCollection collection)
+        {
+            string gameNo = collection["GameNo"];
+            string gameName = collection["GameName"];
+            string Img = collection["MainImg"];
+            int perPrice = Convert.ToInt32(collection["SalePrice"]);
+            //string str_qty = collection["Quantity"];
+            //int int_qty = 1;
+            //int.TryParse(str_qty, out int_qty);
+            CartService.AddCart(gameNo, perPrice);
+
+            return RedirectToAction("ProjectCart", "ProjectHome");
+        }
+
+        [HttpPost]
+        [LoginAuthorize()]
+        public ActionResult DeleteCart(int id)
+        {
+            CartService.DeleteCart(id);
+            return RedirectToAction("Cart", "Shop");
+        }
+
+        /// <summary>
+        /// 購物車
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [LoginAuthorize()]
         public ActionResult ProjectCart()
         {
-            //using (z_repoCarts carts = new z_repoCarts())
-            //{
-            //    if (UserService.IsLogin)
-            //    {
-            //        var data1 = carts.repo.ReadAll(m => m.Account == UserService.Account);
-            //        return View(data1);
-            //    }
-            //    var data2 = carts.repo.ReadAll(m => m.lot_no == CartService.LotNo);
-            //    return View(data2);
-            //}
-            return View();
+            //List<Games> model = new List<Games>();
+            using (z_repoCarts carts = new z_repoCarts())
+            {
+                if (UserService.IsLogin)
+                {
+                    //List<funplay.Models.Games> data1 = carts.repo.ReadAll(m => m.Account == UserService.Account)
+                    var data1 = carts.repo.ReadAll(m => m.Account == UserService.Account);
+                    return View(data1);
+                }
+                var data2 = carts.repo.ReadAll(m => m.LotNo == CartService.LotNo);
+                return View(data2);
+            }
+            //return View(model);
         }
 
     }
-
-
 }

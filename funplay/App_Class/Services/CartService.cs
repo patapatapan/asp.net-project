@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.Spreadsheet;
+﻿using Dapper;
+using DocumentFormat.OpenXml.Spreadsheet;
 using funplay.Models;
 using System;
 using System.Collections.Generic;
@@ -39,12 +40,12 @@ public static class CartService
     //    /// <summary>
     //    /// 購物車筆數
     //    /// </summary>
-    //    public static int Counts { get { return GetCartCount(); } }
+    public static int Counts { get { return GetCartCount(); } }
 
     //    /// <summary>
     //    /// 購物車合計
     //    /// </summary>
-    //    public static int Totals { get { return GetCartTotals(); } }
+    public static int Totals { get { return GetCartTotals(); } }
     //    #endregion
     //    #region 公用函數
     //    /// <summary>
@@ -91,20 +92,24 @@ public static class CartService
     //    /// 加入購物車
     //    /// </summary>
     //    /// <param name="productNo">商品編號</param>
-    //    public static void AddCart(string productNo)
-    //    {
-    //        AddCart(productNo, "", 1);
-    //    }
+    //public static void AddCart(string gameNo)
+    //{
+    //    AddCart(gameNo, "", 1);
+    //}
 
     //    /// <summary>
     //    /// 加入購物車
     //    /// </summary>
     //    /// <param name="productNo">商品編號</param>
     //    /// <param name="buyQty">數量</param>
-    //    public static void AddCart(string productNo, int buyQty)
-    //    {
-    //        AddCart(productNo, "", buyQty);
-    //    }
+    //public static void AddCart(string productNo, int buyQty)
+    //{
+    //    AddCart(productNo, "", buyQty);
+    //}
+    public static void AddCart(string gameNo, int perPrice)
+    {
+        AddCart(gameNo, "", perPrice);
+    }
 
     //    /// <summary>
     //    /// 加入購物車
@@ -112,11 +117,20 @@ public static class CartService
     //    /// <param name="productNo">商品編號</param>
     //    /// <param name="prod_Spec">商品規格</param>
     //    /// <param name="buyQty">數量</param>
-    public static void AddCart(string gameNo)
+    //public static void AddCart(string gameNo, string gameName, int perPrice)
+    //{
+    //    using (z_repoCarts carts = new z_repoCarts())
+    //    {
+    //        carts.CreateEdit(gameNo, gameName, perPrice);
+    //    }
+    //}
+    public static void AddCart(string gameNo, string prod_Spec, int perPrice)
     {
         using (z_repoCarts carts = new z_repoCarts())
         {
-            carts.CreateEdit(gameNo);
+            Carts model = new Carts();
+
+            carts.CreateEdit(model);
         }
     }
 
@@ -137,13 +151,13 @@ public static class CartService
     //    /// 刪除購物車
     //    /// </summary>
     //    /// <param name="rowID">row ID</param>
-    //    public static void DeleteCart(int rowID)
-    //    {
-    //        using (tblCarts carts = new tblCarts())
-    //        {
-    //            carts.DeleteCart(rowID);
-    //        }
-    //    }
+    public static void DeleteCart(int rowID)
+    {
+        using (z_repoCarts carts = new z_repoCarts())
+        {
+            carts.DeleteCart(rowID);
+        }
+    }
 
     //    /// <summary>
     //    /// 消費者付款
@@ -242,44 +256,44 @@ public static class CartService
     //    /// 取得目前購物車筆數
     //    /// </summary>
     //    /// <returns></returns>
-    //    private static int GetCartCount()
-    //    {
-    //        int int_count = 0;
-    //        using (tblCarts carts = new tblCarts())
-    //        {
-    //            if (SessionService.IsLogined)
-    //            {
-    //                var data1 = carts.repo.ReadAll(m => m.user_no == SessionService.AccountNo);
-    //                if (data1 != null) int_count = data1.Count();
-    //            }
-    //            else
-    //            {
-    //                var data2 = carts.repo.ReadAll(m => m.lot_no == LotNo);
-    //                if (data2 != null) int_count = data2.Count();
-    //            }
-    //        }
-    //        return int_count;
-    //    }
+    private static int GetCartCount()
+    {
+        int int_count = 0;
+        using (z_repoCarts carts = new z_repoCarts())
+        {
+            if (UserService.IsLogin)
+            {
+                var data1 = carts.repo.ReadAll(m => m.Account == UserService.Account);
+                if (data1 != null) int_count = data1.Count();
+            }
+            else
+            {
+                var data2 = carts.repo.ReadAll(m => m.LotNo == LotNo);
+                if (data2 != null) int_count = data2.Count();
+            }
+        }
+        return int_count;
+    }
 
-    //    private static int GetCartTotals()
-    //    {
-    //        int? int_totals = 0;
-    //        using (tblCarts carts = new tblCarts())
-    //        {
-    //            if (SessionService.IsLogined)
-    //            {
-    //                var data1 = carts.repo.ReadAll(m => m.user_no == SessionService.AccountNo);
-    //                if (data1 != null) int_totals = data1.Sum(m => m.amount);
-    //            }
-    //            else
-    //            {
-    //                var data2 = carts.repo.ReadAll(m => m.lot_no == LotNo);
-    //                if (data2 != null) int_totals = data2.Sum(m => m.amount);
-    //            }
-    //        }
-    //        if (int_totals == null) int_totals = 0;
-    //        return int_totals.GetValueOrDefault();
-    //    }
+    private static int GetCartTotals()
+    {
+        int? int_totals = 0;
+        using (z_repoCarts carts = new z_repoCarts())
+        {
+            if (UserService.IsLogin)
+            {
+                var data1 = carts.repo.ReadAll(m => m.Account == UserService.Account);
+                if (data1 != null) int_totals = data1.Sum(m => m.TotalPrice);
+            }
+            else
+            {
+                var data2 = carts.repo.ReadAll(m => m.LotNo == LotNo);
+                if (data2 != null) int_totals = data2.Sum(m => m.TotalPrice);
+            }
+        }
+        if (int_totals == null) int_totals = 0;
+        return int_totals.GetValueOrDefault();
+    }
 
     //    private static string CreateNewOrderNo(vmOrders model)
     //    {

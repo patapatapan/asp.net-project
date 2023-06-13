@@ -31,7 +31,6 @@ namespace funplay.Models
         public virtual DbSet<Applications> Applications { get; set; }
         public virtual DbSet<Calendars> Calendars { get; set; }
         public virtual DbSet<Carousels> Carousels { get; set; }
-        public virtual DbSet<Carts> Carts { get; set; }
         public virtual DbSet<Categorys> Categorys { get; set; }
         public virtual DbSet<CityAreas> CityAreas { get; set; }
         public virtual DbSet<Citys> Citys { get; set; }
@@ -98,5 +97,6 @@ namespace funplay.Models
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Images> Images { get; set; }
         public virtual DbSet<Games> Games { get; set; }
+        public virtual DbSet<Carts> Carts { get; set; }
     }
 }

@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="nicedemoModel.Applications" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="nicedemoModel.Calendars" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="nicedemoModel.Carousels" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="nicedemoModel.Carts" Width="1.5" PointX="6.75" PointY="4.75" />
         <EntityTypeShape EntityType="nicedemoModel.Categorys" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="nicedemoModel.CityAreas" Width="1.5" PointX="8.75" PointY="4.75" />
         <EntityTypeShape EntityType="nicedemoModel.Citys" Width="1.5" PointX="8.75" PointY="7.75" />
@@ -78,6 +77,7 @@
         <EntityTypeShape EntityType="nicedemoModel.Users" Width="1.5" PointX="21.375" PointY="22.75" />
         <EntityTypeShape EntityType="nicedemoModel.Images" Width="1.5" PointX="23.375" PointY="20.75" />
         <EntityTypeShape EntityType="nicedemoModel.Games" Width="1.5" PointX="23.375" PointY="23.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Carts" Width="1.5" PointX="5" PointY="24.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

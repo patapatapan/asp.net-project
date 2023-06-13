@@ -16,17 +16,14 @@ namespace funplay.Models
     {
         public int Id { get; set; }
         public string LotNo { get; set; }
-        public string MemberNo { get; set; }
         public string VendorNo { get; set; }
-        public string CategoryNo { get; set; }
-        public string CategoryName { get; set; }
-        public string ProdNo { get; set; }
-        public string ProdName { get; set; }
         public string ProdSpec { get; set; }
-        public int OrderQty { get; set; }
-        public int OrderPrice { get; set; }
-        public int OrderAmount { get; set; }
         public System.DateTime CreateTime { get; set; }
         public string Remark { get; set; }
+        public string Account { get; set; }
+        public string GameNo { get; set; }
+        public string Title { get; set; }
+        public Nullable<int> PerPrice { get; set; }
+        public Nullable<int> TotalPrice { get; set; }
     }
 }

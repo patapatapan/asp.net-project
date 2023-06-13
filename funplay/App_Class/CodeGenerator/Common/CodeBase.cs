@@ -432,14 +432,14 @@ public class CodeBase : BaseClass
         str_value += "{" + EndCode;
         PropertyInfo[] myPropertyInfo = Type.GetType(str_full_name).GetProperties();
         PropertyInfo[] myMetadataInfo = Type.GetType(str_meta_name).GetProperties();
-        bool bln_hidden = false;
+        //bool bln_hidden = false;
         foreach (var item in myPropertyInfo)
         {
             key_column = "";
             is_required = "";
             display_name = "";
             column_format = "";
-            bln_hidden = false;
+            //bln_hidden = false;
             PropertyInfo metaName = myMetadataInfo.Where(m => m.Name == item.Name).FirstOrDefault();
             if (metaName != null)
             {
@@ -448,7 +448,7 @@ public class CodeBase : BaseClass
                 {
                     foreach (object attr in attrs)
                     {
-                        if (attr.GetType().Name == "HiddenAttribute") bln_hidden = true;
+                        //if (attr.GetType().Name == "HiddenAttribute") bln_hidden = true;
                     }
                 }
 

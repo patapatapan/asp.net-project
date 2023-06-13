@@ -10,6 +10,9 @@ namespace funplay.Models
     [MetadataType(typeof(z_metaCarts))]
     public partial class Carts
     {
+        [NotMapped]
+        [Display(Name = "圖片")]
+        public string MainImg { get; set; }
     }
 }
 

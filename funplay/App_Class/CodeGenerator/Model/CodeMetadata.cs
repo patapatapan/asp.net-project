@@ -34,7 +34,7 @@ public partial class CodeGenerator : CodeBase
         {
             string str_checkbox = "false";
             string str_hidden = "false";
-            string str_default = "";
+            //string str_default = "";
             string column_type = "";
             string str_value = "";
             string str_display = "";
@@ -69,7 +69,7 @@ public partial class CodeGenerator : CodeBase
             int int_index = 0;
             foreach (var item in myPropertyInfo)
             {
-                str_default = "";
+                //str_default = "";
                 str_checkbox = "false";
                 var prop = GetPropertyType(item.Name, item.PropertyType.Name, item.PropertyType.FullName);
                 column_type = prop.FullType;
@@ -105,7 +105,7 @@ public partial class CodeGenerator : CodeBase
                         str_value += "    [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = \"{0:N2}\")]" + EndCode;
                     if (column_type.Contains("bool"))
                     {
-                        str_default = "true";
+                        //str_default = "true";
                         str_checkbox = "true";
                     }
                     if (item.Name.Contains("Email"))

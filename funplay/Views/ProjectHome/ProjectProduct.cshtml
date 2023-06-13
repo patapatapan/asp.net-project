@@ -9,8 +9,10 @@
     ViewBag.Css2 = Url.Content("~/Content/css/product.css");
 
     //LINQ 查詢
-    var GameTitle = Model.Select(g => g.Title).FirstOrDefault();
+    //var GameTitle = Model.Select(g => g.Title).FirstOrDefault();
     var Game = Model[0];
+
+
 
 }
 
@@ -24,7 +26,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <div class="input-group">
-                                <input type="search" placeholder="想找些甚麼" class="form-control" id="search" value>
+                                <input type="search" placeholder="想找些甚麼" class="form-control" id="search">
                                 <i class="fa-solid fa-magnifying-glass fa-xl half-rounded" type="submit"></i>
                             </div>
                         </div>
@@ -65,7 +67,7 @@
                 <div class="user">
                     <span style="margin-right: 10px;">
                         <svg class="icon" width="30px" height="30px" xmlns="http://www.w3.org/2000/svg"
-                             height="30px" viewBox="0 0 25 25" width="24px" fill="#ffffff" type="button">
+                             viewBox="0 0 25 25" fill="#ffffff" type="button">
                             <path d="M0 0h24v24H0z" fill="none" />
                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                         </svg>

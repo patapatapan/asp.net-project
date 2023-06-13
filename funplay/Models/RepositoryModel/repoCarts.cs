@@ -91,11 +91,12 @@ Id, LotNo, MemberNo, ProdNo, ProdName
     {
         repo.CreateEdit(model, model.Id);
     }
+
     /// <summary>
     /// 刪除
     /// <summary>
     /// <param name="id">Id</param>
-    public void Delete(int id)
+    public void DeleteCart(int id)
     {
         var model = repo.ReadSingle(m => m.Id == id);
         if (model != null) repo.Delete(model, true);
