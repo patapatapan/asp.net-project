@@ -416,6 +416,7 @@
     <Property Name="SalePrice" Type="int" />
     <Property Name="DiscountPrice" Type="int" />
     <Property Name="MainImg" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubImg" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Genres">
     <Key>

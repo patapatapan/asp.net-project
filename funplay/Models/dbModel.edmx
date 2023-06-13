@@ -421,6 +421,7 @@
           <Property Name="SalePrice" Type="int" />
           <Property Name="DiscountPrice" Type="int" />
           <Property Name="MainImg" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubImg" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Genres">
           <Key>
@@ -2220,6 +2221,7 @@
           <Property Name="SalePrice" Type="Int32" />
           <Property Name="DiscountPrice" Type="Int32" />
           <Property Name="MainImg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubImg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3314,6 +3316,7 @@
           <EntitySetMapping Name="Games">
             <EntityTypeMapping TypeName="nicedemoModel.Games">
               <MappingFragment StoreEntitySet="Games">
+                <ScalarProperty Name="SubImg" ColumnName="SubImg" />
                 <ScalarProperty Name="MainImg" ColumnName="MainImg" />
                 <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
                 <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />

@@ -1088,6 +1088,7 @@
     <EntitySetMapping Name="Games">
       <EntityTypeMapping TypeName="nicedemoModel.Games">
         <MappingFragment StoreEntitySet="Games">
+          <ScalarProperty Name="SubImg" ColumnName="SubImg" />
           <ScalarProperty Name="MainImg" ColumnName="MainImg" />
           <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
           <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />

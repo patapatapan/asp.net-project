@@ -1,0 +1,182 @@
+﻿@model vmProjectRegister
+
+@{
+    ViewBag.Title = "註冊";
+    Layout = "~/Views/Shared/_LayoutHeader.cshtml";
+    ViewBag.Css1 = Url.Content("~/Content/css/register.css");
+}
+
+<div class="container-fluid g-0 vh-100" style="display: flex; flex-direction: column;">
+    <div class="row d-block" style="height: 56px;">
+        <div class="col-12 top" style="height: 100%;">
+            <div class="login-logo">
+                <!-- <h1>title</h1> -->
+                <!-- logo -->
+                <img src="~/Images/project/logo-50px.png" alt="" type="button" onclick="redirectToIndex()">
+            </div>
+        </div>
+    </div>
+    <div class="login">
+        <!-- 畫面白色底框 -->
+        <div class="form-box">
+            @using (Html.BeginForm("ProjectRegister", "ProjectHome", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="title mb-1 d-flex justify-content-center">
+                        <h4>創建您的帳號</h4>
+                    </div>
+                    <div class="row-flex">
+                        <label for="dateInput">
+                            姓名
+                            <!-- 顯示原始輸入值和驗證錯誤提示 -->
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </label>
+                        <input type="text" name="UserName" placeholder="姓名" id="UserName">
+                    </div>
+
+                    @*<div class="row-flex">
+                    <label for="dateInput">出生日期
+                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                    </label>
+                    <input type="date" name="Birthday" id="Birthday" value="">
+                </div>*@
+
+                    <div class="row-flex">
+                        <label for="dateInput">
+                            電子信箱
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </label>
+                        <input type="email" name="Email" placeholder="註冊信箱" id="Email">
+                    </div>
+
+                    <div class="row-flex">
+                        <label for="dateInput">
+                            連絡電話
+                            @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
+                        </label>
+                        <input type="text" name="Tel" placeholder="連絡電話" id="Tel">
+                    </div>
+
+                    <div class="row-flex">
+                        <label for="dateInput">
+                            帳號
+                            @Html.ValidationMessageFor(model => model.Account, "", new { @class = "text-danger" })
+                        </label>
+                        <input type="text" name="Account" placeholder="帳號" id="Account">
+                    </div>
+
+                    <div class="row-flex">
+                        <label for="dateInput">
+                            密碼
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </label>
+                        <div class="pwd">
+                            <input type="password" name="Password" placeholder="密碼" id="Password">
+                            <button onclick="changePwdType()" type="button">
+                                <i class="fa-solid fa-eye-slash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row-flex">
+                        <label for="dateInput">
+                            確認密碼
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        </label>
+                        <div class="pwd">
+                            <input type="password" name="ConfirmPassword" placeholder="確認密碼" id="ConfirmPassword">
+                        </div>
+                    </div>
+
+                    <!-- 登入按鈕 -->
+                    <div class="btn-login">
+                        <button class="col-12">送出</button>
+                        <a href="@Url.Action("ProjectLogin","ProjectHome")">登入會員</a>
+                    </div>
+
+
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- 底部版權 -->
+    <div class=" row mt-5">
+        <div class="col m-0 p-5" style="background-color:rgb(73, 73, 73)">
+            <hr style="margin:0 auto; width: 90%; color: #ffffff;">
+            <div class="text-center text-white mt-5">
+                -&copy;2023 Patapatapan 版權所有 參考Epic Games , Steam ,
+                Electronic
+                Arts ,
+                Ubisoft 無商業利益 純個人練習 。-
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        /*密碼切換顯示*/
+        function changePwdType() {
+            var pwd = document.getElementById('Password');
+            //var i = $('#i');
+            // console.log(i);
+
+            if (pwd.type == 'password') {
+                pwd.type = 'text';
+                /*移除並新增class*/
+                $('i.fa-eye-slash').removeClass('fa-eye-slash').addClass('fa-eye');
+            } else {
+                pwd.type = 'password';
+                $('i.fa-eye').removeClass('fa-eye').addClass('fa-eye-slash');
+            }
+        }
+
+        /*checkbox*/
+        $(document).ready(function () {
+            var rcheckbox = $('.r-c');
+            var kcheckbox = $('.k-c');
+            var rcircle = $('#circle1');
+            var kcircle = $('#circle2');
+            var r = 0, k = 0;
+
+            /*預設checkbox內容為隱藏*/
+            rcheckbox.on('click', function () {
+                // console.log(rcircle);
+                if (r == 0) {
+                    $(this).css('background-color', 'rgb(73, 73, 73)')
+                    r += 1;
+                } else if (r == 1) {
+                    $(this).css('background-color', '#ffffff')
+                    r -= 1;
+                }
+
+                // console.log(circlecheck.css('display'));
+                if (rcircle.css('display') == 'none') {
+                    rcircle.css('display', 'block');
+                } else {
+                    rcircle.css('display', 'none')
+                }
+
+            })
+
+            kcheckbox.on('click', function () {
+                // console.log("2");
+                if (k == 0) {
+                    $(this).css('background-color', 'rgb(73, 73, 73)')
+                    k += 1;
+                } else if (k == 1) {
+                    $(this).css('background-color', '#ffffff')
+                    k -= 1;
+                }
+
+                // console.log(circlecheck.css('display'));
+                if (kcircle.css('display') == 'none') {
+                    kcircle.css('display', 'block');
+                } else {
+                    kcircle.css('display', 'none')
+                }
+            })
+
+        });
+
+</script>

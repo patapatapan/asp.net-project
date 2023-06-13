@@ -1,0 +1,311 @@
+﻿@using funplay.Models
+
+@model List<funplay.Models.Games>
+
+@{
+    ViewBag.Title = "歡迎來到FunPlay!!";
+    Layout = "~/Views/Shared/_LayoutHeader.cshtml";
+    ViewBag.Css1 = Url.Content("~/Content/css/navbar.css");
+    ViewBag.Css2 = Url.Content("~/Content/css/index.css");
+
+    //主要大圖
+    List<Games> Main = new List<Games>();
+
+    //優惠商品
+    List<Games> Carousel1 = new List<Games>();
+    List<Games> Carousel2 = new List<Games>();
+
+    string query1 = " SELECT top(4) * from [dbo].[Games]";
+    using (DapperRepository dp = new DapperRepository())
+    {
+        Carousel1 = dp.ReadAll<Games>(query1);
+    }
+    string query2 = " DECLARE @OFFSET tinyint =4, @FETCH tinyint =4\r\n\r\nSELECT * from [dbo].[Games] ORDER BY GameNo OFFSET @OFFSET ROWS FETCH NEXT @FETCH ROWS ONLY";
+    using (DapperRepository dp = new DapperRepository())
+    {
+        Carousel2 = dp.ReadAll<Games>(query2);
+    }
+
+    if (Model.Count > 5)
+    {
+        Main = Model.Take(5).ToList();
+    }
+
+    //if (Model.Count > 4)
+    //{
+    //    if (Model.Count >= 8)
+    //    {
+    //        Carousel2 = Model.Skip(4).Take(4).ToList();
+    //    }
+    //    //else if(Model.Count)
+    //    Carousel1 = Model.Take(4).ToList();
+    //}
+}
+
+<div class="container-fluid g-0">
+    <div class="row d-block" style="height: 56px;">
+        <div class="col">
+
+            <!-- 燈箱效果的搜尋框 -->
+            <div class="modal" id="search-box">
+                <div class="modal-dialog modal-sm modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="input-group">
+                                <input type="search" placeholder="想找些甚麼" class="form-control" id="search">
+                                <i class="fa-solid fa-magnifying-glass fa-xl half-rounded" type="submit"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar fixed-top navbar-expand-md">
+                <!-- <h1>title</h1> -->
+                <!-- logo -->
+                <div class="login-logo">
+                    <img src="~/Images/project/logo-50px.png" alt="" style="margin-left: 20px;" type="button" onclick="redirectToIndex()">
+                </div>
+
+                <!-- rwd 縮小後導覽列變成漢堡 -->
+                <button class="navbar-toggler custom-toggler" data-bs-toggle="collapse" data-bs-target=".menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+
+
+                @{ if (UserService.IsLogin)
+                    {
+                        <!-- 搜尋按鈕 -->
+                        <div class="user">
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);" class="text-white">搜尋</button>
+                        </div>
+                        <!-- 使用者按鈕 -->
+                        <div class="user dropdown">
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);" class="text-white" data-bs-toggle="dropdown">用戶: @UserService.Account</button>
+                            @*@UserService.Account 去撈 Session 抓到的 Account 的值*@
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">會員資料</a>
+                                <a href="#" class="dropdown-item">登出</a>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="user">
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);">
+                                <a href="@Url.Action("ProjectLogin", "ProjectHome")" class="text-white">登入</a>
+                            </button>
+                        </div>
+                        <div class="user">
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);">
+                                <a href="@Url.Action("ProjectRegister", "ProjectHome")" class="text-white">註冊</a>
+                            </button>
+                        </div>
+                    } }
+
+                <!-- 導覽列 -->
+                <div class="collapse navbar-collapse menu mr-auto" id="menu">
+                    <ul class="nav navbar-nav nav-pills d-flex justify-content-between" style="width:300px">
+                        <li class="nav-item">
+                            <a href="" class="nav-link active text-white" data-bs-toggle="pill"
+                               style="color: black;">商店首頁</a> <!--active 顯示當下選擇-->
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-white" data-bs-toggle="pill"
+                               style="color: black;">我的收藏</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-white" data-bs-toggle="pill"
+                               style="color: black;">服務項目</a>
+                        </li>
+                    </ul>
+
+                    @*<div class="user">
+                        <span style="margin-right: 10px;">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px"
+                                 height="30px" fill="#ffffff" type="button" data-bs-toggle="modal"
+                                 data-bs-target=".modal" id="search-button2">
+                                <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
+                            </svg>
+                        </span>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 輪播 -->
+    <div class="row shop-list mt-5">
+        <!-- 圖片區 -->
+        @{ SessionService.TagId1 = 0;}
+        @if (Main.Count > 0)
+        {
+            @Html.Partial("~/Views/PartialViews/_PartialMain.cshtml", Main)
+        }
+
+        <!-- 按鈕控制項 -->
+        @if (Main.Count > 0)
+        {
+            @Html.Partial("~/Views/PartialViews/_PartialBtn.cshtml", Main)
+        }
+
+    </div>
+
+
+<!-- 滑動商品列 -->
+<div class="row swipe-list">
+    <div class="col">
+        <div class="row" style="height: 15%;">
+            <div class="col">
+                <span class="">
+                    <h2 style="width: fit-content; margin:0 auto 0 auto; padding-bottom: 50px;">
+                        <b>優惠商品</b>
+                    </h2>
+                </span>
+            </div>
+        </div>
+
+        <div class="carousel slide project" data-bs-ride=".carousel" data-bs-interval="5000"
+             style="height: 85%;">
+            <div class="row d-flex">
+                <div class="col-1 p-0" style="position: relative;">
+                    <div class="swipe-button d-flex justify-content-center align-items-center prev"
+                         type="button">
+                        <span>❮</span>
+                    </div>
+                </div>
+                <div class="col-10 p-0">
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item active" id="1">
+                            @if (Carousel1.Count > 0)
+                            {
+                                @Html.Partial("~/Views/PartialViews/_PartialIndex.cshtml", Carousel1)
+                            }
+
+                        </div>
+                        <div class="carousel-item" id="2">
+                            @if (Carousel2.Count > 0)
+                            {
+                                @Html.Partial("~/Views/PartialViews/_PartialIndex.cshtml", Carousel2)
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 p-0 d-flex justify-content-end" style="position: relative;">
+                    <div class="swipe-button d-flex justify-content-center align-items-center next"
+                         type="button">
+                        <span>❯</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 資訊欄or宣傳版 -->
+<div class="ad text-white">
+    <div class="footer">
+        <h4 class="footer-title text-info d-flex justify-content-center">尋找屬於你的樂趣吧!!</h4>
+    </div>
+    <div class="footer p-4 d-flex justify-content-center" style="flex-wrap: wrap;">
+        <p class="footer-content  d-flex justify-content-center col-12" style="font-size: 18px;">登入以使用更多社群功能</p>
+        <button class="login col-12"><a href="@Url.Action("ProjectLogin", "ProjectHome")">登入</a> </button>
+        <p class="footer-content  d-flex justify-content-center col-12 pt-3" style="font-size: 14px;">
+            點擊 &nbsp;
+            <a href="@Url.Action("ProjectRegister", "ProjectHome")" class="text-white">註冊</a>
+            &nbsp; 加入會員
+        </p>
+    </div>
+</div>
+
+<!-- 底部版權 -->
+<div class=" row mt-5">
+    <div class="col m-0 p-5" style="background-color:rgb(73, 73, 73)">
+        <hr style="margin:0 auto; width: 90%; color: #ffffff;">
+        <div class="text-center text-white mt-5">
+            -&copy;2023 Patapatapan 版權所有 參考Epic Games , Steam ,
+            Electronic
+            Arts ,
+            Ubisoft 無商業利益 純個人練習 。-
+        </div>
+    </div>
+</div>
+
+<script>
+    // 當 modal 展開時
+    $('#search-box').on('shown.bs.modal', function () {
+        // 隱藏按鈕
+        $('#menu').hide();
+    })
+
+    $('#search-box').on('hidden.bs.modal', function () {
+        // 顯示按鈕
+        $('#menu').show();
+    })
+
+    /*點擊監聽切換輪播圖*/
+    //$(document).ready(function () {
+    //    $('.li-box[type="button"]').click(function () {
+    //        var slideId = $(this).find('li').attr('data-slide-to');//抓取li上data-slide-to屬性的值
+    //        console.log(slideId);
+    //        $('.carousel').carousel(parseInt(slideId));//切換至對應的索引圖片
+    //    });
+    //});
+    $(document).ready(function () {
+        $('.li-box[type="button"]').click(function () {
+            var slideId = $(this).find('li').attr('id'); // 抓取 li 上 data-slide-to 屬性的值
+            console.log(slideId);
+            /*$('.picShow').carousel(parseInt(slideId));*/ // 切換至對應的索引圖片
+            $('.shop-list .carousel-item').removeClass('active'); // 從所有輪播項目移除 'active' 類別
+            $('#' + slideId).addClass('active'); // 將對應ID的輪播項目加上 'active' 類別
+
+        });
+    });
+
+    // 滑動商品列 上下頁
+    $(document).ready(function () {
+        // $('.swipe-button[type="button"]').click(function () {
+        var carousel = $('.carousel.project');
+        var prevButton = $('.swipe-button.prev');
+        var nextButton = $('.swipe-button.next');
+        // var carouselElement = $('.swipe-list.project.carousel');
+
+        prevButton.click(function () {
+            carousel.carousel('prev');
+            restartCarousel();
+        });
+
+        nextButton.click(function () {
+            carousel.carousel('next');
+            restartCarousel();
+        });
+
+        // });
+        // 自動啟動輪播
+        // carouselElement.carousel({
+        //     interval: 3000 // 自動輪播間隔時間（以毫秒為單位）
+        // });
+        // setTimeout(function () {
+        //     carouselElement.carousel({
+        //         interval: 3000 // 自動輪播間隔時間（以毫秒為單位）
+        //     });
+        // }, 100);
+
+        // 重新啟動自動輪播
+        function restartCarousel() {
+            //console.log(1);
+            // 停止自動輪播
+            //carouselElement.carousel('pause');
+
+            // 重新啟動自動輪播
+            setTimeout(function () {
+                carouselElement.carousel('cycle');
+            }, 100); // 這裡使用延遲是為了確保輪播在停止後能夠正確重新啟動
+        }
+    });
+
+</script>
+

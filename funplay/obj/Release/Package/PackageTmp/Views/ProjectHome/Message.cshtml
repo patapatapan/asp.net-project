@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "歡迎來到FunPlay!!";
+    Layout = "~/Views/Shared/_LayoutHeader.cshtml";
+    ViewBag.Css1 = Url.Content("~/Content/css/navbar.css");
+    ViewBag.Css2 = Url.Content("~/Content/css/index.css");
+}
+
+@{
+    ViewBag.Title = "登入";
+    Layout = "~/Views/Shared/_LayoutHeader.cshtml";
+    ViewBag.Css1 = Url.Content("~/Content/css/login.css");
+}
+
+<div class="container-fluid g-0 vh-100" style="display: flex; flex-direction: column;">
+    <div class="row d-block" style="height: 56px;">
+        <div class="col-12 top" style="height: 100%;">
+            <div class="login-logo">
+                <!-- <h1>title</h1> -->
+                <!-- logo -->
+                <img src="~/Images/project/logo-50px.png" alt="" type="button" onclick="redirectToIndex()" />
+            </div>
+        </div>
+    </div>
+
+    <div class="login " >
+        <!-- 登入畫面白色底框 -->
+        <div class="form-box row d-flex justify-content-center">
+            <h3 class="text-center">系統提示訊息</h3>
+            <h5 class="text-center">@TempData["MessageText"]</h5>
+            @Html.ActionLink("系統登入", "ProjectLogin", "ProjectHome", new { area = "" }, new { @class = "btn-btn-primary text-center" })
+        </div>
+    </div>
+
+    <!-- 底部版權 -->
+    <div class=" row mt-5">
+        <div class="col m-0 p-5" style="background-color:rgb(73, 73, 73)">
+            <hr style="margin:0 auto; width: 90%; color: #ffffff;">
+            <div class="text-center text-white mt-5">
+                -&copy;2023 Patapatapan 版權所有 參考Epic Games , Steam ,
+                Electronic
+                Arts ,
+                Ubisoft 無商業利益 純個人練習 。-
+            </div>
+        </div>
+    </div>
+
+</div>

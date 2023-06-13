@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="dbEntities-Web.config Connection String" description="dbEntities 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="metadata=res://*/Models.dbModel.csdl|res://*/Models.dbModel.ssdl|res://*/Models.dbModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\SQL2019;initial catalog=project;persist security info=True;user id=sa;password=1qaz@wsx;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="D:\\Johnny\\vs2022\\web\\funplay\\funplay\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='dbEntities']/@connectionString" />
-  </parameter>
   <parameter name="dbconn-Web.config Connection String" description="dbconn 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="Data Source=.\SQL2019;Initial Catalog=project;Persist Security Info=True;User ID=sa;Password=1qaz@wsx" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="D:\\Johnny\\vs2022\\web\\funplay\\funplay\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='dbconn']/@connectionString" />
+  </parameter>
+  <parameter name="dbEntities-Web.config Connection String" description="dbEntities 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="metadata=res://*/Models.dbModel.csdl|res://*/Models.dbModel.ssdl|res://*/Models.dbModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\SQL2019;initial catalog=project;persist security info=True;user id=sa;password=1qaz@wsx;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Johnny\\vs2022\\web\\funplay\\funplay\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='dbEntities']/@connectionString" />
   </parameter>
 </parameters>

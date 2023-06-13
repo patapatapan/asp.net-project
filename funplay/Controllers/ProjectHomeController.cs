@@ -103,20 +103,6 @@ namespace funplay.Controllers
         public ActionResult ProjectRegister(vmProjectRegister model)
         //public ActionResult ProjectRegister(vmProjectRegister model)
         {
-            //vmProjectRegister model = new vmProjectRegister();
-            //model.UserName = collection["UserName"].ToString();
-            ////model.Birthday = DateTime.Parse(collection["Birthday"]);
-            //model.Tel = collection["Tel"].ToString();
-            //model.Email = collection["Email"].ToString();
-            //model.Account = collection["Account"].ToString();
-            //model.Password = collection["Password"].ToString();
-            //model.ConfirmPassword = collection["ConfirmPassword"].ToString();
-
-            //if (model.Password != model.ConfirmPassword)
-            //{
-            //    ModelState.AddModelError("ConfirmPassword", "密碼與確認密碼不一致");
-            //    return View(model);
-            //}
 
             //1. 沒有通過驗證，返回登入頁繼續輸入
             if (!ModelState.IsValid) return View(model);
@@ -152,9 +138,25 @@ namespace funplay.Controllers
 
         [HttpGet]
         [LoginAuthorize()]
-        public ActionResult ProjectProduct()
+        public ActionResult ProjectProduct(string GameNo)
         {
-            return View();
+            using (DapperRepository dp = new DapperRepository())
+            {
+                
+                string str_qurey = @"SELECT Games.Title, Games.Description, Games.Release_Date, Games.Developer, Games.Publisher, Games.SalePrice, Games.DiscountPrice, Games.MainImg, Images.GameNo, Images.ImageName
+                FROM  Games 
+                LEFT OUTER JOIN Images 
+                ON Games.GameNo = Images.GameNo
+                WHERE (Games.GameNo = @GameNo)";
+
+                DynamicParameters parm = new DynamicParameters();
+                dp.ParametersClear();
+                parm.Add("GameNo", GameNo);
+                var model = dp.ReadAll<Games>(str_qurey,parm);
+
+                return View(model);
+            }
+            
         }
 
         //顯示訊息用
@@ -185,6 +187,37 @@ namespace funplay.Controllers
                 //顯示訊息畫面
                 return RedirectToAction("Message", "ProjectHome", new { area = "" });
             }
+        }
+
+        //[HttpGet]
+        //[LoginAuthorize()]
+        //public ActionResult Cart()
+        //{
+        //    using (tblCarts carts = new tblCarts())
+        //    {
+        //        if (SessionService.IsLogined)
+        //        {
+        //            var data1 = carts.repo.ReadAll(m => m.user_no == SessionService.AccountNo);
+        //            return View(data1);
+        //        }
+        //        var data2 = carts.repo.ReadAll(m => m.lot_no == CartService.LotNo);
+        //        return View(data2);
+        //    }
+        //}
+
+        public ActionResult ProjectCart()
+        {
+            //using (z_repoCarts carts = new z_repoCarts())
+            //{
+            //    if (UserService.IsLogin)
+            //    {
+            //        var data1 = carts.repo.ReadAll(m => m.Account == UserService.Account);
+            //        return View(data1);
+            //    }
+            //    var data2 = carts.repo.ReadAll(m => m.lot_no == CartService.LotNo);
+            //    return View(data2);
+            //}
+            return View();
         }
 
     }

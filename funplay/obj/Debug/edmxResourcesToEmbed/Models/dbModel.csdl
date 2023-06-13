@@ -1105,5 +1105,6 @@
     <Property Name="SalePrice" Type="Int32" />
     <Property Name="DiscountPrice" Type="Int32" />
     <Property Name="MainImg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubImg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

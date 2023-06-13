@@ -58,6 +58,10 @@
     background-color: rgb(109, 109, 109);
 }
 
+.li-box > active {
+    background-color: rgb(109, 109, 109);
+}
+
 .li-box img {
     margin: 0;
     width: 60%;
@@ -152,7 +156,7 @@ li .row {
 .price {
     width: 90%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     /*flex-wrap: wrap;*/
 }
 
@@ -224,7 +228,7 @@ li .row {
 }
 
 .footer-content a {
-    font-size: 16;
+    font-size: 16px;
     text-decoration: none;
 }
 
@@ -237,7 +241,7 @@ button a{
     .price {
         width: 90%;
         display: flex;
-        justify-content: flex-start;
+        justify-content: flex-end;
         /*flex-wrap: wrap;*/
     }
 

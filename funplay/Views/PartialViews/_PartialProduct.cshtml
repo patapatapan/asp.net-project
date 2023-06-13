@@ -1,0 +1,67 @@
+﻿@*@using funplay.Models
+
+@model List<funplay.Models.Games>
+
+@{
+    //LINQ 查詢
+    var GameTitle = Model.Select(g => g.Title).FirstOrDefault();
+    var Game = Model[0];
+}
+
+<h6 class="mt-2 text-white bg-warning d-flex justify-content-center"
+    style="width: 60px; border-radius: 5px;">
+    -50%
+</h6>
+<div class="d-flex">
+    <h5 style="margin-right: 10px;">$NT1750</h5>
+    <h6 style="text-decoration: line-through;">$NT1850</h6>
+</div>
+<div class="btn btn-warning">預購</div>
+<div class="btn btn-warning mt-2">加入購物車</div>
+<div class="btn btn-warning mt-2">新增至願望清單</div>
+
+@if (Game.SalePrice == 0)
+{
+    <h6 class="mt-2 text-white bg-warning d-flex justify-content-center"
+        style="width:60px; visibility: hidden; border-radius: 5px;">
+        -50%
+    </h6>
+    <h5 style="margin-right: 10px;">FREE</h5>
+    <div class="btn btn-warning">預購</div>
+    <div class="btn btn-warning mt-2">取得遊戲</div>
+    <div class="btn btn-warning mt-2">新增至願望清單</div>
+}
+else if (Game.SalePrice > 0)
+{
+    if (Game.DiscountPrice == 0)
+    {
+        <h6 class="mt-2 text-white bg-warning d-flex justify-content-center"
+            style="width: 60px; visibility: hidden; border-radius: 5px;">
+            - 50 %
+        </h6>
+        <h5 style="margin-right: 10px;">$NT @Game.SalePrice</h5>
+        <div class="btn btn-warning">預購</div>
+        <div class="btn btn-warning mt-2">加入購物車</div>
+        <div class="btn btn-warning mt-2">新增至願望清單</div>
+    }
+    else if (Game.DiscountPrice > 0)
+    {
+        <h6 class="mt-2 text-white bg-warning d-flex justify-content-center"
+            style="width:60px;border-radius: 5px;">
+            - @(Math.Floor((Convert.ToDouble(Game.DiscountPrice) / Convert.ToDouble(Game.SalePrice)) * 100)) %
+        </h6>
+        <h5 style="margin-right: 10px;">$NT @Game.DiscountPrice</h5>
+        <h6 style="text-decoration: line-through;">$NT @Game.SalePrice</h6>
+        <div class="btn btn-warning">預購</div>
+        <div class="btn btn-warning mt-2">加入購物車</div>
+        <div class="btn btn-warning mt-2">新增至願望清單</div>
+    }
+    else
+    {
+        <h5 style="margin-right: 10px;">出現問題! 請回報!</h5>
+    }
+}
+else
+{
+
+}*@

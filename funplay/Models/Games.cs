@@ -24,5 +24,6 @@ namespace funplay.Models
         public Nullable<int> SalePrice { get; set; }
         public Nullable<int> DiscountPrice { get; set; }
         public string MainImg { get; set; }
+        public string SubImg { get; set; }
     }
 }
