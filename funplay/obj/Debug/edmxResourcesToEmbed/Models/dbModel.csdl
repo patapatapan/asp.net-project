@@ -73,6 +73,7 @@
     <EntitySet Name="Users" EntityType="nicedemoModel.Users" />
     <EntitySet Name="Images" EntityType="nicedemoModel.Images" />
     <EntitySet Name="Games" EntityType="nicedemoModel.Games" />
+    <EntitySet Name="testtable" EntityType="nicedemoModel.testtable" />
     <EntitySet Name="Carts" EntityType="nicedemoModel.Carts" />
   </EntityContainer>
   <EntityType Name="AboutUs">
@@ -1088,20 +1089,36 @@
     <Property Name="MainImg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SubImg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="testtable">
+    <Key>
+      <PropertyRef Name="testid" />
+    </Key>
+    <Property Name="testid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="testname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="Carts">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LotNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MemberNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="VendorNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ProdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProdName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="ProdSpec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OrderQty" Type="Int32" />
+    <Property Name="OrderPrice" Type="Int32" />
+    <Property Name="OrderAmount" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="GameNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="PerPrice" Type="Int32" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="TotalPrice" Type="Int32" />
+    <Property Name="PerPrice" Type="Int32" />
+    <Property Name="MainImg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

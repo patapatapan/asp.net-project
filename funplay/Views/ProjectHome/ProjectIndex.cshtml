@@ -85,7 +85,7 @@
                 @*@UserService.Account 去撈 Session 抓到的 Account 的值*@
                 <div class="dropdown-menu">
                     <a href="#" class="dropdown-item">會員資料</a>
-                    <a href="#" class="dropdown-item">登出</a>
+                    <a href="@Url.Action("Logout", "ProjectHome", new {area = ""})" class="dropdown-item">登出</a>
                 </div>
             </div>
         }
@@ -102,7 +102,6 @@
                 </button>
             </div>
         } 
-        
 }
  @*導覽列*@ 
 <div class="collapse navbar-collapse menu mr-auto" id="menu">

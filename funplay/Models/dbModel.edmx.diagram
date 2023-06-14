@@ -77,7 +77,8 @@
         <EntityTypeShape EntityType="nicedemoModel.Users" Width="1.5" PointX="21.375" PointY="22.75" />
         <EntityTypeShape EntityType="nicedemoModel.Images" Width="1.5" PointX="23.375" PointY="20.75" />
         <EntityTypeShape EntityType="nicedemoModel.Games" Width="1.5" PointX="23.375" PointY="23.75" />
-        <EntityTypeShape EntityType="nicedemoModel.Carts" Width="1.5" PointX="5" PointY="24.375" />
+        <EntityTypeShape EntityType="nicedemoModel.testtable" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Carts" Width="1.5" PointX="5.375" PointY="25.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

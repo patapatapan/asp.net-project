@@ -116,15 +116,24 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LotNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="MemberNo" Type="nvarchar" MaxLength="50" />
     <Property Name="VendorNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProdNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProdName" Type="nvarchar" MaxLength="250" />
     <Property Name="ProdSpec" Type="nvarchar" MaxLength="250" />
-    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="OrderQty" Type="int" />
+    <Property Name="OrderPrice" Type="int" />
+    <Property Name="OrderAmount" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
     <Property Name="Remark" Type="nvarchar" MaxLength="250" />
-    <Property Name="Account" Type="nvarchar" MaxLength="50" />
     <Property Name="GameNo" Type="nvarchar" MaxLength="50" />
-    <Property Name="Title" Type="nvarchar" MaxLength="50" />
-    <Property Name="PerPrice" Type="int" />
+    <Property Name="Account" Type="nvarchar" MaxLength="50" />
     <Property Name="TotalPrice" Type="int" />
+    <Property Name="PerPrice" Type="int" />
+    <Property Name="MainImg" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Categorys">
     <Key>
@@ -883,6 +892,13 @@
     <Property Name="DetailText" Type="nvarchar(max)" />
     <Property Name="Remark" Type="nvarchar" MaxLength="250" />
   </EntityType>
+  <EntityType Name="testtable">
+    <Key>
+      <PropertyRef Name="testid" />
+    </Key>
+    <Property Name="testid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="testname" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Titles">
     <Key>
       <PropertyRef Name="Id" />
@@ -1093,6 +1109,7 @@
     <EntitySet Name="Shippings" EntityType="Self.Shippings" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Songs" EntityType="Self.Songs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="testtable" EntityType="Self.testtable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Titles" EntityType="Self.Titles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TodoLists" EntityType="Self.TodoLists" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User_Game" EntityType="Self.User_Game" Schema="dbo" store:Type="Tables" />

@@ -23,7 +23,7 @@ public class BaseController : Controller
         CultureInfo culture = new CultureInfo(str_culture);
         Thread.CurrentThread.CurrentUICulture = culture;
         Thread.CurrentThread.CurrentCulture = culture;
-        if (!AppService.IsConfig) AppService.Init();
+        //if (!AppService.IsConfig) AppService.Init();
         //if (AppService.DebugMode && !UserService.IsLogin)
         //{
         //    UserService.RoleNo = "User";

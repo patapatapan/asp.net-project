@@ -13,6 +13,7 @@ using System.Runtime.Remoting.Contexts;
 using Dapper;
 using System.Web.UI.WebControls;
 using System.Data.Common;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace funplay.Controllers
 {
@@ -223,35 +224,63 @@ namespace funplay.Controllers
         //    }
         //}
 
-        
+
 
         /// <summary>
         /// 加入購物車
         /// </summary>
         /// <param name="GameNo"></param>
         /// <returns></returns>
+        //[HttpPost]
+        ////[LoginAuthorize()]
+        //public ActionResult AddToCart(FormCollection collection)
+        //{
+        //    string gameNo = collection["GameNo"];
+        //    string gameName = collection["GameName"];
+        //    string Img = collection["MainImg"];
+        //    int perPrice = Convert.ToInt32(collection["SalePrice"]);
+        //    //string str_qty = collection["Quantity"];
+        //    //int int_qty = 1;
+        //    //int.TryParse(str_qty, out int_qty);
+        //    CartService.AddCart(gameNo, perPrice);
+
+        //    return RedirectToAction("ProjectCart", "ProjectHome");
+        //}
+
         [HttpPost]
         //[LoginAuthorize()]
-        public ActionResult AddToCart(FormCollection collection)
+        public ActionResult AddToCart(string GameNo)
         {
-            string gameNo = collection["GameNo"];
-            string gameName = collection["GameName"];
-            string Img = collection["MainImg"];
-            int perPrice = Convert.ToInt32(collection["SalePrice"]);
-            //string str_qty = collection["Quantity"];
-            //int int_qty = 1;
-            //int.TryParse(str_qty, out int_qty);
-            CartService.AddCart(gameNo, perPrice);
-
             return RedirectToAction("ProjectCart", "ProjectHome");
         }
 
         [HttpPost]
-        [LoginAuthorize()]
-        public ActionResult DeleteCart(int id)
+        //[LoginAuthorize()]
+        public ActionResult DeleteProjectCart(string GameNo)
         {
-            CartService.DeleteCart(id);
-            return RedirectToAction("Cart", "Shop");
+            string user = "";
+           string query = "";
+            if (!UserService.IsLogin)
+            {
+                query = "DELETE FROM [dbo].[Carts]  WHERE GameNo = '@GameNo'and LotNo = '@LotNo'";
+                user = CartService.LotNo;
+            }
+            else
+            {
+                user = UserService.Account;
+                query = "DELETE FROM[dbo].[Carts] WHERE GameNo = '@GameNo'and Account = '@user'";
+            }
+
+            using (DapperRepository dp = new DapperRepository())
+            {
+                DynamicParameters parm = new DynamicParameters();
+                parm.Add("@GameNo", GameNo);
+                parm.Add("@user", user);
+                var data1 = dp.ReadAll<Carts>(query, parm);
+            }
+
+
+            return RedirectToAction("ProjectIndex", "ProjectHome");
         }
 
         /// <summary>
@@ -260,9 +289,9 @@ namespace funplay.Controllers
         /// <returns></returns>
         [HttpGet]
         [LoginAuthorize()]
-        public ActionResult ProjectCart()
+        public ActionResult ProjectCart(string GameNo,int price , string GameName, string Img)
         {
-            //List<Games> model = new List<Games>();
+            CartService.AddCart(CartService.LotNo,GameNo, price, GameName, Img);
             using (z_repoCarts carts = new z_repoCarts())
             {
                 if (UserService.IsLogin)
@@ -272,10 +301,16 @@ namespace funplay.Controllers
                     return View(data1);
                 }
                 var data2 = carts.repo.ReadAll(m => m.LotNo == CartService.LotNo);
+    
                 return View(data2);
             }
             //return View(model);
         }
 
+        public ActionResult Logout()
+        {
+            UserService.Logout();
+            return RedirectToAction("ProjectIndex", "ProjectHome", new { area = "" });
+        }
     }
 }

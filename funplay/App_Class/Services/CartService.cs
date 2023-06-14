@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using DocumentFormat.OpenXml.Office2016.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using funplay.Models;
 using System;
@@ -106,9 +107,9 @@ public static class CartService
     //{
     //    AddCart(productNo, "", buyQty);
     //}
-    public static void AddCart(string gameNo, int perPrice)
+    public static void AddCart(string LotNo, string gameNo, int perPrice, string gamename, string img)
     {
-        AddCart(gameNo, "", perPrice);
+        AddCart(LotNo,gameNo, "", perPrice, gamename, img);
     }
 
     //    /// <summary>
@@ -124,15 +125,61 @@ public static class CartService
     //        carts.CreateEdit(gameNo, gameName, perPrice);
     //    }
     //}
-    public static void AddCart(string gameNo, string prod_Spec, int perPrice)
+    public static void AddCart(string LotNo, string gameNo, string prod_Spec, int perPrice, string gamename,string img)
     {
-        using (z_repoCarts carts = new z_repoCarts())
+        using (dbEntities db = new dbEntities())
         {
             Carts model = new Carts();
+            model.LotNo = LotNo;
+            model.GameNo = gameNo;
+            model.PerPrice = perPrice;
 
-            carts.CreateEdit(model);
+            if (model.TotalPrice == null)
+            {
+                model.TotalPrice = 0;
+            }
+            model.TotalPrice += perPrice;
+            model.ProdSpec = prod_Spec;
+            model.Title = gamename;
+            model.MainImg = img;
+            db.Carts.Add(model);
+            int result = db.SaveChanges();
         }
-    }
+
+            //using (z_repoCarts carts = new z_repoCarts())
+            //{
+            //    Carts model = new Carts();
+            //    model.GameNo = gameNo;
+            //    model.PerPrice = perPrice;
+            //    model.ProdSpec = prod_Spec;
+
+            //    carts.CreateEdit(model);
+            //}
+            //using(dbEntities db=new dbEntities())
+            //{
+            //    Carts model = new Carts();
+            //    model.LotNo = "1111";
+            //    model.VendorNo = "2222";
+            //    model.ProdSpec = prod_Spec;
+            //    model.CreateTime = DateTime.Now;
+            //    model.Remark = "333";
+            //    model.Account = "444";
+            //    model.GameNo = gameNo;
+            //    model.Title = "555";
+            //    model.PerPrice = perPrice;
+            //    model.TotalPrice = 0;
+            //    db.Carts.Add(model);
+
+
+            //    testtable tt = new testtable();  
+            //    tt.testid = gameNo;
+            //    tt.testname = prod_Spec;
+            //    db.testtable.Add(tt);
+
+            //    int result=db.SaveChanges();
+        }
+
+    //}
 
     //    /// <summary>
     //    /// 更新購物車
@@ -151,13 +198,31 @@ public static class CartService
     //    /// 刪除購物車
     //    /// </summary>
     //    /// <param name="rowID">row ID</param>
-    public static void DeleteCart(int rowID)
-    {
-        using (z_repoCarts carts = new z_repoCarts())
-        {
-            carts.DeleteCart(rowID);
-        }
-    }
+    //public static void DeleteCart(string gameNo)
+    //{
+    //    using (z_repoCarts carts = new z_repoCarts())
+    //    {
+    //        carts.DeleteCart(gameNo);
+    //    }
+    //}
+
+    //public static void DeleteCart(string gameNo)
+    //{
+    //    using (dbEntities db = new dbEntities())
+    //    {
+    //        Carts model = db.Carts.FirstOrDefault(c.GameNo == gameNo);
+
+    //        if (model != null)
+    //        {
+    //            // 从上下文中移除数据
+    //            db.Carts.Remove(model);
+    //            int result = db.SaveChanges();
+    //        }
+    //    }
+    //}
+
+    // result 变量将包含删除的记录数
+
 
     //    /// <summary>
     //    /// 消費者付款

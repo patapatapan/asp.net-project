@@ -97,6 +97,7 @@ namespace funplay.Models
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Images> Images { get; set; }
         public virtual DbSet<Games> Games { get; set; }
+        public virtual DbSet<testtable> testtable { get; set; }
         public virtual DbSet<Carts> Carts { get; set; }
     }
 }

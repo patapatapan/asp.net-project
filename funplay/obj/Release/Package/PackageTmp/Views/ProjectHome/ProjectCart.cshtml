@@ -1,118 +1,219 @@
 ﻿@using funplay.Models
-
-@model List<funplay.Models.Games>
+@*@model List<funplay.Models.Games>*@
+@model System.Data.Entity.Infrastructure.DbQuery<funplay.Models.Carts>
+@*@model funplay.Models.Carts*@
 
 @{
     ViewBag.Title = "購物車";
     Layout = "~/Views/Shared/_LayoutHeader.cshtml";
-    //int i = 0;
-    //string str_row_id = "";
-    //string str_qty_id = "";
+    ViewBag.Css1 = Url.Content("~/Content/css/navbar.css");
+    ViewBag.Css2 = Url.Content("~/Content/css/index.css");
+
 
 }
 
-@using (Html.BeginForm("ProjectCart", "ProjectHome", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    if (Model.Count() == 0)
-    {
-        <h3 class="text-center">購物車無資料!!</h3>
-    }
-    else
-    {
-        <div class="row mb-5">
-            <div class="col-md-12">
-                <div class="site-blocks-table">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th class="product-thumbnail">圖片</th>
-                                <th class="product-name">商品名稱</th>
-                                <th class="product-price">單價</th>
-                                @*<th class="product-quantity">數量</th>*@
-                                <th class="product-total">合計</th>
-                                <th class="product-remove">刪除</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @*@foreach (var item in Model)
-                            {
-                                i++;
-                                str_qty_id = string.Format("qty{0}", i);
-                                str_row_id = string.Format("row{0}", i);
-
-                                <tr>
-                                    <td class="product-thumbnail">
-                                        <img src="@Url.Content(ShopService.GetProductImageUrl(item.product_no))" alt="Image" class="img-fluid">
-                                    </td>
-                                    <td class="product-name">
-                                        <input id="@str_row_id" name="@str_row_id" value="@item.rowid" hidden="hidden" />
-                                        <h2 class="h5 text-black">@item.product_name</h2>
-                                    </td>
-                                    <td>$@item.price</td>
-                                    <td>
-                                        <div class="input-group mb-3" style="max-width: 120px;">
-                                            <div class="input-group-prepend">
-                                                <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                                            </div>
-                                            <input id="@str_qty_id" name="@str_qty_id" type="text" class="form-control text-center" value="@item.qty" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>$@item.amount</td>
-                                    <td><a href="@Url.Action("DeleteCart", "Shop", new { id = item.rowid })" class="btn btn-primary btn-sm">X</a></td>
-                                </tr>
-                            }*@
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    }
-    <div class="row">
-        <div class="col-md-6">
-            <div class="row mb-5">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <a href="@Url.Action("ProjectIndex", "ProjectHome")" class="btn btn-outline-primary btn-sm btn-block">繼續購物</a>
-                </div>
-                <div class="col-md-6">
-                    @if (Model.Count() > 0)
-                    {
-                        <input type="submit" value="更新購物車" class="btn btn-primary btn-sm btn-block" />
-                    }
-                </div>
-            </div>
-        </div>
-        @if (Model.Count() > 0)
-        {
-            <div class="col-md-6 pl-5">
-                <div class="row justify-content-end">
-                    <div class="col-md-7">
-                        <div class="row">
-                            <div class="col-md-12 text-right border-bottom mb-5">
-                                <h3 class="text-black h4 text-uppercase">購物車合計</h3>
-                            </div>
-                        </div>
-                        <div class="row mb-5">
-                            <div class="col-md-6">
-                                <span class="text-black">合計</span>
-                            </div>
-                            <div class="col-md-6 text-right">
-                                @*<strong class="text-black">$@CartService.Totals</strong>*@
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a href="@Url.Action("Payment" , "Shop")" class="btn btn-primary btn-lg py-3 btn-block">結帳付款</a>
-                                @*<button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">結帳付款</button>*@
+<div class="container-fluid g-0">
+    <div class="row d-block" style="height: 56px;">
+        <div class="col">
+            @*燈箱效果的搜尋框*@
+            <div class="modal" id="search-box">
+                <div class="modal-dialog modal-sm modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="input-group">
+                                <input type="search" placeholder="想找些甚麼" class="form-control" id="search">
+                                <i class="fa-solid fa-magnifying-glass fa-xl half-rounded" type="submit"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="navbar fixed-top navbar-expand-md">
+                <div class="login-logo">
+                    <a href="@Url.Action("ProjectIndex", "ProjectHome", new { area = ""})">
+                        <img src="~/Images/project/logo-50px.png" alt="" style="margin-left: 20px;" type="button" @*onclick="redirectToIndex()"*@>
+                    </a>
+                </div>
+                @*rwd 縮小後導覽列變成漢堡*@
+                <button class="navbar-toggler custom-toggler" data-bs-toggle="collapse" data-bs-target=".menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                @{ if (UserService.IsLogin)
+                    {
+                        <!-- 搜尋按鈕 -->
+                        <div class="user">
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);" class="text-white">搜尋</button>
+                        </div>
+                        <!-- 使用者按鈕 -->
+                        <div class="user dropdown">
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);" class="text-white" data-bs-toggle="dropdown">用戶: @UserService.Account</button>
+                            @*@UserService.Account 去撈 Session 抓到的 Account 的值*@
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">會員資料</a>
+                                <a href="@Url.Action("Logout", "ProjectHome", new {area = ""})" class="dropdown-item" style="text-decoration:none">登出</a>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="user">
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);">
+                                <a href="@Url.Action("ProjectLogin", "ProjectHome")" class="text-white">登入</a>
+                            </button>
+                        </div>
+                        <div class="user">
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);">
+                                <a href="@Url.Action("ProjectRegister", "ProjectHome")" class="text-white">註冊</a>
+                            </button>
+                        </div>
+                    }
+                }
+                @*導覽列*@
+                <div class="collapse navbar-collapse menu mr-auto" id="menu">
+                    <ul class="nav navbar-nav nav-pills d-flex justify-content-between" style="width:300px">
+                        <li class="nav-item">
+                            <a href="" class="nav-link active text-white" data-bs-toggle="pill"
+                               style="color: black;">商店首頁</a>
+                            @*active 顯示當下選擇*@
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-white" data-bs-toggle="pill"
+                               style="color: black;">我的收藏</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-white" data-bs-toggle="pill"
+                               style="color: black;">服務項目</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height:600px;margin-top:100px;">
+        @using (Html.BeginForm("AddToCart", "ProjectHome", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            if (Model.Count() == 0)
+            {
+                <h3 class="text-center">購物車無資料!!</h3>
+            }
+            else
+            {
+                <div class="row mb-5">
+                    <div class="col-md-12">
+                        <div class="site-blocks-table">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="product-thumbnail">圖片</th>
+                                        <th class="product-name">商品名稱</th>
+                                        <th class="product-price">單價</th>
+                                        <th class="product-remove">刪除</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="product-thumbnail">
+                                                <img src="~/Images/project/@item.GameNo/Main/@item.MainImg" alt="Image" class="img-fluid" style="width:128px;">
+                                            </td>
+                                            <td class="product-name">
+                                                <input name="rowIds" value="@item.GameNo" hidden="hidden" />
+                                                <h2 class="h5 text-black">@item.Title</h2>
+                                            </td>
+                                            <td>$@item.PerPrice</td>
+                                            @*<td>$@item.amount</td>*@
+                                            <td>
+                                                <form action="@Url.Action("DeleteProjectCart", "ProjectHome")" method="post">
+                                                    <input type="hidden" name="GameNo" value="@item.GameNo" />
+                                                    <button> <div class="btn btn-primary btn-sm x">X</div></button>
+                                                  
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="row mb-5">
+                        @if (Model.Count() > 0)
+                        {
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <a href="@Url.Action("ProjectIndex", "ProjectHome")" class="btn btn-outline-primary btn-sm btn-block">繼續購物</a>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="submit" value="更新購物車" class="btn btn-primary btn-sm btn-block" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="mb-3 mb-md-0 d-flex justify-content-center">
+                                <a href="@Url.Action("ProjectIndex", "ProjectHome")" class="btn btn-outline-primary btn-sm btn-block">繼續購物</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                @if (Model.Count() > 0)
+                {
+
+
+                    <div class="col-md-6 pl-5">
+                        <div class="row justify-content-end">
+                            <div class="col-md-7">
+                                <div class="row">
+                                    <div class="col-md-12 text-right border-bottom mb-5">
+                                        <h3 class="text-black h4 text-uppercase">購物車合計</h3>
+                                    </div>
+                                </div>
+                                <div class="row mb-5">
+                                    <div class="col-md-6">
+                                        <span class="text-black">合計</span>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <strong class="text-black">
+                                            NT$ @CartService.Totals
+                                            @*@foreach(var item in Model)
+                                                {
+                                                    item.TotalPrice =
+                                                }*@
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <a href="@Url.Action("Payment", "Shop")" class="btn btn-primary btn-lg py-3 btn-block">結帳付款</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
         }
     </div>
-}
+
+    <!-- 底部版權 -->
+    <div class=" row mt-5">
+        <div class="col m-0 p-5" style="background-color:rgb(73, 73, 73)">
+            <hr style="margin:0 auto; width: 90%; color: #ffffff;">
+            <div class="text-center text-white mt-5">
+                -&copy;2023 Patapatapan 版權所有 參考Epic Games , Steam ,
+                Electronic
+                Arts ,
+                Ubisoft 無商業利益 純個人練習 。-
+            </div>
+        </div>
+    </div>
+    <script src="~/obj/Release/Package/PackageTmp/Scripts/jquery-3.6.0.js"></script>
+    $(".x").click(
+    )

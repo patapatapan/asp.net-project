@@ -457,7 +457,6 @@
     <Compile Include="Models\MetadataModel\metaApplications.cs" />
     <Compile Include="Models\MetadataModel\metaCalendars.cs" />
     <Compile Include="Models\MetadataModel\metaCarousels.cs" />
-    <Compile Include="Models\MetadataModel\metaCarts.cs" />
     <Compile Include="Models\MetadataModel\metaCategorys.cs" />
     <Compile Include="Models\MetadataModel\metaCityAreas.cs" />
     <Compile Include="Models\MetadataModel\metaCitys.cs" />
@@ -674,6 +673,9 @@
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Teams.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\testtable.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Titles.cs">

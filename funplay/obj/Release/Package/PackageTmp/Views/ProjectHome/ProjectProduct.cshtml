@@ -9,8 +9,10 @@
     ViewBag.Css2 = Url.Content("~/Content/css/product.css");
 
     //LINQ 查詢
-    var GameTitle = Model.Select(g => g.Title).FirstOrDefault();
+    //var GameTitle = Model.Select(g => g.Title).FirstOrDefault();
     var Game = Model[0];
+
+
 
 }
 
@@ -24,7 +26,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <div class="input-group">
-                                <input type="search" placeholder="想找些甚麼" class="form-control" id="search" value>
+                                <input type="search" placeholder="想找些甚麼" class="form-control" id="search">
                                 <i class="fa-solid fa-magnifying-glass fa-xl half-rounded" type="submit"></i>
                             </div>
                         </div>
@@ -50,27 +52,36 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- 搜尋按鈕 -->
-                <div class="user">
-                    <span style="margin-right: 10px;">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px"
-                             height="30px" fill="#ffffff" type="button" data-bs-toggle="modal"
-                             data-bs-target=".modal" id="search-button1">
-                            <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
-                        </svg>
-                    </span>
-                </div>
-
-                <!-- 使用者按鈕 -->
-                <div class="user">
-                    <span style="margin-right: 10px;">
-                        <svg class="icon" width="30px" height="30px" xmlns="http://www.w3.org/2000/svg"
-                             height="30px" viewBox="0 0 25 25" width="24px" fill="#ffffff" type="button">
-                            <path d="M0 0h24v24H0z" fill="none" />
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                        </svg>
-                    </span>
-                </div>
+                @{ if (UserService.IsLogin)
+                    {
+                        <!-- 搜尋按鈕 -->
+                        <div class="user">
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);" class="text-white">搜尋</button>
+                        </div>
+                        <!-- 使用者按鈕 -->
+                        <div class="user dropdown">
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);" class="text-white" data-bs-toggle="dropdown">用戶: @UserService.Account</button>
+                            @*@UserService.Account 去撈 Session 抓到的 Account 的值*@
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">會員資料</a>
+                                <a href="@Url.Action("Logout", "ProjectHome", new {area = ""})" class="dropdown-item" style="text-decoration:none">登出</a>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="user">
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);">
+                                <a href="@Url.Action("ProjectLogin", "ProjectHome")" class="text-white">登入</a>
+                            </button>
+                        </div>
+                        <div class="user">
+                            <button style="border: none; margin-right: 10px; background-color: rgba(255,255,255,0);">
+                                <a href="@Url.Action("ProjectRegister", "ProjectHome")" class="text-white">註冊</a>
+                            </button>
+                        </div>
+                    }
+                }
 
                 <!-- 導覽列 -->
                 <div class="collapse navbar-collapse menu mr-auto" id="menu">
@@ -125,17 +136,6 @@
                                 <img src="~/Images/project/@item.GameNo/@item.ImageName" alt="" />
                             }
 
-                            @*<img src="~/Images/project/2.jpg" alt="Thumbnail 2" />
-                                <img src="~/Images/project/3.jpg" alt="Thumbnail 3" />
-                                <img src="~/Images/project/4.jpg" alt="Thumbnail 4" />
-                                <img src="~/Images/project/1.jpg" alt="Thumbnail 1" />
-                                <img src="~/Images/project/2.jpg" alt="Thumbnail 2" />
-                                <img src="~/Images/project/3.jpg" alt="Thumbnail 3" />
-                                <img src="~/Images/project/4.jpg" alt="Thumbnail 4" />
-                                <img src="~/Images/project/1.jpg" alt="Thumbnail 1" />
-                                <img src="~/Images/project/2.jpg" alt="Thumbnail 2" />
-                                <img src="~/Images/project/3.jpg" alt="Thumbnail 3" />
-                                <img src="~/Images/project/4.jpg" alt="Thumbnail 4" />*@
                         </div>
                         <div class="scroll">
                             <div class="change p-0" style="position: absolute;left: 0;">
@@ -167,8 +167,8 @@
                     </h6>
                     <h5 style="margin-right: 10px;">FREE</h5>
                     <div class="btn btn-warning">預購</div>
-                    <a href="@Url.Action("ProjectCart", "ProjectHome", new { GameNo = Game.GameNo })" style="text-decoration:none;">
-                        <div class="btn btn-warning mt-2">加入購物車</div>
+                    <a href="@Url.Action("ProjectCart", "ProjectHome", new { GameNo = Game.GameNo ,price = 0, GameName = Game.Title, Img = Game.MainImg})" class="btn btn-warning mt-2" style="text-decoration:none;">
+                        @*<div class="">*@加入購物車@*</div>*@
                     </a>
                     <div class="btn btn-warning mt-2">新增至願望清單</div>
                 }
@@ -182,8 +182,8 @@
                         </h6>
                         <h5 style="margin-right: 10px;">$NT @Game.SalePrice</h5>
                         <div class="btn btn-warning">預購</div>
-                        <a href="@Url.Action("ProjectCart", "ProjectHome", new { GameNo = Game.GameNo })" style="text-decoration:none;">
-                            <div class="btn btn-warning mt-2">加入購物車</div>
+                        <a href="@Url.Action("ProjectCart", "ProjectHome", new { GameNo = Game.GameNo , price = Game.SalePrice , GameName = Game.Title, Img = Game.MainImg})" class="btn btn-warning mt-2" style="text-decoration:none;">
+                            @*<div class="btn btn-warning mt-2">*@加入購物車@*</div>*@
                         </a>
                         <div class="btn btn-warning mt-2">新增至願望清單</div>
                     }
@@ -196,8 +196,8 @@
                         <h6 style="text-decoration: line-through;">$NT @Game.SalePrice</h6>
                         <h5 style="margin-right: 10px;">$NT @Game.DiscountPrice</h5>
                         <div class="btn btn-warning">預購</div>
-                        <a href="@Url.Action("ProjectCart", "ProjectHome", new { GameNo = Game.GameNo })" style="text-decoration:none;">
-                            <div class="btn btn-warning mt-2">加入購物車</div>
+                        <a href="@Url.Action("ProjectCart", "ProjectHome", new { GameNo = Game.GameNo , price = Game.DiscountPrice , GameName = Game.Title, Img = Game.MainImg})" class="btn btn-warning mt-2" style="text-decoration:none;">
+                            @*<div class="btn btn-warning mt-2">*@加入購物車@*</div>*@
                         </a>
                         <div class="btn btn-warning mt-2">新增至願望清單</div>
                     }

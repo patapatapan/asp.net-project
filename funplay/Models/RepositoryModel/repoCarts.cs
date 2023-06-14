@@ -96,9 +96,9 @@ Id, LotNo, MemberNo, ProdNo, ProdName
     /// 刪除
     /// <summary>
     /// <param name="id">Id</param>
-    public void DeleteCart(int id)
+    public void DeleteCart(string gameNo)
     {
-        var model = repo.ReadSingle(m => m.Id == id);
+        var model = repo.ReadSingle(m => m.GameNo == gameNo);
         if (model != null) repo.Delete(model, true);
     }
     /// <summary>
